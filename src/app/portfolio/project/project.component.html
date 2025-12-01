@@ -1,0 +1,280 @@
+<!-- <div>
+  <span class="project-title">Projects</span>
+</div>
+
+<div class="row">
+  <section class="portfolio w-100 vh-100 d-flex align-items-center col-md-6">
+    <div class="container-fluid">
+      <div class="row align-items-center h-100">
+        
+        <div class="col-md-6 px-5">
+          <h3>Smart Deal Zone (Web App)</h3>
+          <p>
+            The Smart Deal Zone project represents an innovative web application designed to streamline business
+            operations,
+            particularly for city-based B2C (business-to-consumer) platforms. Developed with a robust technological
+            stack
+            including Angular 12, Bootstrap, SQL Server, REST APIs, and IIS, this platform enhances listings, billing,
+            and payments with mobile-first design.
+          </p>
+          <button class="explore-btn mt-3">Explore</button>
+        </div>
+
+        <div class="col-md-6 p-0 img">
+          <img src="assets/Post.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Project Image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+
+  <section class="portfolio w-100 vh-100 d-flex align-items-center col-md-6">
+    <div class="container-fluid">
+      <div class="row align-items-center h-100">
+
+        <div class="col-md-6 px-5">
+          <h3>Shopping Cart Mobile Application</h3>
+          <p>
+            The Smart Deal Zone project represents an innovative web application designed to streamline business
+            operations,
+            particularly for city-based B2C (business-to-consumer) platforms. Developed with a robust technological
+            stack
+            including Angular 12, Bootstrap, SQL Server, REST APIs, and IIS, this platform enhances listings, billing,
+            and payments with mobile-first design.
+          </p>
+          <button class="explore-btn mt-3">Explore</button>
+        </div>
+
+        <div class="col-md-6 p-0 SAimg">
+          <img src="assets/Shopping.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Project Image">
+        </div>
+      </div>
+    </div>
+  </section>
+</div> -->
+
+<section class="projects" id="project">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-description">
+        A showcase of my recent work and creative solutions
+      </p>
+    </div>
+
+    <div class="projects-container">
+      <!-- E-Commerce Platform -->
+      <div class="project-card" data-category="web">
+        <div class="project-image-wrapper">
+          <div class="project-image">
+            <img src="assets/project1.jpg" alt="E-commerce platform dashboard" />
+            <div class="project-overlay">
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">REST API</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-actions">
+            <button class="action-btn primary" (click)="openProjectModal('ecommerce')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              View Details
+            </button>
+            <button class="action-btn secondary" routerLink="/portfolio/smartdeal">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              Live Demo
+            </button>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-category">Web Application</div>
+          <h3>E-Commerce Platform</h3>
+          <p>
+            A comprehensive e-commerce solution with advanced product management,
+            secure payment processing, and real-time inventory tracking.
+          </p>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-value">98%</span>
+              <span class="stat-label">Performance</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">50K+</span>
+              <span class="stat-label">Products</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">2023</span>
+              <span class="stat-label">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shopping Cart Mobile App -->
+      <div class="project-card" data-category="mobile">
+        <div class="project-image-wrapper">
+          <div class="project-image">
+            <img src="assets/Shopping.png" alt="Shopping cart mobile application" />
+            <div class="project-overlay">
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Ionic</span>
+                <span class="tech-tag">Capacitor</span>
+                <span class="tech-tag">Rest API</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-actions">
+            <button class="action-btn primary" (click)="openProjectModal('shopping')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              View Details
+            </button>
+            <button class="action-btn secondary" routerLink="/portfolio/mobile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              Live Demo
+            </button>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-category">Mobile Application</div>
+          <h3>Smart Shopping Cart</h3>
+          <p>
+            An intelligent mobile shopping application with AI-powered recommendations,
+            seamless checkout process, and personalized user experience.
+          </p>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-value">--</span>
+              <span class="stat-label">User Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">--</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">Soon</span>
+              <span class="stat-label">Launched</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blood Bank Management System -->
+      <div class="project-card" data-category="web">
+        <div class="project-image-wrapper">
+          <div class="project-image">
+            <img src="assets/blood.jpg" alt="Blood bank management system" />
+            <div class="project-overlay">
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tecg-tag">Rest Api</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-actions">
+            <button class="action-btn primary" (click)="openProjectModal('bloodbank')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              View Details
+            </button>
+            <button class="action-btn secondary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+              View Code
+            </button>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-category">Healthcare System</div>
+          <h3>Blood Bank Management</h3>
+          <p>
+            A comprehensive blood bank management system for tracking donations,
+            managing inventory, and connecting donors with recipients efficiently.
+          </p>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Reliability</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">--</span>
+              <span class="stat-label">Donors</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">2023</span>
+              <span class="stat-label">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Filter -->
+    <div class="project-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="web">Web Apps</button>
+      <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+      <button class="filter-btn" data-filter="system">Systems</button>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="project-modal" [class.active]="selectedProject !== null" (click)="closeProjectModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ getProjectTitle() }}</h3>
+        <button class="modal-close" (click)="closeProjectModal()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="project-details">
+          <div class="project-gallery">
+            <img [src]="getProjectImage()" alt="Project screenshot" />
+          </div>
+          <div class="project-info">
+            <div class="project-description">
+              <p>{{ getProjectDescription() }}</p>
+            </div>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li *ngFor="let feature of getProjectFeatures()">{{ feature }}</li>
+              </ul>
+            </div>
+            <div class="project-tech-stack">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span class="tech-tag" *ngFor="let tech of getProjectTech()">{{ tech }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+<!-- <section class="hero">
+    <div class="hero-content">
+        <h1>Hello, I'm Pagalavan </h1>
+        <h2>UI/UX Developer</h2>
+        <p>1.7 Years</p>
+        <div class="buttons">
+            <button class="get-started">View My Work</button>
+
+        <div class="social-icons">
+
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="/assets/pagalavan.webp" alt="James Smith">
+        <div class="decorative-circle"></div>
+    </div>
+</section> -->
+
+<section class="hero" id="home">
+    <!-- Animated Background -->
+    <div class="hero-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="floating-particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 0.8s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 1.8s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 2.8s;"></div>
+        </div>
+    </div>
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text fade-in-up">
+                <div class="greeting">Hello, I'm</div>
+                <h1 class="hero-title">
+                    <span class="name">Pagalavan</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <h2 class="hero-subtitle">
+                    <span class="typed-text"></span>
+                    <span class="cursor-typed">|</span>
+                </h2>
+                <p class="hero-description">
+                    Passionate Frontend Developer crafting beautiful and functional web experiences
+                    with modern technologies and creative solutions.
+                </p>
+                <div class="hero-actions">
+                    <a href="#project" class="btn btn-primary" (click)="scrollToSection('project')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        View My Work
+                    </a>
+                    <a href="#footer" class="btn btn-secondary" (click)="scrollToSection('footer')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17,8 12,3 7,8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image fade-in-up">
+                <div class="image-container">
+                    <div class="image-border">
+                        <img src="/assets/pagalavan.webp" alt="Pagalavan - Frontend Developer">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="floating-icons">
+                        <div class="icon html">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="icon css">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="icon js">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.735-1.293-1.52-1.391-.869-.105-1.105-.225-1.105-.493 0-.32.32-.493.815-.493.479 0 .913.115 1.158.435l.22.274.763-.453-.22-.294c-.475-.631-1.441-.894-2.394-.894-1.237 0-2.105.631-2.105 1.526 0 .737.526 1.105 1.526 1.237.869.158 1.105.237 1.105.526 0 .316-.263.526-.789.526-.631 0-1.105-.211-1.316-.631l-.211-.316-.842.526.211.316c.631.84 1.894.947 2.736.947 1.263 0 2.105-.631 2.105-1.526-.02-.944-.578-1.263-1.526-1.421z"/>
+                            </svg>
+                        </div>
+                        <div class="icon angular">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.25l8.25 2.25v15l-8.25 2.25L3.75 19.5V4.5L12 2.25zm0 2.26L5.25 6v12l6.75 1.83L18.75 18V6L12 4.51z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </div>
+</section>

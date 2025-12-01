@@ -1,0 +1,118 @@
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.theme-toggle:active::before {
+  left: 100%;
+}
+
+/* Toggle Track */
+.toggle-track {
+  width: 50px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: background-color var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle:hover .toggle-track {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Toggle Thumb */
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-thumb.dark {
+  left: 28px;
+  background: #1e293b;
+  color: #fbbf24;
+}
+
+.toggle-thumb svg {
+  transition: all var(--transition-normal);
+}
+
+.sun-icon {
+  color: #f59e0b;
+}
+
+.moon-icon {
+  color: #fbbf24;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .toggle-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle:hover .toggle-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .toggle-thumb.dark {
+  background: #fbbf24;
+  color: #1e293b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: 0.4rem;
+  }
+
+  .toggle-track {
+    width: 45px;
+    height: 22px;
+    border-radius: 11px;
+  }
+
+  .toggle-thumb {
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .toggle-thumb.dark {
+    left: 25px;
+  }
+}
