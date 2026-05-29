@@ -1,6 +1,144 @@
-<!-- <section class="contact">
-  <h2>Contact Me</h2>
-  <p>Email: pagalavan25surya@gmail.com</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/pagalavanM" target="_blank">linkedin.com/in/pagalavanM</a></p>
-  <p>GitHub: <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></p>
-</section> -->
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="section-header gsap-reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's Build Something <span class="gradient-text">Together</span></h2>
+      <p class="section-description">
+        Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- ── Left: Form ── -->
+      <div class="contact-form-wrapper gsap-left">
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input id="name" type="text" placeholder="Pagalavan M."
+                formControlName="name"
+                [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"/>
+              <span class="error-msg" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                Name is required
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" placeholder="your@email.com"
+                formControlName="email"
+                [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"/>
+              <span class="error-msg" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                Valid email required
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="Project Collaboration / Job Opportunity"
+              formControlName="subject"
+              [class.error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project or opportunity..."
+              formControlName="message"
+              [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+            </textarea>
+            <span class="error-msg" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+              Message is required
+            </span>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn" [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/>
+              </svg>
+              Send Message
+            </span>
+            <span *ngIf="isSubmitting">Sending...</span>
+          </button>
+          <div class="submit-success" *ngIf="submitSuccess">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20,6 9,17 4,12"/>
+            </svg>
+            Message opened in your email client!
+          </div>
+        </form>
+      </div>
+
+      <!-- ── Right: Info Cards ── -->
+      <div class="contact-info gsap-right">
+
+        <div class="info-cards">
+          <a href="mailto:pagalavan25surya@gmail.com" class="info-card glass-card">
+            <div class="info-icon email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16v16H4z"/><polyline points="4,4 12,13 20,4"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Email</div>
+              <div class="info-value">pagalavan25surya@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" class="info-card glass-card">
+            <div class="info-icon linkedin">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-label">LinkedIn</div>
+              <div class="info-value">linkedin.com/in/pagalavanM</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/pagalavan-UI" target="_blank" class="info-card glass-card">
+            <div class="info-icon github">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-label">GitHub</div>
+              <div class="info-value">github.com/pagalavan-UI</div>
+            </div>
+          </a>
+
+          <div class="info-card glass-card no-link">
+            <div class="info-icon location">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <div class="info-label">Location</div>
+              <div class="info-value">Tamil Nadu, India 🇮🇳</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="contact-cta glass-card">
+          <div class="cta-badge">
+            <span class="pulse-dot"></span> Open to Work
+          </div>
+          <h4>Ready to start a project?</h4>
+          <p>Available for full-time roles, freelance projects, and consulting.</p>
+          <a href="assets/Pagalavan_CV.pdf" download class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

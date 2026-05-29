@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { AnimationService } from '../../services/animation.service';
 
 @Component({
   selector: 'app-project',
@@ -9,6 +10,19 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   selectedProject: string | null = null;
 
   projects = {
+    shoerack: {
+      title: 'Shoe Rack (Featured)',
+      image: 'assets/Shopping.png', // Using shopping cart image as fallback until shoe rack specific image is uploaded
+      description: 'A premium, fully-responsive e-commerce interface for a high-end shoe retailer. Features dynamic product filtering, seamless shopping cart experience, and modern dark-mode aesthetics.',
+      features: [
+        'Dynamic product grid with advanced filtering',
+        'Interactive shopping cart and checkout flow',
+        'Responsive mobile-first design',
+        'Modern dark theme UI with glassmorphism',
+        'Performance optimized asset loading'
+      ],
+      technologies: ['Angular', 'TypeScript', 'SCSS', 'GSAP', 'Bootstrap 5']
+    },
     ecommerce: {
       title: 'E-Commerce Platform',
       image: 'assets/project1.jpg',
@@ -70,13 +84,25 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     }
   };
 
-  constructor() { }
+  constructor(
+    private animationService: AnimationService,
+    private el: ElementRef
+  ) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
     this.initializeProjectFilters();
+
+    // GSAP Animations
+    const header = this.el.nativeElement.querySelector('.section-header');
+    if (header) this.animationService.revealElement(header);
+
+    const cards = this.el.nativeElement.querySelectorAll('.project-card');
+    if (cards.length > 0) {
+      this.animationService.revealStagger(Array.from(cards), 0.15);
+    }
   }
 
   openProjectModal(projectId: string): void {

@@ -132,6 +132,10 @@ img {
   overflow: hidden;
 }
 
+::grammar-error {
+  color: red;
+}
+
 iframe {
   z-index: 1;
   border: 0;

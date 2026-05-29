@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,18 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class HeaderComponent implements OnInit {
   isMenuOpen = false;
   isScrolled = false;
+  activeSection = 'home';
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
     this.checkScroll();
+    
+    // Initial Header Animation
+    gsap.fromTo(this.el.nativeElement.querySelector('.modern-header'), 
+      { y: -100, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+    );
   }
 
   @HostListener('window:scroll', [])
@@ -30,6 +38,19 @@ export class HeaderComponent implements OnInit {
         header.classList.remove('scrolled');
       }
     }
+
+    // Scroll spy logic
+    const sections = ['home', 'about', 'experience', 'skills', 'project', 'contact'];
+    let currentSection = 'home';
+    const scrollPos = window.pageYOffset + 200; // offset for header
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element && element.offsetTop <= scrollPos) {
+        currentSection = section;
+      }
+    }
+    this.activeSection = currentSection;
   }
 
   toggleMenu() {

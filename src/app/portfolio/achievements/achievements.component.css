@@ -1,0 +1,202 @@
+/* ══════════════════════════════════
+   ACHIEVEMENTS SECTION
+   ══════════════════════════════════ */
+
+.achievements {
+  padding: var(--section-padding);
+  background: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+.achievements::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.achievements .section-header { text-align: center; }
+
+/* ── Counter Grid ── */
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.counter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+.counter-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+.counter-card:hover {
+  border-color: var(--border-primary);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), var(--glow-sm);
+}
+.counter-card:hover::after { transform: scaleX(1); }
+
+.counter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--primary-dim);
+  color: var(--primary-color);
+  margin: 0 auto 1.25rem;
+}
+
+.counter-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.count {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1;
+  font-family: 'Syne', sans-serif;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.counter-unit {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.counter-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Certifications ── */
+.certs-section { }
+
+.certs-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  font-family: 'Syne', sans-serif;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+.cert-card:hover {
+  border-color: var(--border-primary);
+  transform: translateX(4px);
+  background: var(--bg-card-hover);
+}
+.cert-card.learning {
+  border-color: rgba(124,58,237,0.2);
+  border-style: dashed;
+}
+
+.cert-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(221,0,49,0.12);
+  color: #dd0031;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cert-icon.ts    { background: rgba(49,120,198,0.12); color: #3178C6; }
+.cert-icon.node  { background: rgba(60,135,58,0.12);  color: #3c873a; }
+.cert-icon.learning { background: rgba(124,58,237,0.1); color: #a78bfa; }
+
+.cert-info { flex: 1; }
+
+.cert-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.cert-issuer {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+}
+
+.cert-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+.cert-status.verified {
+  background: rgba(0,255,204,0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(0,255,204,0.2);
+}
+.cert-status.in-progress {
+  background: rgba(124,58,237,0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(124,58,237,0.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .counters-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .counters-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .counter-card { padding: 1.5rem 1rem; }
+  .count { font-size: 2.2rem; }
+  .certs-grid { grid-template-columns: 1fr; }
+}

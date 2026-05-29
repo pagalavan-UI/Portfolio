@@ -14,6 +14,8 @@ import { ContactComponent } from './portfolio/contact/contact.component';
 import { ProfileComponent } from './portfolio/profile/profile.component';
 import { FooterComponent } from './portfolio/footer/footer.component';
 import { ThemeToggleComponent } from './portfolio/theme-toggle/theme-toggle.component';
+import { ExperienceComponent } from './portfolio/experience/experience.component';
+import { AchievementsComponent } from './portfolio/achievements/achievements.component';
 import { LoadingComponent } from './portfolio/loading/loading.component';
 import { SmartdealComponent } from './smartdeal/smartdeal.component';
 import { MobileoverviewComponent } from './mobileoverview/mobileoverview.component';
@@ -31,6 +33,8 @@ import { MobileoverviewComponent } from './mobileoverview/mobileoverview.compone
     ProfileComponent,
     FooterComponent,
     ThemeToggleComponent,
+    ExperienceComponent,
+    AchievementsComponent,
     LoadingComponent,
     SmartdealComponent,
     MobileoverviewComponent

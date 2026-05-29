@@ -15,6 +15,7 @@ import { MobileoverviewComponent } from './mobileoverview/mobileoverview.compone
 const routes: Routes = [
 
   { path: '', redirectTo: 'portfolio/header', pathMatch: 'full' },
+
   {
     path: 'home',
     component: HomeComponent

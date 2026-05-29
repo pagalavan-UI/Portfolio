@@ -1,261 +1,264 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimationService {
 
-  constructor() {
-    // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger);
+  constructor() {}
+
+  /** Fade + slide up, staggered, on scroll */
+  public revealStagger(elements: Element[], stagger: number = 0.12): void {
+    if (!elements || elements.length === 0) return;
+    gsap.fromTo(elements,
+      { y: 50, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.9,
+        stagger,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: elements[0],
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
   }
 
-  initScrollAnimations(): void {
-    this.initHeroAnimations();
-    this.initSkillsAnimations();
-    this.initProjectsAnimations();
-    this.initFooterAnimations();
+  /** Fade + slide up a single element on scroll */
+  public revealElement(element: HTMLElement, delay: number = 0): void {
+    if (!element) return;
+    gsap.fromTo(element,
+      { y: 40, opacity: 0 },
+      {
+        y: 0, opacity: 1,
+        duration: 0.9,
+        delay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
   }
 
-  private initHeroAnimations(): void {
-    // Hero section animations
-    gsap.from('.hero-title', {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: 'power3.out'
-    });
-
-    gsap.from('.hero-subtitle', {
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out',
-      delay: 0.3
-    });
-
-    gsap.from('.hero-description', {
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out',
-      delay: 0.6
-    });
-
-    gsap.from('.hero-actions', {
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out',
-      delay: 0.9
-    });
-
-    gsap.from('.hero-stats', {
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out',
-      delay: 1.2
-    });
-
-    gsap.from('.hero-image', {
-      duration: 1.2,
-      x: 50,
-      opacity: 0,
-      ease: 'power3.out',
-      delay: 0.5
-    });
-
-    // Floating icons animation
-    gsap.from('.floating-icons .icon', {
-      duration: 0.8,
-      scale: 0,
-      opacity: 0,
-      ease: 'back.out(1.7)',
-      stagger: 0.1,
-      delay: 1.5
-    });
+  /** Fade + slide from left */
+  public revealFromLeft(element: HTMLElement, delay: number = 0): void {
+    if (!element) return;
+    gsap.fromTo(element,
+      { x: -60, opacity: 0 },
+      {
+        x: 0, opacity: 1,
+        duration: 1,
+        delay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
   }
 
-  private initSkillsAnimations(): void {
-    // Ensure skills section is visible initially
-    gsap.set('.skill-category', { opacity: 1, y: 0 });
-    gsap.set('.cloud-tag', { opacity: 1, scale: 1 });
+  /** Fade + slide from right */
+  public revealFromRight(element: HTMLElement, delay: number = 0): void {
+    if (!element) return;
+    gsap.fromTo(element,
+      { x: 60, opacity: 0 },
+      {
+        x: 0, opacity: 1,
+        duration: 1,
+        delay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  }
 
-    // Skills section scroll trigger - only animate if not already visible
-    gsap.from('.skill-category', {
-      scrollTrigger: {
-        trigger: '.skills',
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 60,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'power3.out'
-    });
+  /** Scale in from slightly small */
+  public revealScale(element: HTMLElement, delay: number = 0): void {
+    if (!element) return;
+    gsap.fromTo(element,
+      { scale: 0.88, opacity: 0 },
+      {
+        scale: 1, opacity: 1,
+        duration: 0.8,
+        delay,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  }
 
-    // Progress bars animation - ensure they start from 0 width
-    gsap.set('.skill-progress', { width: 0 });
-    gsap.to('.skill-progress', {
-      scrollTrigger: {
-        trigger: '.skills',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      },
-      width: (index, target) => {
-        // Get the width from the inline style or default to 85%
-        const parent = target.parentElement?.parentElement;
-        const percentage = parent?.querySelector('.skill-percentage')?.textContent?.replace('%', '') || '85';
-        return percentage + '%';
-      },
-      duration: 1.5,
+  /**
+   * Animated counter from 0 → target
+   * Element must have data-target attribute
+   */
+  public animateCounter(element: HTMLElement, target: number, duration: number = 2): void {
+    if (!element) return;
+    const obj = { val: 0 };
+    gsap.to(obj, {
+      val: target,
+      duration,
       ease: 'power2.out',
-      stagger: 0.1
-    });
-
-    // Skills cloud animation
-    gsap.from('.cloud-tag', {
       scrollTrigger: {
-        trigger: '.skills-cloud',
-        start: 'top 90%',
-        toggleActions: 'play none none reverse'
-      },
-      scale: 0,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.05,
-      ease: 'back.out(1.7)'
-    });
-  }
-
-  private initProjectsAnimations(): void {
-    // Ensure projects are visible initially
-    gsap.set('.project-card', { opacity: 1, y: 0 });
-    gsap.set('.project-actions', { opacity: 0, y: 20 });
-
-    // Projects section scroll trigger - only animate if not already visible
-    gsap.from('.project-card', {
-      scrollTrigger: {
-        trigger: '.projects',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 80,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'power3.out'
-    });
-
-    // Project actions hover effect - ensure proper initial state
-    setTimeout(() => {
-      document.querySelectorAll('.project-card').forEach(card => {
-        const actions = card.querySelector('.project-actions') as HTMLElement;
-
-        card.addEventListener('mouseenter', () => {
-          gsap.to(actions, {
-            duration: 0.3,
-            opacity: 1,
-            y: 0,
-            ease: 'power2.out'
-          });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          gsap.to(actions, {
-            duration: 0.3,
-            opacity: 0,
-            y: 20,
-            ease: 'power2.out'
-          });
-        });
-      });
-    }, 100);
-  }
-
-  private initFooterAnimations(): void {
-    // Footer scroll trigger
-    gsap.from('.footer-brand', {
-      scrollTrigger: {
-        trigger: 'footer',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out'
-    });
-
-    gsap.from('.footer-links', {
-      scrollTrigger: {
-        trigger: 'footer',
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      },
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: 0.2
-    });
-
-    gsap.from('.footer-social', {
-      scrollTrigger: {
-        trigger: 'footer',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: 0.4
-    });
-
-    gsap.from('.footer-newsletter', {
-      scrollTrigger: {
-        trigger: '.footer-newsletter',
+        trigger: element,
         start: 'top 85%',
-        toggleActions: 'play none none reverse'
+        toggleActions: 'play none none none',
+        once: true
       },
-      scale: 0.8,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'back.out(1.7)'
+      onUpdate: () => {
+        element.textContent = Math.round(obj.val).toString();
+      }
     });
   }
 
-  // Utility methods for custom animations
-  animateElement(element: string, properties: any, options: any = {}): void {
+  /**
+   * Animate skill progress bar width on scroll
+   */
+  public animateProgressBar(bar: HTMLElement, targetWidth: number): void {
+    if (!bar) return;
+    gsap.fromTo(bar,
+      { width: '0%' },
+      {
+        width: `${targetWidth}%`,
+        duration: 1.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: bar,
+          start: 'top 88%',
+          toggleActions: 'play none none none',
+          once: true
+        }
+      }
+    );
+  }
+
+  /**
+   * Magnetic hover effect — element follows cursor slightly
+   */
+  public magneticHover(element: HTMLElement): void {
+    if (!element) return;
+    element.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(element, {
+        x: x * 0.18,
+        y: y * 0.18,
+        duration: 0.4,
+        ease: 'power2.out'
+      });
+    });
+    element.addEventListener('mouseleave', () => {
+      gsap.to(element, {
+        x: 0, y: 0,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.4)'
+      });
+    });
+  }
+
+  /**
+   * 3D tilt on mousemove
+   */
+  public tiltCard(element: HTMLElement): void {
+    if (!element) return;
+    element.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = element.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(element, {
+        rotateY: x * 10,
+        rotateX: -y * 10,
+        duration: 0.4,
+        ease: 'power2.out',
+        transformPerspective: 800
+      });
+    });
+    element.addEventListener('mouseleave', () => {
+      gsap.to(element, {
+        rotateY: 0, rotateX: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.5)'
+      });
+    });
+  }
+
+  /**
+   * Parallax scroll effect
+   */
+  public parallaxElement(element: HTMLElement, speed: number = 0.3): void {
+    if (!element) return;
     gsap.to(element, {
-      ...properties,
-      ...options
+      y: () => window.innerHeight * speed * -1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: element,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
     });
   }
 
-  animateFrom(element: string, properties: any, options: any = {}): void {
-    gsap.from(element, {
-      ...properties,
-      ...options
+  /**
+   * Split-word text reveal
+   */
+  public animateText(element: HTMLElement): void {
+    if (!element) return;
+    const text = element.innerText;
+    element.innerHTML = '';
+    text.split(' ').forEach(word => {
+      const span = document.createElement('span');
+      span.innerText = word + '\u00A0';
+      span.style.display = 'inline-block';
+      span.style.opacity = '0';
+      span.style.transform = 'translateY(24px)';
+      element.appendChild(span);
+    });
+    gsap.to(element.children, {
+      y: 0, opacity: 1,
+      duration: 0.7,
+      stagger: 0.06,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
     });
   }
 
-  animateStagger(elements: string, properties: any, stagger: number = 0.1): void {
-    gsap.from(elements, {
-      ...properties,
-      stagger: stagger
-    });
+  /**
+   * Header slide down on page load
+   */
+  public headerReveal(element: HTMLElement): void {
+    if (!element) return;
+    gsap.fromTo(element,
+      { y: -80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.1 }
+    );
   }
 
-  createScrollTrigger(trigger: string, animation: any): void {
-    ScrollTrigger.create({
-      trigger: trigger,
-      ...animation
-    });
+  /** Kill all ScrollTriggers (call on component destroy) */
+  public killAll(): void {
+    ScrollTrigger.getAll().forEach(t => t.kill());
   }
 }

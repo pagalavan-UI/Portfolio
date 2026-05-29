@@ -1,37 +1,168 @@
-<!-- <section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Hi, I'm <span style="color: var(--primary-color);">Jane Doe</span></h1>
-                <h2 class="hero-subtitle">A Frontend Developer creating beautiful, responsive websites</h2>
-                <a href="#projects" class="btn">View My Work</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://placehold.co/600x600"
-                    alt="Professional developer portrait smiling warmly in modern office environment" />
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
 <section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-            <div class="about-text">
-                <p>Hello! I'm Jane, a passionate frontend developer with 5 years of experience creating modern web
-                    applications. I specialize in crafting intuitive user experiences with clean, efficient code.</p>
-                <p>My journey in web development began during my computer science studies, and I've been hooked ever
-                    since. I love solving complex problems with elegant solutions and staying on top of the latest
-                    technologies and best practices.</p>
-                <p>When I'm not coding, you can find me hiking in the mountains, reading science fiction, or
-                    experimenting with new coffee brewing techniques.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://placehold.co/500x500"
-                    alt="Casual portrait of developer working on laptop in café with notebook and coffee cup" />
-            </div>
+  <div class="container">
+
+    <div class="about-grid">
+
+      <!-- ── Left: Bio ── -->
+      <div class="about-left gsap-left">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">
+          Crafting digital experiences <span class="gradient-text">with purpose</span>
+        </h2>
+
+        <p class="about-bio">
+          I'm <strong style="color:var(--text-main)">Pagalavan M.</strong>, a passionate
+          <strong style="color:var(--primary-color)">MEAN Stack Developer</strong> from Tamil Nadu, India.
+          With 2+ years of hands-on experience, I build scalable, maintainable web applications
+          that balance elegant design with robust engineering.
+        </p>
+        <p class="about-bio" style="margin-top:1rem">
+          My expertise spans the full stack — from crafting responsive Angular UIs to architecting
+          RESTful Node.js/Express APIs, designing MongoDB schemas, and integrating SQL Server
+          for enterprise solutions. I thrive on turning complex requirements into intuitive
+          user experiences.
+        </p>
+
+        <ul class="about-list">
+          <li>
+            <span class="list-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20,6 9,17 4,12"/>
+              </svg>
+            </span>
+            Building scalable Angular applications with TypeScript
+          </li>
+          <li>
+            <span class="list-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20,6 9,17 4,12"/>
+              </svg>
+            </span>
+            Designing REST APIs with Node.js, Express & ASP.NET Core
+          </li>
+          <li>
+            <span class="list-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20,6 9,17 4,12"/>
+              </svg>
+            </span>
+            Database design with MongoDB & SQL Server
+          </li>
+          <li>
+            <span class="list-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20,6 9,17 4,12"/>
+              </svg>
+            </span>
+            Mobile-first, responsive design & UI/UX best practices
+          </li>
+        </ul>
+
+        <div class="tech-pills">
+          <span class="tech-tag">Angular</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Express.js</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">Git</span>
         </div>
+
+        <div class="about-cta">
+          <a href="assets/Pagalavan_CV.pdf" download class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7,10 12,15 17,10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </a>
+          <a class="btn btn-secondary" (click)="scrollToSection('footer')">
+            Let's Talk
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── Right: Stats + Info ── -->
+      <div class="about-right gsap-right">
+
+        <!-- Stat Cards -->
+        <div class="stat-grid">
+          <div class="stat-card glass-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <div class="stat-value counter" data-target="2">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/>
+              </svg>
+            </div>
+            <div class="stat-value counter" data-target="4">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Projects Shipped</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="stat-value counter" data-target="10">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+            </div>
+            <div class="stat-value counter" data-target="100">0</div>
+            <div class="stat-suffix">%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="info-card glass-card">
+          <div class="info-row">
+            <div class="info-label">Location</div>
+            <div class="info-value">Tamil Nadu, India 🇮🇳</div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Email</div>
+            <div class="info-value">
+              <a href="mailto:pagalavan25surya@gmail.com">pagalavan25surya@gmail.com</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">LinkedIn</div>
+            <div class="info-value">
+              <a href="http://www.linkedin.com/in/pagalavanM" target="_blank">linkedin.com/in/pagalavanM</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-label">Status</div>
+            <div class="info-value">
+              <span class="status-badge">
+                <span class="pulse-dot"></span> Open to Work
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
 </section>

@@ -26,15 +26,13 @@
     <a href="#" class="logo" (click)="scrollToSection('home')">Pagalavan</a>
 
     <nav class="nav-links" [class.active]="isMenuOpen">
-      <a routerLinkActive="active" (click)="scrollToSection('about'); closeMenu()">About</a>
-      <a routerLinkActive="active" (click)="scrollToSection('skills'); closeMenu()">Skills</a>
-      <a routerLinkActive="active" (click)="scrollToSection('project'); closeMenu()">Projects</a>
-      <a routerLinkActive="active" (click)="scrollToSection('footer'); closeMenu()">Contact</a>
+      <a routerLinkActive="active" (click)="scrollToSection('about'); closeMenu()" [class.active-link]="activeSection === 'about'">About</a>
+      <a routerLinkActive="active" (click)="scrollToSection('experience'); closeMenu()" [class.active-link]="activeSection === 'experience'">Experience</a>
+      <a routerLinkActive="active" (click)="scrollToSection('skills'); closeMenu()" [class.active-link]="activeSection === 'skills'">Skills</a>
+      <a routerLinkActive="active" (click)="scrollToSection('project'); closeMenu()" [class.active-link]="activeSection === 'project'">Projects</a>
+      <a routerLinkActive="active" (click)="scrollToSection('contact'); closeMenu()" [class.active-link]="activeSection === 'contact'">Contact</a>
 
-      <!-- Theme Toggle -->
-      <app-theme-toggle></app-theme-toggle>
-
-      <button (click)="handleCVDownload($event); closeMenu()" class="cv-btn">
+      <button (click)="handleCVDownload($event); closeMenu()" class="btn btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7,10 12,15 17,10"></polyline>
@@ -51,17 +49,24 @@
       <span></span>
     </div>
   </div>
+  <div></div>
 </header>
 
 
 
 
-<app-profile id="about"></app-profile>
+<app-profile id="home"></app-profile>
 
-<app-skills class="skills"></app-skills>
+<app-about></app-about>
 
-<app-project id="project"></app-project>
+<app-experience></app-experience>
 
-<!-- <app-contact id="contact"></app-contact> -->
+<app-skills></app-skills>
+
+<app-achievements></app-achievements>
+
+<app-project></app-project>
+
+<app-contact></app-contact>
 
 <app-footer id="footer"></app-footer>

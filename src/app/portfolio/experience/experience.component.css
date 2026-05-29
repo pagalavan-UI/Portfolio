@@ -1,0 +1,247 @@
+/* ══════════════════════════════════
+   EXPERIENCE TIMELINE — Dark Premium
+   ══════════════════════════════════ */
+
+.experience {
+  padding: var(--section-padding);
+  background: var(--bg-surface);
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at right center, rgba(0,255,204,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.experience .section-header { text-align: center; }
+.experience .section-description { margin: 0 auto; }
+
+/* ── Timeline Spine ── */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--primary-color) 10%,
+    rgba(124,58,237,0.6) 50%,
+    var(--primary-color) 90%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+/* ── Timeline Entry ── */
+.timeline-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.entry-left { flex-direction: row; }
+.entry-right { flex-direction: row-reverse; }
+
+.entry-left .timeline-card  { margin-right: calc(50% + 2rem); }
+.entry-right .timeline-card { margin-left: calc(50% + 2rem); }
+
+/* ── Timeline Dot ── */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  z-index: 2;
+  animation: timeline-dot-pulse 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Card ── */
+.timeline-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.timeline-card:hover {
+  border-color: var(--border-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--glow-sm);
+}
+.timeline-card > * { position: relative; z-index: 1; }
+
+/* Arrow pointer toward spine */
+.entry-left .timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 1.75rem;
+  right: -10px;
+  width: 0; height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid var(--border-color);
+}
+.entry-right .timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 1.75rem;
+  left: -10px;
+  width: 0; height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid var(--border-color);
+}
+
+/* ── Card Header ── */
+.card-header { margin-bottom: 1.25rem; }
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Inter', sans-serif;
+}
+
+.card-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.card-badge.current {
+  background: rgba(0,255,204,0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(0,255,204,0.25);
+}
+.card-badge.edu {
+  background: rgba(124,58,237,0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(124,58,237,0.25);
+}
+
+.card-role {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 0.4rem;
+  font-family: 'Syne', sans-serif;
+}
+
+.card-company {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.card-company svg { flex-shrink: 0; opacity: 0.7; }
+
+/* ── Achievements ── */
+.card-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.card-achievements li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.card-achievements li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 0.85em;
+}
+
+/* ── Tech Tags ── */
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* ── Education variant ── */
+.edu-card { border-color: rgba(124,58,237,0.2); }
+
+/* ── Mobile: single column ── */
+@media (max-width: 768px) {
+  .timeline-line { left: 20px; }
+
+  .timeline-entry { flex-direction: column !important; padding-left: 3.5rem; }
+  .entry-left .timeline-card,
+  .entry-right .timeline-card { margin: 0 !important; }
+
+  .timeline-dot { left: 20px; }
+
+  .entry-left .timeline-card::after,
+  .entry-right .timeline-card::after {
+    display: none;
+  }
+}
