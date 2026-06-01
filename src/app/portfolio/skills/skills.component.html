@@ -1,34 +1,34 @@
 <section class="skills" id="skills">
   <div class="container">
 
-    <div class="section-header gsap-reveal">
+    <div class="section-header">
       <div class="section-label">Skills & Expertise</div>
       <h2 class="section-title">Technologies I <span class="gradient-text">Work With</span></h2>
       <p class="section-description">
-        A focused MEAN stack developer with deep experience across the full web development spectrum.
+        A focused Angular and Mobile App developer with deep experience across the full web development spectrum.
       </p>
     </div>
 
     <!-- Tab Filter -->
-    <div class="skills-tabs gsap-reveal">
+    <div class="skills-tabs">
       <button class="tab-btn" [class.active]="activeTab === 'all'" (click)="setTab('all')">All</button>
-      <button class="tab-btn" [class.active]="activeTab === 'frontend'" (click)="setTab('frontend')">Frontend</button>
-      <button class="tab-btn" [class.active]="activeTab === 'backend'" (click)="setTab('backend')">Backend</button>
-      <button class="tab-btn" [class.active]="activeTab === 'tools'" (click)="setTab('tools')">Tools</button>
+      <button class="tab-btn" [class.active]="activeTab === 'frontend'" (click)="setTab('frontend')">Frontend & Mobile</button>
+      <button class="tab-btn" [class.active]="activeTab === 'backend'" (click)="setTab('backend')">API & Auth</button>
+      <button class="tab-btn" [class.active]="activeTab === 'tools'" (click)="setTab('tools')">Tools & DevOps</button>
     </div>
 
     <!-- Skills Grid -->
     <div class="skills-grid">
 
-      <!-- ── Frontend ── -->
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+      <!-- ── Frontend & Mobile ── -->
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
         <div class="skill-card-icon angular-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M9.93 12.645h4.134L12 7.522l-2.07 5.123zM11.996 2.25L2.25 5.516l1.502 12.994 8.244 4.24 8.245-4.24 1.502-12.994L11.996 2.25zm5.728 15.014h-2.138l-1.17-2.916H9.6l-1.17 2.916H6.292l5.706-13.25 5.726 13.25z"/>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">Angular</h4>
+          <h4 class="skill-name">Angular 12+</h4>
           <span class="skill-level advanced">Advanced</span>
         </div>
         <div class="skill-bar-wrap">
@@ -37,7 +37,24 @@
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+        <div class="skill-card-icon ionic-icon" style="color: #3880ff; background: rgba(56,128,255,0.1)">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <div class="skill-card-body">
+          <h4 class="skill-name">Ionic 5 & Capacitor</h4>
+          <span class="skill-level advanced">Advanced</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+      </div>
+
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
         <div class="skill-card-icon ts-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
@@ -53,14 +70,14 @@
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
         <div class="skill-card-icon js-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">JavaScript</h4>
+          <h4 class="skill-name">JavaScript (ES6+)</h4>
           <span class="skill-level advanced">Advanced</span>
         </div>
         <div class="skill-bar-wrap">
@@ -69,7 +86,7 @@
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
         <div class="skill-card-icon html-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
@@ -85,58 +102,60 @@
         </div>
       </div>
 
-      <!-- ── Backend ── -->
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon node-icon">
+      <!-- React JS — Learning -->
+      <div class="skill-card learning-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
+        <div class="skill-card-icon react-icon" style="color: #61dafb; background: rgba(97,218,251,0.1)">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M11.998 24c-.321 0-.641-.084-.924-.251l-2.937-1.737c-.439-.245-.225-.332-.08-.383.585-.203.703-.25 1.327-.604.065-.037.151-.023.218.018l2.256 1.339c.082.045.198.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.24l-8.791-5.073c-.081-.047-.189-.047-.271 0L3.07 6.68c-.087.05-.141.144-.141.242v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.509 0-.91 0-2.026-.551L2.28 18.675c-.57-.329-.924-.943-.924-1.602V6.921c0-.659.354-1.275.924-1.601L11.073.248c.556-.33 1.296-.33 1.848 0l8.795 5.072c.568.326.924.941.924 1.601v10.152c0 .659-.356 1.273-.924 1.601l-8.795 5.074c-.282.167-.602.252-.923.252z"/>
+            <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.445 8.94c-.17.582-.38 1.176-.63 1.768a21.22 21.22 0 0 0-1.327-1.99c.63.064 1.222.146 1.957.222zm-6.497.948c-.303-.44-.605-.9-.895-1.37.29-.47.592-.93.895-1.37.293.44.596.9.895 1.37-.3.47-.602.93-.895 1.37zm3.985-5.576c.394.537.778 1.098 1.148 1.678-.367.576-.752 1.138-1.148 1.677-.396-.54-.78-1.1-1.148-1.677.37-.58.752-1.14 1.148-1.678zM9.635 9.676a21.22 21.22 0 0 0-1.327 1.99 21.22 21.22 0 0 0-.63-1.768c.735-.076 1.328-.158 1.957-.222zm-3.99 3.484c-.63-.187-1.21-.394-1.726-.617.516-.223 1.095-.43 1.726-.617.124.41.26.82.416 1.234-.156.414-.292.823-.416 1.233zm1.328 5.25c-.63-.064-1.222-.146-1.957-.222.17-.582.38-1.175.63-1.767.42.686.862 1.35 1.327 1.99zm3.985 2.85c-.394-.537-.778-1.1-1.148-1.678.368-.577.752-1.14 1.148-1.678.396.54.78 1.1 1.148 1.678-.37.578-.752 1.14-1.148 1.678zm3.985-2.85c.465-.64.907-1.304 1.327-1.99.25.592.46 1.186.63 1.767-.735.076-1.327.158-1.957.222zm1.328-5.25c-.124-.41-.26-.82-.416-1.234.156-.413.292-.823.416-1.233.63.187 1.21.393 1.726.617-.516.223-1.095.43-1.726.617z"/>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">Node.js</h4>
-          <span class="skill-level intermediate">Intermediate</span>
+          <h4 class="skill-name">React JS</h4>
+          <span class="skill-level learning">Learning</span>
         </div>
         <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:75%"></div></div>
-          <span class="skill-pct">75%</span>
+          <div class="skill-bar"><div class="skill-progress" style="--w:30%"></div></div>
+          <span class="skill-pct">30%</span>
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon express-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M24 18.588a1.529 1.529 0 01-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 01-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 011.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 011.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 000 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 002.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 01-2.589 3.957 6.272 6.272 0 01-7.306-.933 6.575 6.575 0 01-1.64-3.858c-.013-.448-.013-.876-.013-1.176l-.126-.65zm1.156-.galaxy h9.354c-.07-3.076-2.005-5.087-4.39-5.087-2.638.001-4.698 2.059-4.964 5.087z"/>
+      <!-- ── Backend / API ── -->
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
+        <div class="skill-card-icon api-icon">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">Express.js</h4>
-          <span class="skill-level intermediate">Intermediate</span>
+          <h4 class="skill-name">RESTful APIs</h4>
+          <span class="skill-level advanced">Advanced</span>
         </div>
         <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:72%"></div></div>
-          <span class="skill-pct">72%</span>
+          <div class="skill-bar"><div class="skill-progress" style="--w:90%"></div></div>
+          <span class="skill-pct">90%</span>
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon mongo-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.3 7.019 5.9 10.948 6.47 11.267.027.015.053.032.08.045.879-.62 5.905-4.952 4.021-12.961z"/>
-            <path d="M12.001 18.464c-.047 1.783-.168 2.58-.645 3.34l.645.195.644-.196c-.475-.76-.595-1.556-.644-3.34"/>
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
+        <div class="skill-card-icon auth-icon" style="color: #ffb86c; background: rgba(255, 184, 108, 0.1);">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">MongoDB</h4>
-          <span class="skill-level intermediate">Intermediate</span>
+          <h4 class="skill-name">JWT Authentication</h4>
+          <span class="skill-level advanced">Advanced</span>
         </div>
         <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:70%"></div></div>
-          <span class="skill-pct">70%</span>
+          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
+          <span class="skill-pct">85%</span>
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon sql-icon">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
+        <div class="skill-card-icon db-icon" style="color: #50fa7b; background: rgba(80, 250, 123, 0.1);">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
             <ellipse cx="12" cy="5" rx="9" ry="3"/>
             <path d="m21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
@@ -146,7 +165,7 @@
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">SQL Server</h4>
+          <h4 class="skill-name">MySQL & SQL Server</h4>
           <span class="skill-level intermediate">Intermediate</span>
         </div>
         <div class="skill-bar-wrap">
@@ -154,25 +173,26 @@
           <span class="skill-pct">75%</span>
         </div>
       </div>
-
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon dotnet-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M24 8.77h-2.468v7.565h-1.425V8.77h-2.462V7.53H24zm-6.852 7.565h-4.821V7.53h4.63v1.24h-3.205v2.494h2.953v1.234h-2.953v2.604h3.396zm-6.708 0H8.882L5.765 9.874a2.68 2.68 0 0 1-.233-.768h-.028c.028.29.042.773.042 1.447v5.782H4.16V7.53h1.655l3.018 6.364c.165.345.274.6.322.754h.02a12.37 12.37 0 0 1-.048-1.473V7.53h1.313zm-8.186.058a.924.924 0 0 1-.655-.256.89.89 0 0 1 0-1.286.924.924 0 0 1 .655-.256c.262 0 .48.085.655.256a.89.89 0 0 1 0 1.286.932.932 0 0 1-.655.256z"/>
+      
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
+        <div class="skill-card-icon payment-icon" style="color: #ff79c6; background: rgba(255, 121, 198, 0.1);">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+            <line x1="2" y1="10" x2="22" y2="10"></line>
           </svg>
         </div>
         <div class="skill-card-body">
-          <h4 class="skill-name">ASP.NET Core</h4>
-          <span class="skill-level intermediate">Intermediate</span>
+          <h4 class="skill-name">Razorpay Integration</h4>
+          <span class="skill-level advanced">Advanced</span>
         </div>
         <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:65%"></div></div>
-          <span class="skill-pct">65%</span>
+          <div class="skill-bar"><div class="skill-progress" style="--w:80%"></div></div>
+          <span class="skill-pct">80%</span>
         </div>
       </div>
 
       <!-- ── Tools ── -->
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'tools'">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
         <div class="skill-card-icon git-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M23.546 10.93L13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.898 3.055 1.84 1.84 0 0 1-2.641-2.452l-2.478-2.479v6.511a1.84 1.84 0 0 1 .488 3.611 1.84 1.84 0 0 1-2.298-1.796 1.84 1.84 0 0 1 1.219-1.725V9.133a1.838 1.838 0 0 1-.997-2.419L8.889 4.032 .454 12.467a1.55 1.55 0 0 0 0 2.187l10.48 10.478a1.55 1.55 0 0 0 2.187 0l10.425-10.424a1.55 1.55 0 0 0 0-2.78"/>
@@ -188,24 +208,7 @@
         </div>
       </div>
 
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'tools'">
-        <div class="skill-card-icon api-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">REST APIs</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
-          <span class="skill-pct">85%</span>
-        </div>
-      </div>
-
-      <div class="skill-card gsap-reveal" *ngIf="activeTab === 'all' || activeTab === 'tools'">
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
         <div class="skill-card-icon figma-icon">
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 10.98c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117v-6.038H8.148zm0 6.038H7.51c-2.476 0-4.49 2.014-4.49 4.49S5.033 24 7.51 24a4.49 4.49 0 0 0 4.49-4.49v-2.003c0-.276-.448-.49-.724-.49zm0 5.51a3.019 3.019 0 0 1-3.019-3.019c0-1.665 1.354-3.019 3.019-3.019v6.038zm7.704-5.51h-.648c-.276 0-.49.214-.49.49v2.003a4.49 4.49 0 1 0 4.49-4.493h-3.352zm.648 7.51a3.019 3.019 0 0 1-3.019-3.019v-1.956c.224-.036.441-.082.648-.082h2.371c1.665 0 3.019 1.354 3.019 3.019s-1.354 3.038-3.019 3.038z"/>
@@ -218,6 +221,40 @@
         <div class="skill-bar-wrap">
           <div class="skill-bar"><div class="skill-progress" style="--w:70%"></div></div>
           <span class="skill-pct">70%</span>
+        </div>
+      </div>
+
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
+        <div class="skill-card-icon agile-icon" style="color: #f1fa8c; background: rgba(241, 250, 140, 0.1);">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="skill-card-body">
+          <h4 class="skill-name">Agile / Scrum</h4>
+          <span class="skill-level advanced">Advanced</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
+          <span class="skill-pct">85%</span>
+        </div>
+      </div>
+
+      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
+        <div class="skill-card-icon api-icon" style="color: #bd93f9; background: rgba(189, 147, 249, 0.1);">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div class="skill-card-body">
+          <h4 class="skill-name">Postman & Swagger</h4>
+          <span class="skill-level advanced">Advanced</span>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar"><div class="skill-progress" style="--w:90%"></div></div>
+          <span class="skill-pct">90%</span>
         </div>
       </div>
 

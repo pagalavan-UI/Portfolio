@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit {
   handleCVDownload(event: Event): void {
     event.preventDefault(); // Prevent default anchor click
 
-    const fileUrl = 'assets/PagalavanM_Frontend_Resume.pdf'; // Make sure your file is in assets folder
+    const fileUrl = 'assets/Pagalavan_Frontend_Developer.pdf';
     const messageElement = document.getElementById('downloadMessage');
 
     fetch(fileUrl)
@@ -95,7 +95,7 @@ export class HeaderComponent implements OnInit {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'PagalavanM_Frontend_Resume.pdf';
+        link.download = 'Pagalavan_Frontend_Developer.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

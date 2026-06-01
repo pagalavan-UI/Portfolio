@@ -9,6 +9,9 @@ import { AnimationService } from '../../services/animation.service';
 export class ProjectComponent implements OnInit, AfterViewInit {
   selectedProject: string | null = null;
 
+  webProject: boolean = false
+  mobileProject: boolean = false
+
   projects = {
     shoerack: {
       title: 'Shoe Rack (Featured)',
@@ -24,36 +27,31 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       technologies: ['Angular', 'TypeScript', 'SCSS', 'GSAP', 'Bootstrap 5']
     },
     ecommerce: {
-      title: 'E-Commerce Platform',
+      title: 'Smart Deal Zone (Web)',
       image: 'assets/project1.jpg',
-      description: 'A comprehensive e-commerce solution built with modern web technologies, featuring advanced product management, secure payment processing, real-time inventory tracking, and an intuitive admin dashboard.',
+      description: 'A city-based multi-vendor B2C e-commerce platform with 500+ active product listings and real users.',
       features: [
-        'Advanced product catalog with filtering and search',
-        'Secure payment gateway integration',
-        'Real-time inventory management',
-        'User authentication and profiles',
-        'Order tracking and history',
-        'Admin dashboard with analytics',
-        'Mobile-responsive design',
-        'Multi-language support'
+        'Merchant onboarding with tiered subscriptions (Free/Standard/Premium)',
+        'End-to-end modules for merchants, service providers, and delivery partners',
+        'Real-time order tracking and KYC-based onboarding for delivery partners',
+        'Multi-zone delivery channel with WhatsApp escalation',
+        'COD workflows, payment integration, and admin dashboards',
+        'Performance optimized with lazy loading and OnPush change detection'
       ],
-      technologies: ['Angular 12+', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Stripe API', 'Bootstrap 5']
+      technologies: ['Angular 12', 'TypeScript', 'Bootstrap 5', 'REST API', 'MySQL', 'Razorpay', 'WhatsApp Business API', 'Google Maps API']
     },
     shopping: {
-      title: 'Smart Shopping Cart',
+      title: 'Smart Deal Zone (Mobile)',
       image: 'assets/Shopping.png',
-      description: 'An intelligent mobile shopping application that provides a seamless shopping experience with AI-powered product recommendations, one-click checkout, and personalized offers.',
+      description: 'An Android mobile application for the Smart Deal Zone ecosystem built from a single codebase.',
       features: [
-        'AI-powered product recommendations',
-        'One-click checkout process',
-        'Barcode scanning for quick add',
-        'Offline shopping lists',
-        'Price comparison across stores',
-        'Loyalty program integration',
-        'Push notifications for deals',
-        'Social shopping features'
+        'Developed Android mobile app using Ionic and Angular from a single codebase',
+        'Real-time order tracking synchronized with backend services',
+        'Delivery partner workflow with push notifications and proof-of-delivery',
+        'Integrated cinema module with live showtimes and seat selection',
+        'Optimized UI responsiveness across multiple devices using adaptive layouts'
       ],
-      technologies: ['Angular', 'Ionic', 'Capacitor', 'PWA', 'Firebase', 'Stripe', 'Google Maps API']
+      technologies: ['Ionic 5', 'Angular 12', 'TypeScript', 'Capacitor', 'REST API', 'Push Notifications', 'Android Studio']
     },
     bloodbank: {
       title: 'Blood Bank Management System',

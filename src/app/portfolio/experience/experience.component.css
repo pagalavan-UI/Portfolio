@@ -61,7 +61,6 @@
 .entry-left .timeline-card  { margin-right: calc(50% + 2rem); }
 .entry-right .timeline-card { margin-left: calc(50% + 2rem); }
 
-/* ── Timeline Dot ── */
 .timeline-dot {
   position: absolute;
   left: 50%;
@@ -79,6 +78,18 @@
   z-index: 2;
   animation: timeline-dot-pulse 3s ease-in-out infinite;
   flex-shrink: 0;
+}
+
+/* Glowing dot for current role */
+.dot-current {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0,255,204,0.15), 0 0 14px rgba(0,255,204,0.35);
+  animation: current-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes current-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(0,255,204,0.15), 0 0 14px rgba(0,255,204,0.35); }
+  50%       { box-shadow: 0 0 0 8px rgba(0,255,204,0.08), 0 0 24px rgba(0,255,204,0.55); }
 }
 
 /* ── Card ── */
@@ -170,10 +181,25 @@
   color: var(--primary-color);
   border: 1px solid rgba(0,255,204,0.25);
 }
+.card-badge.internship {
+  background: rgba(251,146,60,0.1);
+  color: #fb923c;
+  border: 1px solid rgba(251,146,60,0.25);
+}
 .card-badge.edu {
   background: rgba(124,58,237,0.1);
   color: #a78bfa;
   border: 1px solid rgba(124,58,237,0.25);
+}
+
+/* Current role card — subtle teal glow border */
+.current-card {
+  border-color: rgba(0,255,204,0.25);
+  box-shadow: 0 0 0 1px rgba(0,255,204,0.08), inset 0 0 30px rgba(0,255,204,0.03);
+}
+.current-card:hover {
+  border-color: rgba(0,255,204,0.5);
+  box-shadow: 0 8px 32px rgba(0,255,204,0.12), 0 0 0 1px rgba(0,255,204,0.2);
 }
 
 .card-role {
@@ -225,6 +251,19 @@
   gap: 0.4rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+}
+
+/* Learning tag — React JS */
+.learning-tag {
+  background: rgba(97,218,251,0.08) !important;
+  color: #61dafb !important;
+  border-color: rgba(97,218,251,0.25) !important;
+  animation: learning-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes learning-shimmer {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
 }
 
 /* ── Education variant ── */
