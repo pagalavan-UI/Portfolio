@@ -1,149 +1,173 @@
-<section class="experience" id="experience">
+<section class="experience-section" id="experience">
   <div class="container">
 
+    <!-- Section Header -->
     <div class="section-header">
-      <div class="section-label">Experience</div>
-      <h2 class="section-title">My Professional <span class="gradient-text">Journey</span></h2>
+      <div class="section-tag mono">CAREER CHRONOLOGY</div>
+      <h2 class="section-title">
+        Professional <span class="dim">Experience</span>
+      </h2>
       <p class="section-description">
-        Building real-world solutions and growing as a full-stack engineer.
+        Track record of shipping enterprise frontends and mobile products from requirement discovery to production deployment.
       </p>
     </div>
 
-    <div class="timeline">
-      <!-- Timeline spine -->
-      <div class="timeline-line"></div>
+    <!-- Timeline Container -->
+    <div class="timeline-wrapper" #timelineWrapper>
 
-      <!-- Entry 0 — Current Role -->
-      <div class="timeline-entry entry-right">
-        <div class="timeline-dot dot-current">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <circle cx="12" cy="12" r="4"/>
-          </svg>
+      <!-- Progressive Drawing Line Spine -->
+      <div class="timeline-track">
+        <div class="timeline-fill" #timelineFill></div>
+      </div>
+
+      <!-- Entry 01: Current Role -->
+      <div class="timeline-node current-role">
+        <div class="node-marker">
+          <span class="marker-dot"></span>
         </div>
-        <div class="timeline-card glass-card current-card">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                Apr 2024 — Present
-              </span>
-              <span class="card-badge current">Current Role</span>
-            </div>
-            <h3 class="card-role">Angular &amp; Mobile App Developer</h3>
-            <div class="card-company">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9,22 9,12 15,12 15,22"/>
-              </svg>
-              Thanjai Cloud Technologies | Thanjavur, India
+
+        <div class="node-content-card">
+          <div class="card-meta mono">
+            <span class="date-badge">APR 2024 — PRESENT</span>
+            <span class="role-badge current">ACTIVE ROLE</span>
+          </div>
+
+          <div class="role-header">
+            <h3 class="role-title">Angular &amp; Mobile App Developer</h3>
+            <div class="role-company mono">
+              <span class="company-name">Thanjai Cloud Technologies</span>
+              <span class="company-loc">// Thanjavur, India</span>
             </div>
           </div>
-          <ul class="card-achievements">
-            <li>Developing and maintaining enterprise-grade Angular applications with modular architecture and lazy-loading for optimal performance</li>
-            <li>Building cross-platform mobile applications using Ionic Framework with Angular, delivering native-like UX on Android &amp; iOS</li>
-            <li>Implementing complex UI workflows including dynamic forms, role-based access control, and real-time data dashboards</li>
-            <li>Collaborating on API integration with backend teams, handling REST endpoints and state management using RxJS &amp; NgRx</li>
-            <li>Currently exploring React.js to broaden front-end expertise and strengthen cross-framework skills</li>
+
+          <ul class="achievement-list">
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Enterprise Web Architecture:</strong> Architected and maintained scalable Angular frontends using feature modules, lazy loading, and OnPush change detection to minimize initial bundle size.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Cross-Platform Mobile Delivery:</strong> Built native-feeling Android applications utilizing Ionic Framework &amp; Capacitor, integrating device hardware APIs and push notifications.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Complex Workflow Engineering:</strong> Implemented role-based access control (RBAC), dynamic form generation, and reactive data tables using RxJS streams and NgRx state management.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Ecosystem Exploration:</strong> Actively exploring React.js modern idioms (hooks, component lifecycles) to cross-pollinate architectural patterns.
+              </div>
+            </li>
           </ul>
-          <div class="card-tech">
-            <span class="tech-tag">Angular 17+</span>
-            <span class="tech-tag">Ionic</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">RxJS</span>
-            <span class="tech-tag">NgRx</span>
-            <span class="tech-tag">REST APIs</span>
-            <span class="tech-tag learning-tag">React JS ✦ Learning</span>
+
+          <div class="role-tech-tags mono">
+            <span class="tech-pill">Angular 17+</span>
+            <span class="tech-pill">Ionic 5</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Capacitor</span>
+            <span class="tech-pill">RxJS / NgRx</span>
+            <span class="tech-pill">REST APIs</span>
           </div>
         </div>
       </div>
 
-
-      <!-- Entry 1 — Internship -->
-      <div class="timeline-entry entry-left">
-        <div class="timeline-dot">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <circle cx="12" cy="12" r="4"/>
-          </svg>
+      <!-- Entry 02: Internship -->
+      <div class="timeline-node">
+        <div class="node-marker">
+          <span class="marker-dot"></span>
         </div>
-        <div class="timeline-card glass-card">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                Jan 2024 — Apr 2024
-              </span>
-              <span class="card-badge internship">Internship</span>
-            </div>
-            <h3 class="card-role">Frontend Developer (Intern)</h3>
-            <div class="card-company">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9,22 9,12 15,12 15,22"/>
-              </svg>
-              Thanjai Cloud Technologies | Thanjavur, India
+
+        <div class="node-content-card">
+          <div class="card-meta mono">
+            <span class="date-badge">JAN 2024 — APR 2024</span>
+            <span class="role-badge">INTERNSHIP</span>
+          </div>
+
+          <div class="role-header">
+            <h3 class="role-title">Frontend Developer (Intern)</h3>
+            <div class="role-company mono">
+              <span class="company-name">Thanjai Cloud Technologies</span>
+              <span class="company-loc">// Thanjavur, India</span>
             </div>
           </div>
-          <ul class="card-achievements">
-            <li>Developed 20+ reusable Angular components using RxJS and Angular Material, enabling scalable architecture across modules</li>
-            <li>Built core business features including billing, order tracking, and inventory management with secure REST API and JWT authentication</li>
-            <li>Integrated Razorpay payment gateway and WhatsApp Business API for real-time transaction processing and customer communication</li>
-            <li>Designed responsive, mobile-first UI using Bootstrap and CSS3, ensuring cross-browser compatibility</li>
-            <li>Contributed across the full SDLC from requirement analysis through QA and IIS deployment, reducing release cycle time by 20%</li>
+
+          <ul class="achievement-list">
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Reusable Component Library:</strong> Developed 20+ shared Angular UI components with strict TypeScript types, improving code reuse across multiple product modules.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Business Workflows &amp; Payment Integration:</strong> Integrated Razorpay payment gateway and WhatsApp Business API notifications for real-time order tracking and billing.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Responsive Systems:</strong> Engineered cross-browser compatible mobile-first interfaces using Bootstrap 5 and SCSS.
+              </div>
+            </li>
+            <li>
+              <span class="bullet mono">&gt;</span>
+              <div>
+                <strong>Deployment &amp; Quality:</strong> Participated in sprint ceremonies, code reviews, and IIS staging deployments, helping accelerate release cycles.
+              </div>
+            </li>
           </ul>
-          <div class="card-tech">
-            <span class="tech-tag">Angular 12+</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">RxJS</span>
-            <span class="tech-tag">Bootstrap 5</span>
-            <span class="tech-tag">REST APIs</span>
+
+          <div class="role-tech-tags mono">
+            <span class="tech-pill">Angular 12</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Bootstrap 5</span>
+            <span class="tech-pill">Razorpay API</span>
+            <span class="tech-pill">IIS Deploy</span>
           </div>
         </div>
       </div>
 
-      <!-- Entry 2 — Education -->
-      <div class="timeline-entry entry-right">
-        <div class="timeline-dot">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <circle cx="12" cy="12" r="4"/>
-          </svg>
+      <!-- Entry 03: Education -->
+      <div class="timeline-node education-node">
+        <div class="node-marker">
+          <span class="marker-dot"></span>
         </div>
-        <div class="timeline-card glass-card edu-card">
-          <div class="card-header">
-            <div class="card-meta">
-              <span class="card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                2018 — 2021
-              </span>
-              <span class="card-badge edu">Education</span>
-            </div>
-            <h3 class="card-role">B.Com Computer Applications (B.Com CA)</h3>
-            <div class="card-company">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-              </svg>
-              Annai Vailankanni Arts & Science College | Thanjavur, India
+
+        <div class="node-content-card">
+          <div class="card-meta mono">
+            <span class="date-badge">2018 — 2021</span>
+            <span class="role-badge">ACADEMIC FOUNDATION</span>
+          </div>
+
+          <div class="role-header">
+            <h3 class="role-title">B.Com Computer Applications (B.Com CA)</h3>
+            <div class="role-company mono">
+              <span class="company-name">Annai Vailankanni Arts &amp; Science College</span>
+              <span class="company-loc">// Thanjavur, India</span>
             </div>
           </div>
-          <ul class="card-achievements">
-            <li>Relevant Coursework: Data Structures, DBMS, Web Technologies, Computer Networks</li>
-            <li>Gained foundational knowledge in software development lifecycle and web architecture</li>
-          </ul>
-          <div class="card-tech">
-            <span class="tech-tag">Computer Applications</span>
-            <span class="tech-tag">DBMS</span>
+
+          <p class="edu-desc">
+            Rigorous foundations in Data Structures, Relational Database Management Systems (DBMS), Web Technologies, and Software Development Lifecycles.
+          </p>
+
+          <div class="role-tech-tags mono">
+            <span class="tech-pill">Computer Applications</span>
+            <span class="tech-pill">Data Structures</span>
+            <span class="tech-pill">DBMS &amp; SQL</span>
           </div>
         </div>
       </div>
 
     </div>
+
   </div>
 </section>

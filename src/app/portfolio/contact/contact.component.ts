@@ -13,6 +13,7 @@ export class ContactComponent implements AfterViewInit {
   contactForm: FormGroup;
   isSubmitting = false;
   submitSuccess = false;
+  submitError = false;
 
   constructor(
     private fb: FormBuilder,
@@ -37,29 +38,6 @@ export class ContactComponent implements AfterViewInit {
     if (right) this.animationService.revealFromRight(right, 0.2);
   }
 
-  // onSubmit(): void {
-  //   if (this.contactForm.invalid) {
-  //     this.contactForm.markAllAsTouched();
-  //     return;
-  //   }
-
-  //   this.isSubmitting = true;
-  //   const { name, email, subject, message } = this.contactForm.value;
-
-  //   const mailtoUrl = `mailto:pagalavan25surya@gmail.com`
-  //     + `?subject=${encodeURIComponent(subject)}`
-  //     + `&body=${encodeURIComponent(`Hi Pagalavan,\n\nMy name is ${name}.\n\n${message}\n\nBest regards,\n${name}\n${email}`)}`;
-
-  //   window.location.href = mailtoUrl;
-
-  //   setTimeout(() => {
-  //     this.isSubmitting = false;
-  //     this.submitSuccess = true;
-  //     this.contactForm.reset();
-  //     setTimeout(() => this.submitSuccess = false, 5000);
-  //   }, 1000);
-  // }
-
   onSubmit(): void {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
@@ -67,11 +45,19 @@ export class ContactComponent implements AfterViewInit {
     }
 
     this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+
     const { name, email, subject, message } = this.contactForm.value;
 
     const templateParams = {
       from_name: name,
+      name: name,
+      user_name: name,
       reply_to: email,
+      from_email: email,
+      email: email,
+      to_name: 'Pagalavan M.',
       subject: subject,
       message: message
     };
@@ -86,12 +72,20 @@ export class ContactComponent implements AfterViewInit {
         this.isSubmitting = false;
         this.submitSuccess = true;
         this.contactForm.reset();
-        setTimeout(() => this.submitSuccess = false, 5000);
+        setTimeout(() => this.submitSuccess = false, 6000);
       })
       .catch((error: any) => {
-        console.error('EmailJS Error:', error);
+        console.warn('EmailJS delivery fallback (Gmail API reconnect required):', error);
         this.isSubmitting = false;
-        alert('Failed to send message. Please try again!');
+        this.submitError = true;
+        this.openDirectEmail();
       });
+  }
+
+  openDirectEmail(): void {
+    const { name, email, subject, message } = this.contactForm.value;
+    const subj = encodeURIComponent(subject || 'Portfolio Collaboration Inquiry');
+    const body = encodeURIComponent(`Hi Pagalavan,\n\n${message || ''}\n\nFrom: ${name || ''} (${email || ''})`);
+    window.location.href = `mailto:pagalavan25surya@gmail.com?subject=${subj}&body=${body}`;
   }
 }

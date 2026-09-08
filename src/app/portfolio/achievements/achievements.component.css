@@ -1,202 +1,185 @@
-/* ══════════════════════════════════
-   ACHIEVEMENTS SECTION
-   ══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   EDITORIAL ACHIEVEMENTS & METRICS
+   Pagalavan M. | Angular & Mobile App Developer
+   ═══════════════════════════════════════════════════ */
 
-.achievements {
+.achievements-section {
   padding: var(--section-padding);
-  background: var(--bg-main);
-  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-main);
   position: relative;
-  overflow: hidden;
-}
-.achievements::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px; height: 600px;
-  background: radial-gradient(ellipse, rgba(124,58,237,0.06) 0%, transparent 70%);
-  pointer-events: none;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.achievements .section-header { text-align: center; }
-
-/* ── Counter Grid ── */
-.counters-grid {
+/* ── 4 Metrics Grid ── */
+.metrics-editorial-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 4.5rem;
 }
 
-.counter-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+.metric-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-.counter-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-normal);
-}
-.counter-card:hover {
-  border-color: var(--border-primary);
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg), var(--glow-sm);
-}
-.counter-card:hover::after { transform: scaleX(1); }
-
-.counter-icon {
+  padding: 2rem 1.75rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px; height: 56px;
-  border-radius: var(--radius-md);
-  background: var(--primary-dim);
-  color: var(--primary-color);
-  margin: 0 auto 1.25rem;
+  flex-direction: column;
+  position: relative;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.counter-number {
+.metric-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.metric-index {
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.metric-data {
   display: flex;
   align-items: baseline;
-  justify-content: center;
   gap: 2px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.count {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--text-main);
-  line-height: 1;
-  font-family: 'Syne', sans-serif;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.counter-unit {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  line-height: 1;
-}
-
-.counter-label {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.25rem;
-}
-
-.counter-desc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-family: 'Inter', sans-serif;
-}
-
-/* ── Certifications ── */
-.certs-section { }
-
-.certs-title {
-  font-size: 1.5rem;
+.metric-data .count {
+  font-size: 2.75rem;
   font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 1.5rem;
-  font-family: 'Syne', sans-serif;
+  color: var(--text-primary);
+  line-height: 1;
+  font-family: var(--font-display);
+}
+
+.metric-data .unit {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.metric-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.metric-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ── Certifications & Learning Block ── */
+.certs-editorial-block {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+}
+
+.certs-block-header {
+  margin-bottom: 2rem;
+}
+
+.certs-heading {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  margin: 0;
 }
 
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 
-.cert-card {
+.cert-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   padding: 1.25rem 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
 }
-.cert-card:hover {
-  border-color: var(--border-primary);
-  transform: translateX(4px);
-  background: var(--bg-card-hover);
+
+.cert-item:hover {
+  border-color: var(--border-hover);
 }
-.cert-card.learning {
-  border-color: rgba(124,58,237,0.2);
+
+.cert-item.learning {
   border-style: dashed;
 }
 
-.cert-icon {
-  width: 44px; height: 44px;
-  border-radius: var(--radius-sm);
-  background: rgba(221,0,49,0.12);
-  color: #dd0031;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cert-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
-.cert-icon.ts    { background: rgba(49,120,198,0.12); color: #3178C6; }
-.cert-icon.node  { background: rgba(60,135,58,0.12);  color: #3c873a; }
-.cert-icon.learning { background: rgba(124,58,237,0.1); color: #a78bfa; }
 
-.cert-info { flex: 1; }
+.cert-status-dot.verified {
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 8px var(--accent-primary);
+}
 
-.cert-name {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-main);
+.cert-status-dot.learning {
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.cert-body {
+  flex: 1;
+}
+
+.cert-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
-.cert-issuer {
-  font-size: 0.78rem;
+.cert-meta {
+  font-size: 0.72rem;
   color: var(--text-muted);
-  font-family: 'Inter', sans-serif;
 }
 
-.cert-status {
-  font-size: 0.72rem;
-  font-weight: 700;
-  white-space: nowrap;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
+.cert-state-badge {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.06em;
 }
-.cert-status.verified {
-  background: rgba(0,255,204,0.1);
-  color: var(--primary-color);
-  border: 1px solid rgba(0,255,204,0.2);
-}
-.cert-status.in-progress {
-  background: rgba(124,58,237,0.1);
-  color: #a78bfa;
-  border: 1px solid rgba(124,58,237,0.2);
+
+.cert-state-badge.learning {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.25);
 }
 
 /* ── Responsive ── */
-@media (max-width: 992px) {
-  .counters-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 1024px) {
+  .metrics-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
 }
-@media (max-width: 480px) {
-  .counters-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .counter-card { padding: 1.5rem 1rem; }
-  .count { font-size: 2.2rem; }
-  .certs-grid { grid-template-columns: 1fr; }
+
+@media (max-width: 600px) {
+  .metrics-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .certs-editorial-block {
+    padding: 1.5rem 1.25rem;
+  }
 }

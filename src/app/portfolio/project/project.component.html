@@ -1,332 +1,196 @@
-<!-- <div>
-  <span class="project-title">Projects</span>
-</div>
-
-<div class="row">
-  <section class="portfolio w-100 vh-100 d-flex align-items-center col-md-6">
-    <div class="container-fluid">
-      <div class="row align-items-center h-100">
-        
-        <div class="col-md-6 px-5">
-          <h3>Smart Deal Zone (Web App)</h3>
-          <p>
-            The Smart Deal Zone project represents an innovative web application designed to streamline business
-            operations,
-            particularly for city-based B2C (business-to-consumer) platforms. Developed with a robust technological
-            stack
-            including Angular 12, Bootstrap, SQL Server, REST APIs, and IIS, this platform enhances listings, billing,
-            and payments with mobile-first design.
-          </p>
-          <button class="explore-btn mt-3">Explore</button>
-        </div>
-
-        <div class="col-md-6 p-0 img">
-          <img src="assets/Post.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Project Image">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <br>
-
-  <section class="portfolio w-100 vh-100 d-flex align-items-center col-md-6">
-    <div class="container-fluid">
-      <div class="row align-items-center h-100">
-
-        <div class="col-md-6 px-5">
-          <h3>Shopping Cart Mobile Application</h3>
-          <p>
-            The Smart Deal Zone project represents an innovative web application designed to streamline business
-            operations,
-            particularly for city-based B2C (business-to-consumer) platforms. Developed with a robust technological
-            stack
-            including Angular 12, Bootstrap, SQL Server, REST APIs, and IIS, this platform enhances listings, billing,
-            and payments with mobile-first design.
-          </p>
-          <button class="explore-btn mt-3">Explore</button>
-        </div>
-
-        <div class="col-md-6 p-0 SAimg">
-          <img src="assets/Shopping.png" class="img-fluid w-100 h-100 object-fit-cover" alt="Project Image">
-        </div>
-      </div>
-    </div>
-  </section>
-</div> -->
-
-<section class="projects" id="project">
+<section class="projects-section" id="work">
   <div class="container">
+
+    <!-- Section Header -->
     <div class="section-header">
-      <h2 class="section-title">Featured Projects</h2>
+      <div class="section-tag mono">CURATED PRODUCTION WORK</div>
+      <h2 class="section-title">
+        Selected <span class="dim">Project</span>
+      </h2>
       <p class="section-description">
-        A showcase of my recent work and creative solutions
+        A centerpiece showcase demonstrating component architecture, state management, and interaction design.
       </p>
     </div>
 
-    <div class="projects-container">
-      <!-- Shoe Rack -->
-      <div class="project-card featured" data-category="web">
-        <div class="featured-badge">Featured</div>
-        <div class="project-image-wrapper">
-          <div class="project-image">
-            <img src="assets/shoerack.jpg" alt="Shoe Rack UI" onerror="this.src='assets/Shopping.png'" />
-            <div class="project-overlay">
-              <div class="project-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">SCSS</span>
-                <span class="tech-tag">GSAP</span>
+    <!-- Large Editorial Project Showcase -->
+    <div class="showcase-card" #showcaseCard>
+      
+      <!-- Top Meta Bar -->
+      <div class="showcase-meta-bar">
+        <div class="meta-left">
+          <span class="project-index mono">01 // 01</span>
+          <span class="project-badge mono">FLAGSHIP SHOWCASE</span>
+        </div>
+        <div class="meta-right mono">
+          <span class="status-live">
+            <span class="live-indicator"></span> PRODUCTION LIVE
+          </span>
+        </div>
+      </div>
+
+      <!-- Main Showcase Grid -->
+      <div class="showcase-grid">
+
+        <!-- Visual Display Window -->
+        <div class="showcase-visual-wrapper">
+          <div class="browser-chrome">
+            <div class="browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-address mono">https://shoe-rack-nu.vercel.app</div>
+            <div class="browser-action">
+              <span class="mono">VERCEL HOSTED</span>
+            </div>
+          </div>
+
+          <div class="showcase-visual-content">
+            <img 
+              src="assets/Shopping.png" 
+              alt="Shoe Rack E-Commerce Interface" 
+              class="showcase-img"
+              loading="lazy"
+            />
+            <div class="visual-editorial-overlay">
+              <div class="overlay-details">
+                <span class="overlay-brand mono">SHOE RACK UI</span>
+                <span class="overlay-metric mono">98+ PERFORMANCE SCORE</span>
               </div>
             </div>
           </div>
-          <div class="project-actions">
-            <button class="action-btn primary" (click)="openProjectModal('shoerack')">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
+        </div>
+
+        <!-- Editorial Content Column -->
+        <div class="showcase-info-wrapper">
+
+          <div class="info-header">
+            <span class="project-category mono">COMMERCE // INTERFACE DESIGN</span>
+            <h3 class="project-title">Shoe Rack</h3>
+            <p class="project-lead">
+              A premium, responsive e-commerce application designed for high-end retail with instant catalog search, dynamic price and category filtering, and micro-interactions.
+            </p>
+          </div>
+
+          <!-- Architecture & Highlights -->
+          <div class="project-specs">
+            <div class="spec-row">
+              <span class="spec-label mono">Role</span>
+              <span class="spec-value">Frontend Architecture &amp; UI Engineering</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono">Stack</span>
+              <span class="spec-value">Angular, TypeScript, SCSS, GSAP, Bootstrap 5</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono">Key Focus</span>
+              <span class="spec-value">Dynamic Catalog Filtering &amp; Fluid GSAP Transitions</span>
+            </div>
+          </div>
+
+          <!-- Feature Bullets -->
+          <ul class="showcase-feature-list">
+            <li>
+              <span class="bullet-icon mono">01</span>
+              <div>
+                <strong>Dynamic Product Grid:</strong> Fast client-side filtering by category, price, and attributes with zero layout shifts.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-icon mono">02</span>
+              <div>
+                <strong>Reactive Cart Pipeline:</strong> Streamlined add-to-cart state handling and checkout interaction flow.
+              </div>
+            </li>
+            <li>
+              <span class="bullet-icon mono">03</span>
+              <div>
+                <strong>Refined Dark Aesthetic:</strong> High typographic contrast, curated whitespace, and modern dark-mode styling.
+              </div>
+            </li>
+          </ul>
+
+          <!-- Tech Pills -->
+          <div class="showcase-tech-tags mono">
+            <span class="tech-pill">Angular</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">SCSS</span>
+            <span class="tech-pill">GSAP</span>
+            <span class="tech-pill">Bootstrap 5</span>
+          </div>
+
+          <!-- Project CTAs -->
+          <div class="showcase-actions">
+            <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span>Visit Live Demo</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
-              View Details
-            </button>
-            <a href="https://shoe-rack-nu.vercel.app/" target="_blank" class="action-btn secondary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
-              Live Demo
             </a>
+
+            <button (click)="openProjectModal('shoerack')" class="btn btn-secondary">
+              <span>Technical Specs</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </button>
           </div>
+
         </div>
-        <div class="project-content">
-          <div class="project-category">Web UI</div>
-          <h3>Shoe Rack</h3>
-          <p>
-            A premium, fully-responsive e-commerce interface for a high-end shoe retailer with dynamic filtering and modern dark-mode aesthetics.
-          </p>
-          <div class="project-stats">
-            <div class="stat">
-              <span class="stat-value">100%</span>
-              <span class="stat-label">Responsive</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">UI</span>
-              <span class="stat-label">Showcase</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">2026</span>
-              <span class="stat-label">Completed</span>
-            </div>
-          </div>
-        </div>
+
       </div>
 
-      <!-- E-Commerce Platform -->
-      <div *ngIf="webProject" class="project-card" data-category="web">
-        <div class="project-image-wrapper">
-          <div class="project-image">
-            <img src="assets/project1.jpg" alt="E-commerce platform dashboard" />
-            <div class="project-overlay">
-              <div class="project-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">REST API</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-actions">
-            <button class="action-btn primary" (click)="openProjectModal('ecommerce')">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              View Details
-            </button>
-            <button class="action-btn secondary" routerLink="/portfolio/smartdeal">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
-              Live Demo
-            </button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-category">Web Application</div>
-          <h3>E-Commerce Platform</h3>
-          <p>
-            A comprehensive e-commerce solution with advanced product management,
-            secure payment processing, and real-time inventory tracking.
-          </p>
-          <div class="project-stats">
-            <div class="stat">
-              <span class="stat-value">98%</span>
-              <span class="stat-label">Performance</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">50K+</span>
-              <span class="stat-label">Products</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">2023</span>
-              <span class="stat-label">Completed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Shopping Cart Mobile App -->
-      <div *ngIf="mobileProject" class="project-card" data-category="mobile">
-        <div class="project-image-wrapper">
-          <div class="project-image">
-            <img src="assets/Shopping.png" alt="Shopping cart mobile application" />
-            <div class="project-overlay">
-              <div class="project-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">Ionic</span>
-                <span class="tech-tag">Capacitor</span>
-                <span class="tech-tag">Rest API</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-actions">
-            <button class="action-btn primary" (click)="openProjectModal('shopping')">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              View Details
-            </button>
-            <button class="action-btn secondary" routerLink="/portfolio/mobile">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
-              Live Demo
-            </button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-category">Mobile Application</div>
-          <h3>Smart Shopping Cart</h3>
-          <p>
-            An intelligent mobile shopping application with AI-powered recommendations,
-            seamless checkout process, and personalized user experience.
-          </p>
-          <div class="project-stats">
-            <div class="stat">
-              <span class="stat-value">--</span>
-              <span class="stat-label">User Rating</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">--</span>
-              <span class="stat-label">Downloads</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">Soon</span>
-              <span class="stat-label">Launched</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blood Bank Management System -->
-      <div *ngIf="webProject" class="project-card" data-category="web">
-        <div class="project-image-wrapper">
-          <div class="project-image">
-            <img src="assets/blood.jpg" alt="Blood bank management system" />
-            <div class="project-overlay">
-              <div class="project-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tecg-tag">Rest Api</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-actions">
-            <button class="action-btn primary" (click)="openProjectModal('bloodbank')">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              View Details
-            </button>
-            <button class="action-btn secondary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-              </svg>
-              View Code
-            </button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-category">Healthcare System</div>
-          <h3>Blood Bank Management</h3>
-          <p>
-            A comprehensive blood bank management system for tracking donations,
-            managing inventory, and connecting donors with recipients efficiently.
-          </p>
-          <div class="project-stats">
-            <div class="stat">
-              <span class="stat-value">100%</span>
-              <span class="stat-label">Reliability</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">--</span>
-              <span class="stat-label">Donors</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">2023</span>
-              <span class="stat-label">Completed</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Project Filter -->
-    <div class="project-filter">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="web">Web Apps</button>
-      <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-      <button class="filter-btn" data-filter="system">Systems</button>
-    </div>
   </div>
 
-  <!-- Project Modal -->
+  <!-- Technical Specs Modal -->
   <div class="project-modal" [class.active]="selectedProject !== null" (click)="closeProjectModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="modal-header">
-        <h3>{{ getProjectTitle() }}</h3>
-        <button class="modal-close" (click)="closeProjectModal()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div>
+          <span class="modal-tag mono">TECHNICAL CASE STUDY</span>
+          <h3>{{ getProjectTitle() }}</h3>
+        </div>
+        <button class="modal-close" (click)="closeProjectModal()" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
+
       <div class="modal-body">
-        <div class="project-details">
-          <div class="project-gallery">
-            <img [src]="getProjectImage()" alt="Project screenshot" />
+        <div class="modal-description">
+          <p>{{ getProjectDescription() }}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="mono">// ARCHITECTURAL FEATURES</h4>
+          <ul class="modal-feature-list">
+            <li *ngFor="let feature of getProjectFeatures()">
+              <span class="feat-dot"></span>
+              {{ feature }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="mono">// TECHNOLOGY STACK</h4>
+          <div class="modal-tech-pills mono">
+            <span class="tech-pill" *ngFor="let tech of getProjectTech()">{{ tech }}</span>
           </div>
-          <div class="project-info">
-            <div class="project-description">
-              <p>{{ getProjectDescription() }}</p>
-            </div>
-            <div class="project-features">
-              <h4>Key Features</h4>
-              <ul>
-                <li *ngFor="let feature of getProjectFeatures()">{{ feature }}</li>
-              </ul>
-            </div>
-            <div class="project-tech-stack">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span class="tech-tag" *ngFor="let tech of getProjectTech()">{{ tech }}</span>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Launch Live Application</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </div>

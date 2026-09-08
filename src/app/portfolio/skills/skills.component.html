@@ -1,263 +1,260 @@
-<section class="skills" id="skills">
+<section class="skills-section" id="skills">
   <div class="container">
 
+    <!-- Section Header -->
     <div class="section-header">
-      <div class="section-label">Skills & Expertise</div>
-      <h2 class="section-title">Technologies I <span class="gradient-text">Work With</span></h2>
+      <div class="section-tag mono">TECHNICAL ECOSYSTEM</div>
+      <h2 class="section-title">
+        Skills &amp; <span class="dim">Architecture</span>
+      </h2>
       <p class="section-description">
-        A focused Angular and Mobile App developer with deep experience across the full web development spectrum.
+        Organized by functional domains. Each tool is grounded in production delivery across web and mobile platforms.
       </p>
     </div>
 
-    <!-- Tab Filter -->
-    <div class="skills-tabs">
-      <button class="tab-btn" [class.active]="activeTab === 'all'" (click)="setTab('all')">All</button>
-      <button class="tab-btn" [class.active]="activeTab === 'frontend'" (click)="setTab('frontend')">Frontend & Mobile</button>
-      <button class="tab-btn" [class.active]="activeTab === 'backend'" (click)="setTab('backend')">API & Auth</button>
-      <button class="tab-btn" [class.active]="activeTab === 'tools'" (click)="setTab('tools')">Tools & DevOps</button>
+    <!-- Connected System Constellation Graphic -->
+    <div class="constellation-wrapper">
+      <div class="constellation-header">
+        <span class="constellation-tag mono">// CONNECTED SYSTEM ARCHITECTURE</span>
+        <span class="constellation-hint mono">HOVER NODES TO HIGHLIGHT CONNECTIONS</span>
+      </div>
+
+      <div class="constellation-diagram">
+        <!-- SVG Connections -->
+        <svg class="constellation-svg" viewBox="0 0 800 240" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00e599" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Inter-node Paths -->
+          <line x1="140" y1="70" x2="320" y2="70" class="conn-line active" />
+          <line x1="320" y1="70" x2="500" y2="70" class="conn-line active" />
+          <line x1="500" y1="70" x2="680" y2="70" class="conn-line" />
+
+          <line x1="140" y1="70" x2="140" y2="170" class="conn-line active" />
+          <line x1="320" y1="70" x2="320" y2="170" class="conn-line active" />
+          <line x1="500" y1="70" x2="500" y2="170" class="conn-line active" />
+          <line x1="680" y1="70" x2="680" y2="170" class="conn-line" />
+
+          <line x1="140" y1="170" x2="320" y2="170" class="conn-line" />
+          <line x1="320" y1="170" x2="500" y2="170" class="conn-line active" />
+          <line x1="500" y1="170" x2="680" y2="170" class="conn-line" />
+        </svg>
+
+        <!-- Interactive Constellation Nodes -->
+        <div class="nodes-layer">
+          <div class="system-node node-primary" style="left: 17.5%; top: 29%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">Angular 17/12</span>
+          </div>
+          <div class="system-node" style="left: 40%; top: 29%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">TypeScript</span>
+          </div>
+          <div class="system-node" style="left: 62.5%; top: 29%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">Ionic 5 &amp; Capacitor</span>
+          </div>
+          <div class="system-node node-learning" style="left: 85%; top: 29%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">React.js (Learning)</span>
+          </div>
+
+          <div class="system-node" style="left: 17.5%; top: 71%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">RESTful APIs</span>
+          </div>
+          <div class="system-node" style="left: 40%; top: 71%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">JWT &amp; Razorpay</span>
+          </div>
+          <div class="system-node" style="left: 62.5%; top: 71%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">MySQL / SQL Server</span>
+          </div>
+          <div class="system-node" style="left: 85%; top: 71%;">
+            <span class="node-dot"></span>
+            <span class="node-label mono">Git &amp; CI/CD</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Skills Grid -->
-    <div class="skills-grid">
+    <!-- 3 Semantic Domain Cards -->
+    <div class="domains-grid">
 
-      <!-- ── Frontend & Mobile ── -->
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon angular-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M9.93 12.645h4.134L12 7.522l-2.07 5.123zM11.996 2.25L2.25 5.516l1.502 12.994 8.244 4.24 8.245-4.24 1.502-12.994L11.996 2.25zm5.728 15.014h-2.138l-1.17-2.916H9.6l-1.17 2.916H6.292l5.706-13.25 5.726 13.25z"/>
-          </svg>
+      <!-- Domain 1: Frontend & Cross-Platform Mobile -->
+      <div class="domain-card">
+        <div class="domain-card-header">
+          <span class="domain-idx mono">01</span>
+          <div>
+            <span class="domain-tag mono">SPECIALIZATION</span>
+            <h3 class="domain-name">Frontend &amp; Mobile</h3>
+          </div>
         </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Angular 12+</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:90%"></div></div>
-          <span class="skill-pct">90%</span>
+        <p class="domain-desc">
+          Engineering modular, high-throughput interfaces with typed architecture, lazy-loaded routing, and mobile touch optimization.
+        </p>
+
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Angular (v12 – v17)</span>
+              <span class="skill-meta">Components, Signals, RxJS, NgRx</span>
+            </div>
+            <span class="skill-badge primary mono">Core</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Ionic 5 &amp; Capacitor</span>
+              <span class="skill-meta">Cross-Platform Android apps, Camera, Native APIs</span>
+            </div>
+            <span class="skill-badge primary mono">Core</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">TypeScript / ES6+</span>
+              <span class="skill-meta">Strict typing, Generics, OOP Patterns</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">HTML5 / SCSS / CSS3</span>
+              <span class="skill-meta">Responsive layouts, Flexbox/Grid, Token systems</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">React.js</span>
+              <span class="skill-meta">Hooks, Component state, JSX</span>
+            </div>
+            <span class="skill-badge learning mono">Active Learning</span>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon ionic-icon" style="color: #3880ff; background: rgba(56,128,255,0.1)">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-          </svg>
+      <!-- Domain 2: APIs, Authentication & Database -->
+      <div class="domain-card">
+        <div class="domain-card-header">
+          <span class="domain-idx mono">02</span>
+          <div>
+            <span class="domain-tag mono">INTEGRATION</span>
+            <h3 class="domain-name">APIs, Auth &amp; Data</h3>
+          </div>
         </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Ionic 5 & Capacitor</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
-          <span class="skill-pct">85%</span>
+        <p class="domain-desc">
+          Connecting client apps to robust endpoints, managing token lifecycle, and integrating transaction infrastructure.
+        </p>
+
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">RESTful API Design</span>
+              <span class="skill-meta">CRUD architecture, HttpInterceptors, Error handling</span>
+            </div>
+            <span class="skill-badge primary mono">Core</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">JWT Authentication</span>
+              <span class="skill-meta">Token refresh, Route guards, RBAC</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Razorpay Integration</span>
+              <span class="skill-meta">Payment checkout, Webhooks, Verification</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Node.js &amp; Express</span>
+              <span class="skill-meta">Middleware, Route handlers, API proxies</span>
+            </div>
+            <span class="skill-badge mono">Proficient</span>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">MySQL &amp; SQL Server</span>
+              <span class="skill-meta">Relational schema design, Query optimization</span>
+            </div>
+            <span class="skill-badge mono">Proficient</span>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon ts-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
-          </svg>
+      <!-- Domain 3: Workflow, Quality & Tooling -->
+      <div class="domain-card">
+        <div class="domain-card-header">
+          <span class="domain-idx mono">03</span>
+          <div>
+            <span class="domain-tag mono">ENGINEERING</span>
+            <h3 class="domain-name">Workflow &amp; Quality</h3>
+          </div>
         </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">TypeScript</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
-          <span class="skill-pct">85%</span>
-        </div>
-      </div>
+        <p class="domain-desc">
+          Version control, interface design handoff, and iterative team execution aligned with production standards.
+        </p>
 
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon js-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">JavaScript (ES6+)</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:88%"></div></div>
-          <span class="skill-pct">88%</span>
-        </div>
-      </div>
+        <div class="skills-list">
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Git &amp; GitHub</span>
+              <span class="skill-meta">Branching strategies, PR reviews, Version control</span>
+            </div>
+            <span class="skill-badge primary mono">Core</span>
+          </div>
 
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon html-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">HTML5 / CSS3</h4>
-          <span class="skill-level expert">Expert</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:95%"></div></div>
-          <span class="skill-pct">95%</span>
-        </div>
-      </div>
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Figma / UI Design</span>
+              <span class="skill-meta">Design handoff, Wireframing, Auto-layout systems</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
 
-      <!-- React JS — Learning -->
-      <div class="skill-card learning-card" *ngIf="activeTab === 'all' || activeTab === 'frontend'">
-        <div class="skill-card-icon react-icon" style="color: #61dafb; background: rgba(97,218,251,0.1)">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.445 8.94c-.17.582-.38 1.176-.63 1.768a21.22 21.22 0 0 0-1.327-1.99c.63.064 1.222.146 1.957.222zm-6.497.948c-.303-.44-.605-.9-.895-1.37.29-.47.592-.93.895-1.37.293.44.596.9.895 1.37-.3.47-.602.93-.895 1.37zm3.985-5.576c.394.537.778 1.098 1.148 1.678-.367.576-.752 1.138-1.148 1.677-.396-.54-.78-1.1-1.148-1.677.37-.58.752-1.14 1.148-1.678zM9.635 9.676a21.22 21.22 0 0 0-1.327 1.99 21.22 21.22 0 0 0-.63-1.768c.735-.076 1.328-.158 1.957-.222zm-3.99 3.484c-.63-.187-1.21-.394-1.726-.617.516-.223 1.095-.43 1.726-.617.124.41.26.82.416 1.234-.156.414-.292.823-.416 1.233zm1.328 5.25c-.63-.064-1.222-.146-1.957-.222.17-.582.38-1.175.63-1.767.42.686.862 1.35 1.327 1.99zm3.985 2.85c-.394-.537-.778-1.1-1.148-1.678.368-.577.752-1.14 1.148-1.678.396.54.78 1.1 1.148 1.678-.37.578-.752 1.14-1.148 1.678zm3.985-2.85c.465-.64.907-1.304 1.327-1.99.25.592.46 1.186.63 1.767-.735.076-1.327.158-1.957.222zm1.328-5.25c-.124-.41-.26-.82-.416-1.234.156-.413.292-.823.416-1.233.63.187 1.21.393 1.726.617-.516.223-1.095.43-1.726.617z"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">React JS</h4>
-          <span class="skill-level learning">Learning</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:30%"></div></div>
-          <span class="skill-pct">30%</span>
-        </div>
-      </div>
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Agile &amp; Scrum</span>
+              <span class="skill-meta">Sprint planning, Standups, JIRA task tracking</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
 
-      <!-- ── Backend / API ── -->
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon api-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">RESTful APIs</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:90%"></div></div>
-          <span class="skill-pct">90%</span>
-        </div>
-      </div>
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Postman &amp; Swagger</span>
+              <span class="skill-meta">API testing, Mock environments, Documentation</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
 
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon auth-icon" style="color: #ffb86c; background: rgba(255, 184, 108, 0.1);">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">JWT Authentication</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
-          <span class="skill-pct">85%</span>
-        </div>
-      </div>
-
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon db-icon" style="color: #50fa7b; background: rgba(80, 250, 123, 0.1);">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-            <path d="m21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-            <path d="m21 5c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-            <path d="m21 19c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-            <line x1="3" y1="5" x2="3" y2="19"/><line x1="21" y1="5" x2="21" y2="19"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">MySQL & SQL Server</h4>
-          <span class="skill-level intermediate">Intermediate</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:75%"></div></div>
-          <span class="skill-pct">75%</span>
-        </div>
-      </div>
-      
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'backend'">
-        <div class="skill-card-icon payment-icon" style="color: #ff79c6; background: rgba(255, 121, 198, 0.1);">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-            <line x1="2" y1="10" x2="22" y2="10"></line>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Razorpay Integration</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:80%"></div></div>
-          <span class="skill-pct">80%</span>
-        </div>
-      </div>
-
-      <!-- ── Tools ── -->
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
-        <div class="skill-card-icon git-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M23.546 10.93L13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.898 3.055 1.84 1.84 0 0 1-2.641-2.452l-2.478-2.479v6.511a1.84 1.84 0 0 1 .488 3.611 1.84 1.84 0 0 1-2.298-1.796 1.84 1.84 0 0 1 1.219-1.725V9.133a1.838 1.838 0 0 1-.997-2.419L8.889 4.032 .454 12.467a1.55 1.55 0 0 0 0 2.187l10.48 10.478a1.55 1.55 0 0 0 2.187 0l10.425-10.424a1.55 1.55 0 0 0 0-2.78"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Git / GitHub</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:88%"></div></div>
-          <span class="skill-pct">88%</span>
-        </div>
-      </div>
-
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
-        <div class="skill-card-icon figma-icon">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 10.98c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117v-6.038H8.148zm0 6.038H7.51c-2.476 0-4.49 2.014-4.49 4.49S5.033 24 7.51 24a4.49 4.49 0 0 0 4.49-4.49v-2.003c0-.276-.448-.49-.724-.49zm0 5.51a3.019 3.019 0 0 1-3.019-3.019c0-1.665 1.354-3.019 3.019-3.019v6.038zm7.704-5.51h-.648c-.276 0-.49.214-.49.49v2.003a4.49 4.49 0 1 0 4.49-4.493h-3.352zm.648 7.51a3.019 3.019 0 0 1-3.019-3.019v-1.956c.224-.036.441-.082.648-.082h2.371c1.665 0 3.019 1.354 3.019 3.019s-1.354 3.038-3.019 3.038z"/>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Figma / UI Design</h4>
-          <span class="skill-level intermediate">Intermediate</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:70%"></div></div>
-          <span class="skill-pct">70%</span>
-        </div>
-      </div>
-
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
-        <div class="skill-card-icon agile-icon" style="color: #f1fa8c; background: rgba(241, 250, 140, 0.1);">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Agile / Scrum</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:85%"></div></div>
-          <span class="skill-pct">85%</span>
-        </div>
-      </div>
-
-      <div class="skill-card" *ngIf="activeTab === 'all' || activeTab === 'tools'">
-        <div class="skill-card-icon api-icon" style="color: #bd93f9; background: rgba(189, 147, 249, 0.1);">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-          </svg>
-        </div>
-        <div class="skill-card-body">
-          <h4 class="skill-name">Postman & Swagger</h4>
-          <span class="skill-level advanced">Advanced</span>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar"><div class="skill-progress" style="--w:90%"></div></div>
-          <span class="skill-pct">90%</span>
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-title">Performance Tuning</span>
+              <span class="skill-meta">Lighthouse audits, OnPush change detection, Bundle splitting</span>
+            </div>
+            <span class="skill-badge mono">Advanced</span>
+          </div>
         </div>
       </div>
 
     </div>
+
   </div>
 </section>

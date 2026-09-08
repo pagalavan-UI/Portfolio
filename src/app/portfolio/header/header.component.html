@@ -1,72 +1,78 @@
-<!-- <header>
-  <div class="brand">Pagalavan M</div>
-  <nav>
-    <a routerLinkActive="active">Home</a>
-    <a (click)="scrollToSection('about')" routerLinkActive="active">About</a>
-    <a (click)="scrollToSection('services')" routerLinkActive="active">Services</a>
-    <a (click)="scrollToSection('projects')" routerLinkActive="active">My Work</a>
-    <a (click)="scrollToSection('contact')" routerLinkActive="active">Contact</a>
-  </nav>
-  <button (click)="handleCVDownload($event)" class="cv-btn">Download CV</button>
-  <div #downloadMessage style="color: red; display: none; margin-top: 10px;">File wasn't available</div>
+<!-- Continuous Signature Thread Motif -->
+<div class="signature-thread" aria-hidden="true">
+  <div class="signature-thread-glow" #threadGlow></div>
+</div>
 
+<!-- Minimal Sticky Navigation -->
+<header class="editorial-nav" [class.scrolled]="isScrolled">
+  <div class="container nav-container">
+    
+    <!-- Brand / Name -->
+    <a (click)="scrollToSection('home')" class="nav-brand mono">
+      <span class="brand-prefix">//</span>
+      <span class="brand-text">PAGALAVAN M.</span>
+    </a>
 
-</header>
+    <!-- Center Nav Links -->
+    <nav class="nav-menu" [class.open]="isMenuOpen">
+      <a (click)="scrollToSection('work'); closeMenu()" [class.active]="activeSection === 'work'" class="nav-link mono">
+        <span class="nav-num">01</span> WORK
+      </a>
+      <a (click)="scrollToSection('about'); closeMenu()" [class.active]="activeSection === 'about'" class="nav-link mono">
+        <span class="nav-num">02</span> ABOUT
+      </a>
+      <a (click)="scrollToSection('skills'); closeMenu()" [class.active]="activeSection === 'skills'" class="nav-link mono">
+        <span class="nav-num">03</span> SKILLS
+      </a>
+      <a (click)="scrollToSection('experience'); closeMenu()" [class.active]="activeSection === 'experience'" class="nav-link mono">
+        <span class="nav-num">04</span> EXPERIENCE
+      </a>
+      <a (click)="scrollToSection('contact'); closeMenu()" [class.active]="activeSection === 'contact'" class="nav-link mono">
+        <span class="nav-num">05</span> CONTACT
+      </a>
 
-<app-profile id="about"></app-profile>
-
-<app-skills class="skills"></app-skills>
-
-<app-project id="project"></app-project>
-
-<app-contact id="contact"></app-contact> -->
-
-<header class="modern-header" id="header">
-  <div class="container header-container">
-    <a href="#" class="logo" (click)="scrollToSection('home')">Pagalavan</a>
-
-    <nav class="nav-links" [class.active]="isMenuOpen">
-      <a routerLinkActive="active" (click)="scrollToSection('about'); closeMenu()" [class.active-link]="activeSection === 'about'">About</a>
-      <a routerLinkActive="active" (click)="scrollToSection('experience'); closeMenu()" [class.active-link]="activeSection === 'experience'">Experience</a>
-      <a routerLinkActive="active" (click)="scrollToSection('skills'); closeMenu()" [class.active-link]="activeSection === 'skills'">Skills</a>
-      <a routerLinkActive="active" (click)="scrollToSection('project'); closeMenu()" [class.active-link]="activeSection === 'project'">Projects</a>
-      <a routerLinkActive="active" (click)="scrollToSection('contact'); closeMenu()" [class.active-link]="activeSection === 'contact'">Contact</a>
-
-      <button (click)="handleCVDownload($event); closeMenu()" class="btn btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7,10 12,15 17,10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Download CV
-      </button>
+      <!-- Mobile CV Link -->
+      <div class="mobile-cv-wrapper">
+        <button (click)="handleCVDownload($event); closeMenu()" class="btn btn-primary btn-sm">
+          <span>Download CV</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </button>
+      </div>
     </nav>
 
-    <!-- Mobile Menu Toggle -->
-    <div class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Right Side CTA -->
+    <div class="nav-right">
+      <button (click)="handleCVDownload($event)" class="btn-cv-nav mono" title="Download Official CV">
+        <span>RESUME</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="nav-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle Navigation Menu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+      </button>
     </div>
+
   </div>
-  <div></div>
 </header>
 
-
-
-
-<app-profile id="home"></app-profile>
-
-<app-about></app-about>
-
-<app-experience></app-experience>
-
-<app-skills></app-skills>
-
-<app-achievements></app-achievements>
-
-<app-project></app-project>
-
-<app-contact></app-contact>
+<!-- Main Portfolio Sequence -->
+<main id="main-content">
+  <app-profile id="home"></app-profile>
+  <app-project id="work"></app-project>
+  <app-about id="about"></app-about>
+  <app-skills id="skills"></app-skills>
+  <app-experience id="experience"></app-experience>
+  <app-achievements id="achievements"></app-achievements>
+  <app-contact id="contact"></app-contact>
+</main>
 
 <app-footer id="footer"></app-footer>

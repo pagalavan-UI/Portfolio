@@ -1,38 +1,265 @@
-<div class="loading-overlay" [class.active]="isLoading">
-  <div class="loading-container">
-    <!-- Main Loading Animation -->
-    <div class="loading-spinner">
-      <div class="spinner-ring"></div>
-      <div class="spinner-ring"></div>
-      <div class="spinner-ring"></div>
-      <div class="spinner-center">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Loading Text -->
-    <div class="loading-text">
-      <h3>Loading Portfolio</h3>
-      <div class="loading-dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <!-- Progress Bar -->
-    <div class="loading-progress">
-      <div class="progress-bar">
-        <div class="progress-fill" [style.width.%]="progress"></div>
-      </div>
-      <span class="progress-text">{{ progress }}%</span>
-    </div>
+<div class="tire-loader-overlay" [class.active]="isLoading" [class.launching]="isLaunching" [class.completed]="isCompleted" aria-label="Loading animation">
+  
+  <!-- Speed Lines in Background -->
+  <div class="speed-lines" aria-hidden="true">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+    <div class="line line-5"></div>
+    <div class="line line-6"></div>
   </div>
 
-  <!-- Background Particles -->
-  <div class="loading-particles">
-    <div class="particle" *ngFor="let particle of particles" [style.left.%]="particle.x" [style.top.%]="particle.y" [style.animation-delay.ms]="particle.delay"></div>
+  <div class="loader-chassis">
+
+    <!-- Top Cockpit Header -->
+    <div class="hud-top mono">
+      <div class="hud-tag">
+        <span class="pulse-beacon"></span>
+        <span>INITIALIZING TELEMETRY</span>
+      </div>
+      <div class="hud-spec">PAGALAVAN M. // MOTORSPORT EDITION</div>
+    </div>
+
+    <!-- Central Car Tire Stage -->
+    <div class="tire-stage" [class.boost]="isLaunching">
+      
+      <!-- Mint Underglow Puddle -->
+      <div class="tire-underglow"></div>
+
+      <!-- Smoke Particles drifting from tire contact point -->
+      <div class="smoke-container" aria-hidden="true">
+        <div 
+          *ngFor="let p of smokeParticles; trackBy: trackBySmoke" 
+          class="smoke-puff"
+          [style.width.px]="p.size"
+          [style.height.px]="p.size"
+          [style.left.%]="p.left"
+          [style.bottom.%]="p.top"
+          [style.opacity]="p.opacity">
+        </div>
+      </div>
+
+      <!-- High-End Automotive Tire & Wheel SVG -->
+      <svg class="car-wheel-svg" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gradients -->
+          <radialGradient id="tireRubber" cx="50%" cy="50%" r="50%">
+            <stop offset="70%" stop-color="#121215"/>
+            <stop offset="85%" stop-color="#1f1f26"/>
+            <stop offset="93%" stop-color="#0e0e11"/>
+            <stop offset="100%" stop-color="#1a1a20"/>
+          </radialGradient>
+
+          <radialGradient id="rimAlloy" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2a2a34"/>
+            <stop offset="45%" stop-color="#1a1a20"/>
+            <stop offset="70%" stop-color="#343440"/>
+            <stop offset="92%" stop-color="#121216"/>
+            <stop offset="100%" stop-color="#40404e"/>
+          </radialGradient>
+
+          <radialGradient id="brakeDiscMetal" cx="50%" cy="50%" r="50%">
+            <stop offset="35%" stop-color="#222228"/>
+            <stop offset="60%" stop-color="#383842"/>
+            <stop offset="85%" stop-color="#25252b"/>
+            <stop offset="100%" stop-color="#1a1a1f"/>
+          </radialGradient>
+
+          <linearGradient id="caliperMint" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00ffaa"/>
+            <stop offset="100%" stop-color="#00a86b"/>
+          </linearGradient>
+
+          <filter id="mintGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+
+          <!-- Text Path for Sidewall Lettering -->
+          <path id="sidewallPath" d="M 46,130 A 84,84 0 1,1 214,130 A 84,84 0 1,1 46,130" fill="none" />
+        </defs>
+
+        <!-- STATIONARY BRAKE ASSEMBLY (Rotor disc & Caliper do not rotate with spokes) -->
+        <g class="brake-assembly">
+          <!-- Carbon Ceramic Brake Rotor -->
+          <circle cx="130" cy="130" r="74" fill="url(#brakeDiscMetal)" stroke="#4a4a58" stroke-width="1.5" />
+          
+          <!-- Rotor Ventilation Slots/Drill Holes (fixed) -->
+          <g opacity="0.35" stroke="#111" stroke-width="1.5" fill="none">
+            <circle cx="130" cy="130" r="55" stroke-dasharray="2, 10" />
+            <circle cx="130" cy="130" r="62" stroke-dasharray="2, 12" />
+            <circle cx="130" cy="130" r="68" stroke-dasharray="2, 14" />
+          </g>
+
+          <!-- High Performance Brembo-Style Caliper in Electric Mint -->
+          <path d="M 68,92 C 60,110 60,130 68,150 L 84,142 C 80,128 80,114 84,100 Z" 
+                fill="url(#caliperMint)" 
+                stroke="#00e599" 
+                stroke-width="1"
+                filter="url(#mintGlow)" />
+          
+          <!-- Caliper Engraved Text -->
+          <text x="74" y="124" fill="#0a0a0d" font-family="'JetBrains Mono', monospace" font-size="5" font-weight="900" transform="rotate(-90 74 124)" text-anchor="middle" letter-spacing="1">
+            PAGALAVAN
+          </text>
+        </g>
+
+        <!-- ROTATING TIRE & WHEEL ASSEMBLY -->
+        <g class="wheel-rotator" [class.rolling-fast]="isLaunching">
+          
+          <!-- Outer Tire Rubber Base -->
+          <circle cx="130" cy="130" r="122" fill="url(#tireRubber)" stroke="#09090c" stroke-width="4"/>
+
+          <!-- Tire Tread Blocks (Radial grips etched around 360deg circumference) -->
+          <g stroke="#09090c" stroke-width="3" opacity="0.85">
+            <line x1="130" y1="8" x2="130" y2="18" />
+            <line x1="161" y1="12" x2="158" y2="22" />
+            <line x1="190" y1="24" x2="185" y2="33" />
+            <line x1="216" y1="44" x2="209" y2="52" />
+            <line x1="236" y1="70" x2="227" y2="76" />
+            <line x1="248" y1="99" x2="238" y2="103" />
+            <line x1="252" y1="130" x2="242" y2="130" />
+            <line x1="248" y1="161" x2="238" y2="157" />
+            <line x1="236" y1="190" x2="227" y2="184" />
+            <line x1="216" y1="216" x2="209" y2="208" />
+            <line x1="190" y1="236" x2="185" y2="227" />
+            <line x1="161" y1="248" x2="158" y2="238" />
+            <line x1="130" y1="252" x2="130" y2="242" />
+            <line x1="99" y1="248" x2="102" y2="238" />
+            <line x1="70" y1="236" x2="75" y2="227" />
+            <line x1="44" y1="216" x2="51" y2="208" />
+            <line x1="24" y1="190" x2="33" y2="184" />
+            <line x1="12" y1="161" x2="22" y2="157" />
+            <line x1="8" y1="130" x2="18" y2="130" />
+            <line x1="12" y1="99" x2="22" y2="103" />
+            <line x1="24" y1="70" x2="33" y2="76" />
+            <line x1="44" y1="44" x2="51" y2="52" />
+            <line x1="70" y1="24" x2="75" y2="33" />
+            <line x1="99" y1="12" x2="102" y2="22" />
+          </g>
+
+          <!-- Sidewall Grooves -->
+          <circle cx="130" cy="130" r="106" fill="none" stroke="#282832" stroke-width="1.5" />
+          <circle cx="130" cy="130" r="92" fill="none" stroke="#1d1d24" stroke-width="2" />
+
+          <!-- White Lettered Sidewall Tire Branding -->
+          <text fill="rgba(255,255,255,0.7)" font-family="'JetBrains Mono', monospace" font-size="6.5" font-weight="700" letter-spacing="2">
+            <textPath href="#sidewallPath" startOffset="5%">
+              PAGALAVAN RACING • SPORT COMP ZR18 • 245/40
+            </textPath>
+          </text>
+
+          <!-- Machined Alloy Outer Rim Lip -->
+          <circle cx="130" cy="130" r="82" fill="url(#rimAlloy)" stroke="#555566" stroke-width="2.5" />
+          <circle cx="130" cy="130" r="77" fill="none" stroke="#00e599" stroke-width="0.75" opacity="0.6"/>
+
+          <!-- 5-Split Spoke Lightweight Alloy Wheel Design (10 Spokes) -->
+          <g fill="#2d2d38" stroke="#505062" stroke-width="1">
+            <!-- Spoke Pair 1 (Top) -->
+            <polygon points="127,130 123,55 129,55 129,130" />
+            <polygon points="131,130 131,55 137,55 133,130" />
+
+            <!-- Spoke Pair 2 (Top Right) -->
+            <g transform="rotate(72 130 130)">
+              <polygon points="127,130 123,55 129,55 129,130" />
+              <polygon points="131,130 131,55 137,55 133,130" />
+            </g>
+
+            <!-- Spoke Pair 3 (Bottom Right) -->
+            <g transform="rotate(144 130 130)">
+              <polygon points="127,130 123,55 129,55 129,130" />
+              <polygon points="131,130 131,55 137,55 133,130" />
+            </g>
+
+            <!-- Spoke Pair 4 (Bottom Left) -->
+            <g transform="rotate(216 130 130)">
+              <polygon points="127,130 123,55 129,55 129,130" />
+              <polygon points="131,130 131,55 137,55 133,130" />
+            </g>
+
+            <!-- Spoke Pair 5 (Top Left) -->
+            <g transform="rotate(288 130 130)">
+              <polygon points="127,130 123,55 129,55 129,130" />
+              <polygon points="131,130 131,55 137,55 133,130" />
+            </g>
+          </g>
+
+          <!-- Center Wheel Hub & Monogram -->
+          <circle cx="130" cy="130" r="28" fill="#15151a" stroke="#444455" stroke-width="2" />
+          <circle cx="130" cy="130" r="24" fill="#0d0d10" stroke="#00e599" stroke-width="1" />
+
+          <!-- Lug Nuts (5 Titanium Chrome Studs) -->
+          <circle cx="130" cy="113" r="3" fill="#cfcfd8" stroke="#222" stroke-width="0.5" />
+          <circle cx="146" cy="125" r="3" fill="#cfcfd8" stroke="#222" stroke-width="0.5" />
+          <circle cx="140" cy="144" r="3" fill="#cfcfd8" stroke="#222" stroke-width="0.5" />
+          <circle cx="120" cy="144" r="3" fill="#cfcfd8" stroke="#222" stroke-width="0.5" />
+          <circle cx="114" cy="125" r="3" fill="#cfcfd8" stroke="#222" stroke-width="0.5" />
+
+          <!-- Center Cap "P" Monogram -->
+          <circle cx="130" cy="130" r="14" fill="#00e599" opacity="0.15" />
+          <circle cx="130" cy="130" r="12" fill="#111116" stroke="#00e599" stroke-width="1.5" />
+          <text x="130" y="134" fill="#00e599" font-family="'Syne', sans-serif" font-size="11" font-weight="900" text-anchor="middle">
+            P
+          </text>
+        </g>
+      </svg>
+
+      <!-- Road Surface & Asphalt Moving Markings -->
+      <div class="road-track">
+        <div class="road-line" [class.speeding]="isLaunching"></div>
+        <div class="road-dashed" [class.speeding]="isLaunching"></div>
+      </div>
+    </div>
+
+    <!-- Telemetry Cockpit Dashboard -->
+    <div class="hud-dashboard">
+      
+      <!-- Live Gauges -->
+      <div class="hud-metrics mono">
+        
+        <!-- Gear Box -->
+        <div class="metric-block">
+          <span class="metric-label">TRANSMISSION</span>
+          <div class="metric-val gear-indicator">
+            <span class="gear-badge">GEAR</span>
+            <span class="gear-num">0{{ currentGear }}</span>
+          </div>
+        </div>
+
+        <!-- Digital Tachometer (RPM) -->
+        <div class="metric-block">
+          <span class="metric-label">ENGINE SPEED</span>
+          <div class="metric-val">
+            <span class="rpm-num">{{ rpm }}</span>
+            <span class="rpm-unit">RPM</span>
+          </div>
+        </div>
+
+        <!-- Big Progress Percentage -->
+        <div class="metric-block align-right">
+          <span class="metric-label">SYSTEM SYNC</span>
+          <div class="metric-val progress-num">
+            <span>{{ progress }}</span><span class="pct">%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Linear Electric Mint Progress Bar -->
+      <div class="progress-track" role="progressbar" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill" [style.width.%]="progress"></div>
+        <div class="progress-laser-glow" [style.left.%]="progress"></div>
+      </div>
+
+      <!-- Status Terminal Output -->
+      <div class="status-terminal mono">
+        <span class="prompt">></span>
+        <span class="status-message">{{ statusText }}</span>
+        <span class="cursor-blink">_</span>
+      </div>
+
+    </div>
+
   </div>
 </div>

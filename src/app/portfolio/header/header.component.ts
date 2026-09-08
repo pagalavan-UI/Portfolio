@@ -1,5 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
-import { gsap } from 'gsap';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,108 +6,85 @@ import { gsap } from 'gsap';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @ViewChild('threadGlow') threadGlowRef!: ElementRef<HTMLElement>;
+
   isMenuOpen = false;
   isScrolled = false;
   activeSection = 'home';
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     this.checkScroll();
-    
-    // Initial Header Animation
-    gsap.fromTo(this.el.nativeElement.querySelector('.modern-header'), 
-      { y: -100, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    );
   }
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     this.checkScroll();
+    this.updateThread();
   }
 
-  private checkScroll() {
-    this.isScrolled = window.pageYOffset > 50;
-    const header = document.querySelector('.modern-header');
-    if (header) {
-      if (this.isScrolled) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
+  private checkScroll(): void {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    this.isScrolled = scrollY > 40;
 
     // Scroll spy logic
-    const sections = ['home', 'about', 'experience', 'skills', 'project', 'contact'];
-    let currentSection = 'home';
-    const scrollPos = window.pageYOffset + 200; // offset for header
+    const sections = ['home', 'work', 'about', 'skills', 'experience', 'contact'];
+    let current = 'home';
+    const offset = 180;
 
-    for (const section of sections) {
-      const element = document.getElementById(section);
-      if (element && element.offsetTop <= scrollPos) {
-        currentSection = section;
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + scrollY - offset;
+        if (scrollY >= top) {
+          current = id;
+        }
       }
     }
-    this.activeSection = currentSection;
+    this.activeSection = current;
   }
 
-  toggleMenu() {
+  private updateThread(): void {
+    const glow = this.threadGlowRef?.nativeElement;
+    if (!glow) return;
+
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollHeight <= 0) return;
+
+    const scrollFraction = window.pageYOffset / scrollHeight;
+    const threadHeight = window.innerHeight;
+    const translateY = scrollFraction * (threadHeight - 120);
+
+    glow.style.transform = `translateY(${translateY}px)`;
+  }
+
+  toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.isMenuOpen = false;
   }
-  scrollToSection(sectionId: string) {
+
+  scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 70;
+      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 
-  // Setup event listener for CV download
-  // setupDownloadListener(): void {
-  //   const downloadCV = document.getElementById('downloadCV') as HTMLAnchorElement;
-  //   if (downloadCV) {
-  //     downloadCV.addEventListener('click', (e: Event) => {
-  //       e.preventDefault();
-  //       this.handleCVDownload();
-  //     });
-  //   }
-  // }
-
   handleCVDownload(event: Event): void {
-    event.preventDefault(); // Prevent default anchor click
-
-    const fileUrl = 'assets/Pagalavan_Frontend_Developer.pdf';
-    const messageElement = document.getElementById('downloadMessage');
-
-    fetch(fileUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('File not found');
-        }
-        return response.blob(); // Convert response to blob
-      })
-      .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'Pagalavan_Frontend_Developer.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url); // Clean up
-      })
-      .catch(() => {
-        if (messageElement) {
-          messageElement.style.display = 'block';
-          setTimeout(() => {
-            messageElement.style.display = 'none';
-          }, 3000);
-        }
-      });
+    event.preventDefault();
+    const fileUrl = 'assets/Pagalavan_M_Angular_Developer_Resume.pdf';
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = 'Pagalavan_M_Angular_Developer_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
-
 }

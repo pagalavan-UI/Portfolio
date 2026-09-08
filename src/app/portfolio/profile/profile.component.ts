@@ -1,6 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import { AnimationService } from '../../services/animation.service';
-import { gsap } from 'gsap';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -9,177 +7,149 @@ import { gsap } from 'gsap';
 })
 export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild('particlesCanvas') particlesCanvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('heroCanvas') heroCanvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('portraitFrame') portraitFrameRef!: ElementRef<HTMLElement>;
 
-  private typedTextElement: HTMLElement | null = null;
-  private currentTextIndex = 0;
-  private currentCharIndex = 0;
-  private isDeleting = false;
-  private typingTimer: any;
   private animationFrameId: number = 0;
-
-  private readonly TYPING_SPEED = 90;
-  private readonly DELETE_SPEED = 50;
-  private readonly PAUSE_DURATION = 2200;
-
-  private readonly roles = [
-    'MEAN Stack Developer',
-    'Angular Specialist',
-    'Full-Stack Engineer',
-    'UI/UX Craftsman'
-  ];
-
-  // Particle system state
-  private particles: Array<{
-    x: number; y: number; vx: number; vy: number;
-    r: number; alpha: number; color: string;
+  private mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+  private nodes: Array<{
+    originX: number;
+    originY: number;
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
   }> = [];
 
-  constructor(
-    private animationService: AnimationService,
-    private el: ElementRef
-  ) {}
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.initGsapAnimations();
-    this.initTypingAnimation();
-    this.initParticles();
-    this.initMagneticButtons();
-    this.initCounters();
+    this.initWaveCanvas();
+    this.initPortraitTilt();
   }
 
   ngOnDestroy(): void {
-    clearTimeout(this.typingTimer);
-    if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
-  }
-
-  private initGsapAnimations(): void {
-    const elements = this.el.nativeElement.querySelectorAll('.gsap-reveal');
-    if (elements.length > 0) {
-      gsap.fromTo(Array.from(elements),
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.3 }
-      );
-    }
-
-    // Magnetic buttons
-    const btns = this.el.nativeElement.querySelectorAll('.magnetic-btn');
-    btns.forEach((btn: HTMLElement) => this.animationService.magneticHover(btn));
-  }
-
-  private initCounters(): void {
-    const counterEls = this.el.nativeElement.querySelectorAll('[data-target]');
-    counterEls.forEach((el: HTMLElement) => {
-      const target = parseInt(el.getAttribute('data-target') || '0', 10);
-      this.animationService.animateCounter(el, target, 2);
-    });
-  }
-
-  private initTypingAnimation(): void {
-    this.typedTextElement = this.el.nativeElement.querySelector('.typed-text');
-    if (this.typedTextElement) {
-      this.typingTimer = setTimeout(() => this.typeWriter(), 1200);
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
     }
   }
 
-  private typeWriter(): void {
-    const currentText = this.roles[this.currentTextIndex];
-    if (!this.typedTextElement) return;
-
-    if (!this.isDeleting) {
-      this.typedTextElement.textContent = currentText.substring(0, this.currentCharIndex + 1);
-      this.currentCharIndex++;
-      if (this.currentCharIndex === currentText.length) {
-        this.typingTimer = setTimeout(() => {
-          this.isDeleting = true;
-          this.typeWriter();
-        }, this.PAUSE_DURATION);
-        return;
-      }
-    } else {
-      this.typedTextElement.textContent = currentText.substring(0, this.currentCharIndex);
-      this.currentCharIndex--;
-      if (this.currentCharIndex < 0) {
-        this.isDeleting = false;
-        this.currentTextIndex = (this.currentTextIndex + 1) % this.roles.length;
-        this.typingTimer = setTimeout(() => this.typeWriter(), 400);
-        return;
-      }
-    }
-    this.typingTimer = setTimeout(
-      () => this.typeWriter(),
-      this.isDeleting ? this.DELETE_SPEED : this.TYPING_SPEED
-    );
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent): void {
+    this.mouse.targetX = e.clientX;
+    this.mouse.targetY = e.clientY;
   }
 
-  private initParticles(): void {
-    const canvas = this.particlesCanvasRef?.nativeElement;
+  private initWaveCanvas(): void {
+    const canvas = this.heroCanvasRef?.nativeElement;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+    const setupCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      this.initNodes(canvas.width, canvas.height);
     };
-    resize();
-    window.addEventListener('resize', resize);
 
-    const count = 70;
-    const colors = ['rgba(0,255,204,', 'rgba(124,58,237,', 'rgba(56,189,248,'];
+    setupCanvas();
+    window.addEventListener('resize', setupCanvas);
 
-    for (let i = 0; i < count; i++) {
-      this.particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        r: Math.random() * 2 + 0.5,
-        alpha: Math.random() * 0.5 + 0.1,
-        color: colors[Math.floor(Math.random() * colors.length)]
-      });
-    }
+    const render = () => {
+      // Ease mouse coordinates for liquid inertia
+      this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.08;
+      this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.08;
 
-    const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      this.particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.alpha})`;
-        ctx.fill();
-      });
+      const radius = 180;
+      const spring = 0.04;
+      const friction = 0.88;
 
-      // Draw connecting lines
-      for (let i = 0; i < this.particles.length; i++) {
-        for (let j = i + 1; j < this.particles.length; j++) {
-          const dx = this.particles[i].x - this.particles[j].x;
-          const dy = this.particles[i].y - this.particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(this.particles[i].x, this.particles[i].y);
-            ctx.lineTo(this.particles[j].x, this.particles[j].y);
-            ctx.strokeStyle = `rgba(0,255,204,${0.06 * (1 - dist / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
+      // Update node physics
+      for (const node of this.nodes) {
+        const dx = this.mouse.x - node.x;
+        const dy = this.mouse.y - node.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < radius && dist > 0) {
+          const force = (1 - dist / radius) * -28;
+          node.vx += (dx / dist) * force;
+          node.vy += (dy / dist) * force;
+        }
+
+        // Return to anchor point
+        node.vx += (node.originX - node.x) * spring;
+        node.vy += (node.originY - node.y) * spring;
+        node.vx *= friction;
+        node.vy *= friction;
+        node.x += node.vx;
+        node.y += node.vy;
+
+        // Draw minimal node dot
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.fillRect(node.x, node.y, 1.5, 1.5);
+      }
+
+      // Draw faint connections between neighboring nodes
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.lineWidth = 0.6;
+
+      const cols = Math.floor(canvas.width / 50) + 1;
+      for (let i = 0; i < this.nodes.length; i++) {
+        // Connect to right neighbor
+        if ((i + 1) % cols !== 0 && i + 1 < this.nodes.length) {
+          ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+          ctx.lineTo(this.nodes[i + 1].x, this.nodes[i + 1].y);
+        }
+        // Connect to bottom neighbor
+        if (i + cols < this.nodes.length) {
+          ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+          ctx.lineTo(this.nodes[i + cols].x, this.nodes[i + cols].y);
         }
       }
-      this.animationFrameId = requestAnimationFrame(draw);
+      ctx.stroke();
+
+      this.animationFrameId = requestAnimationFrame(render);
     };
-    draw();
+
+    render();
   }
 
-  private initMagneticButtons(): void {
-    const btns = this.el.nativeElement.querySelectorAll('.magnetic-btn');
-    btns.forEach((btn: HTMLElement) => this.animationService.magneticHover(btn));
+  private initNodes(width: number, height: number): void {
+    this.nodes = [];
+    const spacing = 50;
+    for (let y = 0; y < height; y += spacing) {
+      for (let x = 0; x < width; x += spacing) {
+        this.nodes.push({
+          originX: x,
+          originY: y,
+          x: x,
+          y: y,
+          vx: 0,
+          vy: 0
+        });
+      }
+    }
+  }
+
+  private initPortraitTilt(): void {
+    const frame = this.portraitFrameRef?.nativeElement;
+    if (!frame) return;
+
+    frame.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = frame.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      frame.style.transform = `perspective(1000px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) translateZ(10px)`;
+    });
+
+    frame.addEventListener('mouseleave', () => {
+      frame.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+    });
   }
 
   scrollToSection(sectionId: string): void {

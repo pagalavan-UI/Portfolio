@@ -1,252 +1,454 @@
-/* Loading Overlay */
-.loading-overlay {
+/* ═══════════════════════════════════════════════════
+   CREATIVE CAR TIRE ROLLING INITIAL LOADER
+   Pagalavan M. | Automotive Performance Engineering
+   ═══════════════════════════════════════════════════ */
+
+:host {
+  display: block;
+}
+
+.tire-loader-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  z-index: 9999;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #070709;
+  background-image: 
+    radial-gradient(circle at 50% 45%, rgba(0, 229, 153, 0.04) 0%, transparent 65%),
+    radial-gradient(circle at 50% 100%, rgba(10, 10, 14, 0.9) 0%, #050507 100%);
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s ease;
+  pointer-events: none;
   overflow: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
 }
 
-.loading-overlay.active {
+.tire-loader-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: all;
 }
 
-.loading-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="10" r="0.5" fill="rgba(255,255,255,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-}
-
-/* Loading Container */
-.loading-container {
-  text-align: center;
-  color: white;
-  z-index: 1;
-  position: relative;
-}
-
-/* Loading Spinner */
-.loading-spinner {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 2rem;
-}
-
-.spinner-ring {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top: 3px solid white;
-  border-radius: 50%;
-  animation: spin 1.5s linear infinite;
-}
-
-.spinner-ring:nth-child(2) {
-  animation-delay: 0.2s;
-  width: 90px;
-  height: 90px;
-  top: 15px;
-  left: 15px;
-}
-
-.spinner-ring:nth-child(3) {
-  animation-delay: 0.4s;
-  width: 60px;
-  height: 60px;
-  top: 30px;
-  left: 30px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.spinner-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fbbf24;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.1); }
-}
-
-/* Loading Text */
-.loading-text h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.loading-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.loading-dots span {
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  animation: bounce 1.4s ease-in-out infinite both;
-}
-
-.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
-.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
-.loading-dots span:nth-child(3) { animation-delay: 0s; }
-
-@keyframes bounce {
-  0%, 80%, 100% {
-    transform: scale(0);
-    opacity: 0.5;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Progress Bar */
-.loading-progress {
-  margin-top: 2rem;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #fbbf24, #f59e0b);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-  position: relative;
-}
-
-.progress-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.progress-text {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Background Particles */
-.loading-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.tire-loader-overlay.completed {
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
-.particle {
+/* ── Wind Speed Lines ── */
+.speed-lines {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: float-particle 6s ease-in-out infinite;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-@keyframes float-particle {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
+.line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: streamLine 1.2s linear infinite;
+}
+
+.line-1 { top: 22%; width: 140px; animation-delay: 0.1s; animation-duration: 0.9s; }
+.line-2 { top: 38%; width: 220px; animation-delay: 0.4s; animation-duration: 0.7s; background: linear-gradient(90deg, transparent, rgba(0, 229, 153, 0.35), transparent); }
+.line-3 { top: 52%; width: 180px; animation-delay: 0.2s; animation-duration: 0.8s; }
+.line-4 { top: 68%; width: 260px; animation-delay: 0.5s; animation-duration: 0.65s; background: linear-gradient(90deg, transparent, rgba(0, 229, 153, 0.25), transparent); }
+.line-5 { top: 82%; width: 120px; animation-delay: 0.3s; animation-duration: 1.1s; }
+.line-6 { top: 44%; width: 300px; animation-delay: 0s; animation-duration: 0.6s; }
+
+@keyframes streamLine {
+  0% { transform: translateX(100vw); opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { transform: translateX(-300px); opacity: 0; }
+}
+
+/* ── Loader Chassis (Center Container) ── */
+.loader-chassis {
+  position: relative;
+  width: 90%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* ── HUD Top Header ── */
+.hud-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.hud-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--accent-primary, #00e599);
+  font-weight: 600;
+}
+
+.pulse-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-primary, #00e599);
+  box-shadow: 0 0 10px var(--accent-primary, #00e599);
+  animation: beaconGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes beaconGlow {
+  0% { opacity: 0.4; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 14px var(--accent-primary, #00e599); }
+}
+
+.hud-spec {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.65rem;
+}
+
+/* ── Tire Stage ── */
+.tire-stage {
+  position: relative;
+  width: 260px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.5, 0, 0.7, 1);
+}
+
+.tire-stage.boost {
+  transform: translateX(120vw);
+}
+
+/* ── Mint Underglow ── */
+.tire-underglow {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 24px;
+  background: radial-gradient(ellipse at center, rgba(0, 229, 153, 0.45) 0%, rgba(0, 229, 153, 0.12) 50%, transparent 75%);
+  filter: blur(8px);
+  pointer-events: none;
+  animation: underglowPulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes underglowPulse {
+  0% { opacity: 0.7; transform: translateX(-50%) scaleX(0.92); }
+  100% { opacity: 1; transform: translateX(-50%) scaleX(1.08); }
+}
+
+/* ── Smoke Puffs Behind Tire ── */
+.smoke-container {
+  position: absolute;
+  left: -20px;
+  bottom: 24px;
+  width: 120px;
+  height: 80px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.smoke-puff {
+  position: absolute;
+  background: radial-gradient(circle, rgba(160, 165, 180, 0.4) 0%, rgba(90, 95, 110, 0.15) 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(4px);
+  animation: driftSmoke 0.65s linear forwards;
+}
+
+@keyframes driftSmoke {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0.7;
   }
   50% {
-    transform: translateY(-20px) rotate(180deg);
-    opacity: 0.8;
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-70px, -25px) scale(2.2);
+    opacity: 0;
   }
 }
 
-/* Dark mode support */
-[data-theme="dark"] .loading-overlay {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+/* ── Car Wheel SVG ── */
+.car-wheel-svg {
+  width: 220px;
+  height: 220px;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.9));
+  z-index: 2;
+  overflow: visible;
 }
 
-[data-theme="dark"] .spinner-center {
-  color: #60a5fa;
+/* ── Wheel Rotation Physics ── */
+.wheel-rotator {
+  transform-origin: 130px 130px;
+  animation: spinTire 0.42s linear infinite;
+  will-change: transform;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .loading-spinner {
-    width: 100px;
-    height: 100px;
+.wheel-rotator.rolling-fast {
+  animation: spinTire 0.1s linear infinite;
+}
+
+@keyframes spinTire {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Asphalt Road Track ── */
+.road-track {
+  position: absolute;
+  bottom: 12px;
+  width: 380px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.road-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #30303c 15%, #4a4a58 50%, #30303c 85%, transparent 100%);
+  box-shadow: 0 0 10px rgba(0, 229, 153, 0.2);
+}
+
+.road-dashed {
+  width: 100%;
+  height: 3px;
+  margin-top: 4px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5) 0,
+    rgba(255, 255, 255, 0.5) 18px,
+    transparent 18px,
+    transparent 36px
+  );
+  animation: dashSpeed 0.24s linear infinite;
+}
+
+.road-dashed.speeding {
+  animation: dashSpeed 0.08s linear infinite;
+}
+
+@keyframes dashSpeed {
+  from {
+    background-position-x: 36px;
+  }
+  to {
+    background-position-x: 0;
+  }
+}
+
+/* ── Telemetry Cockpit Dashboard ── */
+.hud-dashboard {
+  width: 100%;
+  margin-top: 2.2rem;
+  background-color: rgba(18, 18, 23, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Metrics Grid ── */
+.hud-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.metric-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metric-block.align-right {
+  align-items: flex-end;
+}
+
+.metric-label {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.metric-val {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  color: #ededed;
+}
+
+.gear-indicator {
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.gear-badge {
+  font-size: 0.62rem;
+  padding: 0.15rem 0.35rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.gear-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-primary, #00e599);
+}
+
+.rpm-num {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.rpm-unit {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.progress-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ededed;
+  line-height: 1;
+}
+
+.progress-num .pct {
+  font-size: 0.88rem;
+  color: var(--accent-primary, #00e599);
+  margin-left: 1px;
+}
+
+/* ── Progress Track ── */
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: visible;
+  margin-bottom: 0.9rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 229, 153, 0.4) 0%, #00e599 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(0, 229, 153, 0.6);
+  transition: width 0.08s ease-out;
+}
+
+.progress-laser-glow {
+  position: absolute;
+  top: -3px;
+  width: 3px;
+  height: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #00e599, 0 0 16px #00e599;
+  border-radius: 1px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: left 0.08s ease-out;
+}
+
+/* ── Terminal Line ── */
+.status-terminal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.04em;
+}
+
+.prompt {
+  color: var(--accent-primary, #00e599);
+  font-weight: 700;
+}
+
+.status-message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cursor-blink {
+  color: var(--accent-primary, #00e599);
+  font-weight: 700;
+  animation: cursorBlink 0.8s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 600px) {
+  .loader-chassis {
+    max-width: 92%;
   }
 
-  .spinner-ring:nth-child(2) {
-    width: 75px;
-    height: 75px;
-    top: 12.5px;
-    left: 12.5px;
+  .tire-stage {
+    width: 200px;
+    height: 210px;
   }
 
-  .spinner-ring:nth-child(3) {
-    width: 50px;
-    height: 50px;
-    top: 25px;
-    left: 25px;
+  .car-wheel-svg {
+    width: 170px;
+    height: 170px;
   }
 
-  .loading-text h3 {
-    font-size: 1.25rem;
+  .road-track {
+    width: 280px;
   }
 
-  .loading-progress {
-    max-width: 250px;
+  .hud-dashboard {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .progress-num {
+    font-size: 1.4rem;
+  }
+
+  .rpm-num {
+    font-size: 1rem;
+  }
+
+  .gear-num {
+    font-size: 1.1rem;
   }
 }

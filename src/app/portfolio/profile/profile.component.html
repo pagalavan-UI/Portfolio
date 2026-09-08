@@ -1,137 +1,142 @@
 <section class="hero" id="home">
-  <!-- Particle Canvas Background -->
-  <canvas class="particles-canvas" #particlesCanvas></canvas>
+  <!-- Interactive Wave Canvas -->
+  <canvas class="hero-canvas" #heroCanvas></canvas>
 
-  <!-- Gradient Blobs -->
-  <div class="hero-blob blob-1"></div>
-  <div class="hero-blob blob-2"></div>
-  <!-- Grid overlay -->
-  <div class="hero-grid"></div>
+  <!-- Editorial Grid Lines -->
+  <div class="hero-grid-lines" aria-hidden="true">
+    <div class="grid-line line-v line-v-1"></div>
+    <div class="grid-line line-v line-v-2"></div>
+    <div class="grid-line line-h line-h-1"></div>
+  </div>
 
-  <div class="container">
-    <div class="hero-content">
+  <div class="container hero-container">
+    <div class="hero-grid">
 
-      <!-- ── Left: Text ── -->
-      <div class="hero-text">
+      <!-- ── Left: Editorial Typography & Content ── -->
+      <div class="hero-text-block">
 
-        <div class="available-badge gsap-reveal">
-          <span class="pulse-dot"></span>
-          Available for new opportunities
+        <div class="hero-meta-strip">
+          <span class="badge-status">
+            <span class="pulse-dot"></span>
+            Available for Opportunities
+          </span>
+          <span class="location-tag mono">
+            <span class="crosshair">+</span> Tamil Nadu, India
+          </span>
         </div>
 
-        <div class="greeting gsap-reveal">Hello, I'm</div>
+        <div class="hero-name-wrapper">
+          <span class="hero-eyebrow mono">// DEVELOPER &amp; CRAFTSMAN</span>
+          <h1 class="hero-name">
+            PAGALAVAN<span class="name-period">.</span>
+          </h1>
+        </div>
 
-        <h1 class="hero-title gsap-reveal">
-          <span class="name gradient-text">Pagalavan</span>
-        </h1>
+        <div class="hero-role-display">
+          <span class="role-lead mono">FOCUS</span>
+          <h2 class="hero-role">Angular &amp; Mobile App Developer</h2>
+        </div>
 
-        <h2 class="hero-subtitle gsap-reveal">
-          <span class="typed-text"></span><span class="cursor-typed">|</span>
-        </h2>
-
-        <p class="hero-description gsap-reveal">
-          A passionate MEAN Stack Developer crafting high-performance, 
-          pixel-perfect web applications with Angular, Node.js, and modern APIs.
-          Based in Tamil Nadu, India 🇮🇳
+        <p class="hero-description">
+          Building production-grade web systems and cross-platform mobile applications with 
+          <span class="text-highlight">Angular</span>, <span class="text-highlight">Ionic</span>, and <span class="text-highlight">TypeScript</span>. 
+          Obsessed with modular architecture, performance budgets, and intuitive micro-interactions.
         </p>
 
-        <div class="hero-actions gsap-reveal">
-          <a class="btn btn-primary magnetic-btn" (click)="scrollToSection('project')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+        <!-- Two Clear CTAs -->
+        <div class="hero-actions">
+          <a (click)="scrollToSection('work')" class="btn btn-primary">
+            <span>Explore Work</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
-            View My Work
           </a>
-          <a class="btn btn-secondary magnetic-btn" (click)="scrollToSection('footer')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16v16H4z"/><polyline points="4,4 12,13 20,4"/>
+
+          <a (click)="scrollToSection('contact')" class="btn btn-secondary">
+            <span>Initiate Contact</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-            Get In Touch
+          </a>
+
+          <a href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download="Pagalavan_M_Angular_Developer_Resume.pdf" class="btn-cv-link mono">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>CV.PDF</span>
           </a>
         </div>
 
-        <div class="hero-socials gsap-reveal">
-          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-            </svg>
+        <!-- Social Coordinates -->
+        <div class="hero-socials mono">
+          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile">
+            <span>LN</span>
+            <span class="social-label">LinkedIn</span>
           </a>
-          <a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
+          <span class="social-divider">/</span>
+          <a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener" class="social-link" aria-label="GitHub Profile">
+            <span>GH</span>
+            <span class="social-label">GitHub</span>
           </a>
-          <a href="mailto:pagalavan25surya@gmail.com" class="social-icon-btn" aria-label="Email">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16v16H4z"/><polyline points="4,4 12,13 20,4"/>
-            </svg>
+          <span class="social-divider">/</span>
+          <a href="mailto:pagalavan25surya@gmail.com" class="social-link" aria-label="Send Email">
+            <span>EM</span>
+            <span class="social-label">Email</span>
           </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="hero-stats gsap-reveal">
-          <div class="stat glass-card">
-            <span class="stat-number" data-target="2">0</span><span class="stat-number">+</span>
-            <span class="stat-label">Years Exp.</span>
-          </div>
-          <div class="stat glass-card">
-            <span class="stat-number" data-target="4">0</span><span class="stat-number">+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat glass-card">
-            <span class="stat-number" data-target="10">0</span><span class="stat-number">+</span>
-            <span class="stat-label">Technologies</span>
-          </div>
         </div>
 
       </div>
 
-      <!-- ── Right: Image ── -->
-      <div class="hero-image gsap-reveal">
-        <div class="image-container">
-          <!-- Rotating rings -->
-          <div class="ring ring-outer"></div>
-          <div class="ring ring-inner"></div>
+      <!-- ── Right: Personal Portrait & Technical Spec ── -->
+      <div class="hero-visual-block">
+        <div class="portrait-frame" #portraitFrame>
+          <!-- Corner Accents -->
+          <div class="corner corner-tl"></div>
+          <div class="corner corner-tr"></div>
+          <div class="corner corner-bl"></div>
+          <div class="corner corner-br"></div>
 
-          <div class="image-wrapper">
-            <img src="/assets/pagalavan.webp" alt="Pagalavan — MEAN Stack Developer" loading="eager"/>
-            <div class="image-overlay"></div>
-          </div>
+          <!-- Technical Index -->
+          <div class="frame-tag top-tag mono">FIG. 01 // DEV_PORTRAIT</div>
+          <div class="frame-tag bottom-tag mono">EXP: 2+ YRS // ANGULAR &amp; IONIC</div>
 
-          <!-- Floating tech icons -->
-          <div class="float-icon icon-angular" title="Angular">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <path d="M9.93 12.645h4.134L12 7.522l-2.07 5.123zM11.996 2.25L2.25 5.516l1.502 12.994 8.244 4.24 8.245-4.24 1.502-12.994L11.996 2.25zm5.728 15.014h-2.138l-1.17-2.916H9.6l-1.17 2.916H6.292l5.706-13.25 5.726 13.25z"/>
-            </svg>
+          <div class="portrait-inner">
+            <img src="assets/profile.jpeg" alt="Pagalavan M. — Angular & Mobile App Developer" class="portrait-img" loading="eager" />
+            <div class="portrait-overlay"></div>
           </div>
-          <div class="float-icon icon-node" title="Node.js">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <path d="M11.998 24c-.321 0-.641-.084-.924-.251l-2.937-1.737c-.439-.245-.225-.332-.08-.383.585-.203.703-.25 1.327-.604.065-.037.151-.023.218.018l2.256 1.339c.082.045.198.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.24l-8.791-5.073c-.081-.047-.189-.047-.271 0L3.07 6.68c-.087.05-.141.144-.141.242v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.509 0-.91 0-2.026-.551L2.28 18.675c-.57-.329-.924-.943-.924-1.602V6.921c0-.659.354-1.275.924-1.601L11.073.248c.556-.33 1.296-.33 1.848 0l8.795 5.072c.568.326.924.941.924 1.601v10.152c0 .659-.356 1.273-.924 1.601l-8.795 5.074c-.282.167-.602.252-.923.252z"/>
-            </svg>
+        </div>
+
+        <!-- Metric Specs Strip -->
+        <div class="hero-spec-strip">
+          <div class="spec-item">
+            <span class="spec-number mono">2+</span>
+            <span class="spec-label mono">Years Experience</span>
           </div>
-          <div class="float-icon icon-mongo" title="MongoDB">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.3 7.019 5.9 10.948 6.47 11.267.027.015.053.032.08.045.879-.62 5.905-4.952 4.021-12.961z"/>
-              <path d="M12.001 18.464c-.047 1.783-.168 2.58-.645 3.34l.645.195.644-.196c-.475-.76-.595-1.556-.644-3.34"/>
-            </svg>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-number mono">Thanjai</span>
+            <span class="spec-label mono">Current Tech Company</span>
           </div>
-          <div class="float-icon icon-ts" title="TypeScript">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
-              <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/>
-            </svg>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-number mono">100%</span>
+            <span class="spec-label mono">Responsive / Modular</span>
           </div>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-      <span>Scroll</span>
+  <!-- Scroll Down Indicator -->
+  <div class="hero-scroll-cue" (click)="scrollToSection('work')">
+    <span class="mono">SCROLL TO EXPLORE</span>
+    <div class="cue-line">
+      <div class="cue-dot"></div>
     </div>
   </div>
 </section>
