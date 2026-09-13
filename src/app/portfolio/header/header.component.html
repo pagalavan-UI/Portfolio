@@ -1,78 +1,28 @@
-<!-- Continuous Signature Thread Motif -->
-<div class="signature-thread" aria-hidden="true">
-  <div class="signature-thread-glow" #threadGlow></div>
-</div>
-
+<a class="skip-link" href="#main-content" (click)="skipToContent($event)">Skip to content</a>
 <!-- Minimal Sticky Navigation -->
 <header class="editorial-nav" [class.scrolled]="isScrolled">
   <div class="container nav-container">
-    
-    <!-- Brand / Name -->
-    <a (click)="scrollToSection('home')" class="nav-brand mono">
-      <span class="brand-prefix">//</span>
-      <span class="brand-text">PAGALAVAN M.</span>
-    </a>
-
-    <!-- Center Nav Links -->
-    <nav class="nav-menu" [class.open]="isMenuOpen">
-      <a (click)="scrollToSection('work'); closeMenu()" [class.active]="activeSection === 'work'" class="nav-link mono">
-        <span class="nav-num">01</span> WORK
-      </a>
-      <a (click)="scrollToSection('about'); closeMenu()" [class.active]="activeSection === 'about'" class="nav-link mono">
-        <span class="nav-num">02</span> ABOUT
-      </a>
-      <a (click)="scrollToSection('skills'); closeMenu()" [class.active]="activeSection === 'skills'" class="nav-link mono">
-        <span class="nav-num">03</span> SKILLS
-      </a>
-      <a (click)="scrollToSection('experience'); closeMenu()" [class.active]="activeSection === 'experience'" class="nav-link mono">
-        <span class="nav-num">04</span> EXPERIENCE
-      </a>
-      <a (click)="scrollToSection('contact'); closeMenu()" [class.active]="activeSection === 'contact'" class="nav-link mono">
-        <span class="nav-num">05</span> CONTACT
-      </a>
-
-      <!-- Mobile CV Link -->
-      <div class="mobile-cv-wrapper">
-        <button (click)="handleCVDownload($event); closeMenu()" class="btn btn-primary btn-sm">
-          <span>Download CV</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-        </button>
-      </div>
+    <a class="nav-brand" routerLink="/portfolio/header" fragment="home" aria-label="Pagalavan — home"><span class="brand-symbol" aria-hidden="true">p.</span>PAGALAVAN<span class="brand-period">.</span></a>
+    <nav id="primary-navigation" class="nav-menu" [class.open]="isMenuOpen" aria-label="Main navigation">
+      <a *ngFor="let item of navigation" routerLink="/portfolio/header" [fragment]="item.id" (click)="closeMenu()" [class.active]="activeSection === item.id" [attr.aria-current]="activeSection === item.id ? 'location' : null">{{ item.label }}</a>
+      <a routerLink="/portfolio/header" fragment="contact" class="mobile-contact" (click)="closeMenu()">Get in touch <span aria-hidden="true">↗</span></a>
     </nav>
-
-    <!-- Right Side CTA -->
     <div class="nav-right">
-      <button (click)="handleCVDownload($event)" class="btn-cv-nav mono" title="Download Official CV">
-        <span>RESUME</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      </button>
-
-      <!-- Mobile Hamburger Toggle -->
-      <button class="nav-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle Navigation Menu">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-      </button>
+      <a class="resume-link" href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download>Resume <span aria-hidden="true">↗</span></a>
+      <button #menuToggle class="nav-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-controls="primary-navigation" [attr.aria-label]="isMenuOpen ? 'Close navigation' : 'Open navigation'"><span>{{ isMenuOpen ? 'Close' : 'Menu' }}</span><span aria-hidden="true">{{ isMenuOpen ? '×' : '+' }}</span></button>
     </div>
-
   </div>
 </header>
-
 <!-- Main Portfolio Sequence -->
-<main id="main-content">
-  <app-profile id="home"></app-profile>
-  <app-project id="work"></app-project>
-  <app-about id="about"></app-about>
-  <app-skills id="skills"></app-skills>
-  <app-experience id="experience"></app-experience>
-  <app-achievements id="achievements"></app-achievements>
-  <app-contact id="contact"></app-contact>
+<main id="main-content" tabindex="-1">
+  <app-profile></app-profile>
+  <app-project></app-project>
+  <app-frontend></app-frontend>
+  <app-experience></app-experience>
+  <app-mobile></app-mobile>
+  <app-skills></app-skills>
+  <app-about></app-about>
+  <app-achievements></app-achievements>
+  <app-contact></app-contact>
 </main>
-
-<app-footer id="footer"></app-footer>
+<app-footer></app-footer>

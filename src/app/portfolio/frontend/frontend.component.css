@@ -1,0 +1,25 @@
+.frontend-section { background: #141511; }
+.angular-spotlight { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; padding: 42px; border: 1px solid var(--border-hover); border-radius: 9px; background: var(--bg-surface); }
+.angular-copy { align-self: center; }
+.angular-copy h3 { font-size: 30px; line-height: 1.25; margin-bottom: 20px; }
+.angular-copy p { font-size: 13px; margin-bottom: 25px; }
+.component-system { padding: 4px 0; }
+.system-title { display: flex; justify-content: space-between; align-items: center; font-size: 8px; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 20px; }
+.system-row { display: flex; align-items: center; gap: 12px; padding: 14px; background: #1e201b; border: 1px solid var(--border-subtle); border-radius: 5px; }
+.system-row.core { border-color: #c5db9538; }
+.system-symbol { font-size: 20px; color: var(--accent-primary); width: 26px; text-align: center; }
+.system-row strong { display: block; font-size: 11px; font-weight: 500; }
+.system-row div > span { font-size: 9px; color: var(--text-muted); display: block; margin-top: 2px; }
+.system-type { margin-left: auto; font-size: 7px; color: var(--accent-primary); }
+.system-branches { margin-left: 24px; padding: 14px 0 0 18px; border-left: 1px solid #c5db9530; }
+.system-branches .system-row { position: relative; }
+.system-branches .system-row::before { content: ''; position: absolute; height: 1px; width: 18px; background: #c5db9530; left: -19px; }
+.system-branches .system-row + .system-row { margin-top: 9px; }
+.capabilities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 36px; }
+.capabilities article { padding: 14px 0; }
+.capability-icon { color: var(--accent-primary); display: block; font-size: 24px; margin-bottom: 16px; }
+.capabilities h3 { font-size: 18px; margin-bottom: 12px; letter-spacing: -.025em; }
+.capabilities p { font-size: 12px; margin-bottom: 24px; }
+.capability-detail { color: var(--text-muted); font-size: 8px; letter-spacing: .04em; }
+@media (max-width: 900px) { .angular-spotlight { gap: 32px; padding: 28px; } }
+@media (max-width: 700px) { .angular-spotlight { grid-template-columns: 1fr; padding: 26px; gap: 36px; } .capabilities { grid-template-columns: 1fr; gap: 8px; } .capabilities article { padding: 24px 0; border-bottom: 1px solid var(--border-subtle); } .capabilities article:last-child { border: 0; } .capabilities p { max-width: 480px; margin-bottom: 14px; } .angular-copy h3 { font-size: 26px; } }

@@ -1,142 +1,35 @@
-<section class="hero" id="home">
-  <!-- Interactive Wave Canvas -->
-  <canvas class="hero-canvas" #heroCanvas></canvas>
-
-  <!-- Editorial Grid Lines -->
-  <div class="hero-grid-lines" aria-hidden="true">
-    <div class="grid-line line-v line-v-1"></div>
-    <div class="grid-line line-v line-v-2"></div>
-    <div class="grid-line line-h line-h-1"></div>
-  </div>
-
-  <div class="container hero-container">
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-topline"><span><span class="status-dot" aria-hidden="true"></span> Available for opportunities</span><span class="hero-location">TAMIL NADU, INDIA <span aria-hidden="true">↗</span></span></div>
     <div class="hero-grid">
-
-      <!-- ── Left: Editorial Typography & Content ── -->
-      <div class="hero-text-block">
-
-        <div class="hero-meta-strip">
-          <span class="badge-status">
-            <span class="pulse-dot"></span>
-            Available for Opportunities
-          </span>
-          <span class="location-tag mono">
-            <span class="crosshair">+</span> Tamil Nadu, India
-          </span>
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span class="small-rule" aria-hidden="true"></span> FRONTEND ENGINEER</div>
+        <h1 id="hero-title">Thoughtful interfaces.<br><span class="accent">Solid engineering.</span></h1>
+        <p class="hero-description">I&apos;m Pagalavan. A frontend developer specializing in <strong>Angular, TypeScript &amp; JavaScript.</strong> I turn complex requirements into intuitive web and mobile experiences.</p>
+        <div class="actions hero-actions">
+          <a class="btn btn-primary" routerLink="/portfolio/header" fragment="work">View my work <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download>Download resume <span class="arrow" aria-hidden="true">↓</span></a>
         </div>
-
-        <div class="hero-name-wrapper">
-          <span class="hero-eyebrow mono">// DEVELOPER &amp; CRAFTSMAN</span>
-          <h1 class="hero-name">
-            PAGALAVAN<span class="name-period">.</span>
-          </h1>
-        </div>
-
-        <div class="hero-role-display">
-          <span class="role-lead mono">FOCUS</span>
-          <h2 class="hero-role">Angular &amp; Mobile App Developer</h2>
-        </div>
-
-        <p class="hero-description">
-          Building production-grade web systems and cross-platform mobile applications with 
-          <span class="text-highlight">Angular</span>, <span class="text-highlight">Ionic</span>, and <span class="text-highlight">TypeScript</span>. 
-          Obsessed with modular architecture, performance budgets, and intuitive micro-interactions.
-        </p>
-
-        <!-- Two Clear CTAs -->
-        <div class="hero-actions">
-          <a (click)="scrollToSection('work')" class="btn btn-primary">
-            <span>Explore Work</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-
-          <a (click)="scrollToSection('contact')" class="btn btn-secondary">
-            <span>Initiate Contact</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-
-          <a href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download="Pagalavan_M_Angular_Developer_Resume.pdf" class="btn-cv-link mono">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>CV.PDF</span>
-          </a>
-        </div>
-
-        <!-- Social Coordinates -->
-        <div class="hero-socials mono">
-          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile">
-            <span>LN</span>
-            <span class="social-label">LinkedIn</span>
-          </a>
-          <span class="social-divider">/</span>
-          <a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener" class="social-link" aria-label="GitHub Profile">
-            <span>GH</span>
-            <span class="social-label">GitHub</span>
-          </a>
-          <span class="social-divider">/</span>
-          <a href="mailto:pagalavan25surya@gmail.com" class="social-link" aria-label="Send Email">
-            <span>EM</span>
-            <span class="social-label">Email</span>
-          </a>
-        </div>
-
+        <div class="hero-socials"><a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><span class="social-separator" aria-hidden="true"></span><a href="https://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><span class="social-note">A little code. A lot of care.</span></div>
       </div>
-
-      <!-- ── Right: Personal Portrait & Technical Spec ── -->
-      <div class="hero-visual-block">
-        <div class="portrait-frame" #portraitFrame>
-          <!-- Corner Accents -->
-          <div class="corner corner-tl"></div>
-          <div class="corner corner-tr"></div>
-          <div class="corner corner-bl"></div>
-          <div class="corner corner-br"></div>
-
-          <!-- Technical Index -->
-          <div class="frame-tag top-tag mono">FIG. 01 // DEV_PORTRAIT</div>
-          <div class="frame-tag bottom-tag mono">EXP: 2+ YRS // ANGULAR &amp; IONIC</div>
-
-          <div class="portrait-inner">
-            <img src="assets/profile.jpeg" alt="Pagalavan M. — Angular & Mobile App Developer" class="portrait-img" loading="eager" />
-            <div class="portrait-overlay"></div>
+      <div class="hero-visual" aria-label="Interactive illustration of reusable components adapting to web and mobile">
+        <div class="visual-canvas" [class.mobile-preview]="preview === 'mobile'">
+          <div class="visual-caption mono"><span class="status-dot" aria-hidden="true"></span> FROM COMPONENT TO EXPERIENCE</div>
+          <div class="floating-source" aria-hidden="true"><span class="source-icon">&lt;/&gt;</span><div><span class="source-file">interface.component.ts</span><span class="source-sub">Angular + TypeScript</span></div><span class="source-check">✓</span></div>
+          <div class="connector" aria-hidden="true"></div>
+          <div class="interface-window" aria-hidden="true">
+            <div class="window-chrome"><div class="window-dots"><i></i><i></i><i></i></div><span>interface / preview</span><span>↗</span></div>
+            <div class="window-layout">
+              <div class="ui-sidebar"><div class="ui-symbol">p.</div><span class="side-line selected"></span><span class="side-line"></span><span class="side-line short"></span><div class="side-bottom"></div></div>
+              <div class="ui-content"><div class="ui-heading"><span>Your workspace</span><span class="ui-avatar">P</span></div><div class="ui-subheading"></div><div class="ui-feature"><span class="feature-kicker">DESIGNED TO FEEL SIMPLE</span><span class="feature-title">Everything.<br>In its right place.</span><div class="feature-button">Explore workspace <span>↗</span></div><span class="feature-orbit"></span></div><div class="ui-tiles"><div><span class="tile-icon">⊞</span><span class="tile-label">Components</span><i></i></div><div><span class="tile-icon">⌘</span><span class="tile-label">Connected</span><i></i></div><div><span class="tile-icon">↗</span><span class="tile-label">Responsive</span><i></i></div></div><div class="ui-footer"><span class="status-dot"></span><span>Built with intention</span><span>01 / 03</span></div></div>
+            </div>
           </div>
-        </div>
-
-        <!-- Metric Specs Strip -->
-        <div class="hero-spec-strip">
-          <div class="spec-item">
-            <span class="spec-number mono">2+</span>
-            <span class="spec-label mono">Years Experience</span>
-          </div>
-          <div class="spec-divider"></div>
-          <div class="spec-item">
-            <span class="spec-number mono">Thanjai</span>
-            <span class="spec-label mono">Current Tech Company</span>
-          </div>
-          <div class="spec-divider"></div>
-          <div class="spec-item">
-            <span class="spec-number mono">100%</span>
-            <span class="spec-label mono">Responsive / Modular</span>
-          </div>
+          <div class="floating-quality" aria-hidden="true"><span class="quality-check">✓</span><span>Reusable by design.<br><strong>Responsive by default.</strong></span></div>
+          <div class="visual-bottom"><span class="mono">ONE SYSTEM. EVERY SCREEN.</span><div class="preview-switch" role="group" aria-label="Preview device"><button type="button" (click)="preview = 'web'" [attr.aria-pressed]="preview === 'web'">Web</button><button type="button" (click)="preview = 'mobile'" [attr.aria-pressed]="preview === 'mobile'">Mobile</button></div></div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <!-- Scroll Down Indicator -->
-  <div class="hero-scroll-cue" (click)="scrollToSection('work')">
-    <span class="mono">SCROLL TO EXPLORE</span>
-    <div class="cue-line">
-      <div class="cue-dot"></div>
-    </div>
+    <div class="technology-strip"><span class="technology-label mono">BUILT WITH MY CORE STACK</span><div class="technology-list"><span>Angular</span><span>TypeScript</span><span>JavaScript</span><span>Ionic</span><span>HTML5</span><span>CSS3</span></div><a class="stack-link" routerLink="/portfolio/header" fragment="skills" aria-label="Explore my technology stack">↗</a></div>
+    <div class="hero-bottom mono"><span>FRONTEND FIRST. DETAILS ALWAYS.</span><a routerLink="/portfolio/header" fragment="work">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
   </div>
 </section>

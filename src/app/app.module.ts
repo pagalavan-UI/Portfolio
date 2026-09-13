@@ -19,6 +19,8 @@ import { AchievementsComponent } from './portfolio/achievements/achievements.com
 import { LoadingComponent } from './portfolio/loading/loading.component';
 import { SmartdealComponent } from './smartdeal/smartdeal.component';
 import { MobileoverviewComponent } from './mobileoverview/mobileoverview.component';
+import { FrontendComponent } from './portfolio/frontend/frontend.component';
+import { MobileComponent } from './portfolio/mobile/mobile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { MobileoverviewComponent } from './mobileoverview/mobileoverview.compone
     AchievementsComponent,
     LoadingComponent,
     SmartdealComponent,
-    MobileoverviewComponent
+    MobileoverviewComponent,
+    FrontendComponent,
+    MobileComponent
   ],
   imports: [
     BrowserModule,

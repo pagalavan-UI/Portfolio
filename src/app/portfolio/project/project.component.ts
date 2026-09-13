@@ -1,79 +1,24 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 
-@Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
-})
-export class ProjectComponent implements OnInit, AfterViewInit {
-
-  @ViewChild('showcaseCard') showcaseCardRef!: ElementRef<HTMLElement>;
-
-  selectedProject: string | null = null;
-
-  projectData = {
-    shoerack: {
-      title: 'Shoe Rack — E-Commerce Interface',
-      image: 'assets/Shopping.png',
-      description: 'A premium, high-performance footwear retail application crafted with Angular, TypeScript, SCSS, and GSAP. Engineered for fast client-side filtering, reactive cart workflows, and elegant dark-mode aesthetics.',
-      features: [
-        'Dynamic multi-criteria product filtering and instant search',
-        'Reactive shopping cart state and checkout micro-interactions',
-        'Modular, component-driven architecture with SCSS tokens',
-        'Performance-tuned asset loading and responsive layout',
-        'Fluid GSAP-driven transitions with zero layout shift'
-      ],
-      technologies: ['Angular', 'TypeScript', 'SCSS', 'GSAP', 'Bootstrap 5']
-    }
-  };
-
-  constructor(private el: ElementRef) {}
-
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
-    this.initCardTilt();
-  }
-
-  private initCardTilt(): void {
-    const card = this.showcaseCardRef?.nativeElement;
-    if (!card) return;
-
-    card.addEventListener('mousemove', (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(1200px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px)';
-    });
-  }
-
-  openProjectModal(projectId: string): void {
-    this.selectedProject = projectId;
+@Component({ selector: 'app-project', templateUrl: './project.component.html', styleUrls: ['./project.component.css'] })
+export class ProjectComponent implements OnDestroy {
+  @ViewChild('projectDialog') projectDialog!: ElementRef<HTMLDialogElement>;
+  readonly technologies = ['Angular', 'TypeScript', 'SCSS', 'GSAP', 'Bootstrap 5'];
+  private previousOverflow: string | null = null;
+  openProjectModal(_projectId: string): void {
+    this.previousOverflow = document.body.style.overflow;
+    this.projectDialog.nativeElement.showModal();
     document.body.style.overflow = 'hidden';
   }
-
-  closeProjectModal(): void {
-    this.selectedProject = null;
-    document.body.style.overflow = 'auto';
+  closeProjectModal(): void { this.projectDialog.nativeElement.close(); }
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target !== this.projectDialog.nativeElement) return;
+    const rect = this.projectDialog.nativeElement.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) this.closeProjectModal();
   }
-
-  getProjectTitle(): string {
-    return this.projectData.shoerack.title;
+  onDialogClose(): void {
+    if (this.previousOverflow !== null) document.body.style.overflow = this.previousOverflow;
+    this.previousOverflow = null;
   }
-
-  getProjectDescription(): string {
-    return this.projectData.shoerack.description;
-  }
-
-  getProjectFeatures(): string[] {
-    return this.projectData.shoerack.features;
-  }
-
-  getProjectTech(): string[] {
-    return this.projectData.shoerack.technologies;
-  }
+  ngOnDestroy(): void { this.onDialogClose(); }
 }

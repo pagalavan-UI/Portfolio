@@ -1,90 +1,49 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, NgZone, OnDestroy, ViewChild } from '@angular/core';
 
-@Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
-})
-export class HeaderComponent implements OnInit {
-
-  @ViewChild('threadGlow') threadGlowRef!: ElementRef<HTMLElement>;
-
+@Component({ selector: 'app-header', templateUrl: './header.component.html', styleUrls: ['./header.component.css'] })
+export class HeaderComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('menuToggle') menuToggle!: ElementRef<HTMLButtonElement>;
   isMenuOpen = false;
   isScrolled = false;
   activeSection = 'home';
-
-  constructor(private el: ElementRef) {}
-
-  ngOnInit(): void {
-    this.checkScroll();
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll(): void {
-    this.checkScroll();
-    this.updateThread();
-  }
-
-  private checkScroll(): void {
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    this.isScrolled = scrollY > 40;
-
-    // Scroll spy logic
-    const sections = ['home', 'work', 'about', 'skills', 'experience', 'contact'];
-    let current = 'home';
-    const offset = 180;
-
-    for (const id of sections) {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.getBoundingClientRect().top + scrollY - offset;
-        if (scrollY >= top) {
-          current = id;
-        }
+  readonly navigation = [
+    { id: 'work', label: 'Work' }, { id: 'experience', label: 'Experience' },
+    { id: 'frontend', label: 'Frontend' }, { id: 'mobile', label: 'Mobile' },
+    { id: 'skills', label: 'Stack' }, { id: 'about', label: 'About' }
+  ];
+  private frame = 0;
+  private sections: HTMLElement[] = [];
+  private readonly onScroll = () => {
+    if (this.frame) return;
+    this.frame = requestAnimationFrame(() => {
+      this.frame = 0;
+      let active = 'home';
+      for (const section of this.sections) {
+        if (section.getBoundingClientRect().top <= 160) active = section.id;
       }
-    }
-    this.activeSection = current;
+      const scrolled = window.scrollY > 20;
+      if (active !== this.activeSection || scrolled !== this.isScrolled) {
+        this.zone.run(() => { this.activeSection = active; this.isScrolled = scrolled; });
+      }
+    });
+  };
+  constructor(private zone: NgZone, private element: ElementRef<HTMLElement>) {}
+  ngAfterViewInit(): void {
+    this.sections = Array.from(this.element.nativeElement.querySelectorAll<HTMLElement>('main section[id]'));
+    this.zone.runOutsideAngular(() => { window.addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll(); });
   }
-
-  private updateThread(): void {
-    const glow = this.threadGlowRef?.nativeElement;
-    if (!glow) return;
-
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollHeight <= 0) return;
-
-    const scrollFraction = window.pageYOffset / scrollHeight;
-    const threadHeight = window.innerHeight;
-    const translateY = scrollFraction * (threadHeight - 120);
-
-    glow.style.transform = `translateY(${translateY}px)`;
+  ngOnDestroy(): void { window.removeEventListener('scroll', this.onScroll); cancelAnimationFrame(this.frame); }
+  toggleMenu(): void { this.isMenuOpen = !this.isMenuOpen; }
+  closeMenu(): void { this.isMenuOpen = false; }
+  @HostListener('document:keydown.escape')
+  closeOnEscape(): void { if (this.isMenuOpen) { this.closeMenu(); this.menuToggle.nativeElement.focus(); } }
+  @HostListener('document:click', ['$event'])
+  closeOnOutsideClick(event: MouseEvent): void {
+    if (this.isMenuOpen && !(event.target as HTMLElement).closest('.editorial-nav')) this.closeMenu();
   }
-
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  closeMenu(): void {
-    this.isMenuOpen = false;
-  }
-
-  scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 70;
-      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  }
-
-  handleCVDownload(event: Event): void {
+  skipToContent(event: Event): void {
     event.preventDefault();
-    const fileUrl = 'assets/Pagalavan_M_Angular_Developer_Resume.pdf';
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.download = 'Pagalavan_M_Angular_Developer_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const main = this.element.nativeElement.querySelector<HTMLElement>('#main-content');
+    main?.focus();
   }
 }
