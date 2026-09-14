@@ -1,62 +1,119 @@
 /* ============================================================
-   PREMIUM DARK EDITORIAL DESIGN SYSTEM
+   PREMIUM EDITORIAL & DIGITAL GROWTH DESIGN SYSTEM
    Pagalavan M. | Angular & Mobile App Developer
+   Light & Dark Mode Architecture + Scroll Storytelling
    ============================================================ */
 
-:root {
-  /* ── Canvas & Surface ── */
+/* ── Dark Mode Tokens (Default) ── */
+:root,
+[data-theme="dark"] {
+  /* Canvas & Surface */
   --bg-main: #0a0a0d;
-  --bg-surface: #111115;
-  --bg-surface-elevated: #16161c;
-  --bg-card: #131317;
-  --bg-card-hover: #18181f;
-  --bg-subtle: rgba(255, 255, 255, 0.02);
+  --bg-surface: rgba(17, 17, 21, 0.72);
+  --bg-surface-elevated: rgba(22, 22, 28, 0.85);
+  --bg-card: rgba(19, 19, 23, 0.78);
+  --bg-card-hover: rgba(26, 26, 33, 0.88);
+  --bg-subtle: rgba(255, 255, 255, 0.03);
 
-  /* ── Typography & Text ── */
+  /* Typography & Text */
   --text-primary: #ededed;
-  --text-secondary: #92929c;
-  --text-muted: #565660;
-  --text-dim: #383840;
+  --text-secondary: #9a9aa8;
+  --text-muted: #5e5e6c;
+  --text-dim: #3a3a46;
 
-  /* ── Single Restrained Accent Color (Electric Mint/Emerald) ── */
+  /* Accent Color (Electric Mint/Emerald) */
   --accent-primary: #00e599;
   --accent-hover: #00c784;
   --accent-dim: rgba(0, 229, 153, 0.08);
   --accent-subtle: rgba(0, 229, 153, 0.04);
-  --accent-border: rgba(0, 229, 153, 0.25);
-  --accent-glow: rgba(0, 229, 153, 0.15);
+  --accent-border: rgba(0, 229, 153, 0.28);
+  --accent-glow: rgba(0, 229, 153, 0.18);
 
-  /* ── Hairline Borders ── */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.16);
-  --border-strong: rgba(255, 255, 255, 0.24);
+  /* Hairline Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(255, 255, 255, 0.28);
 
-  /* ── Radii ── */
+  /* Shadows */
+  --shadow-editorial: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Interactive Canvas & Visual Elements */
+  --canvas-grid: rgba(255, 255, 255, 0.035);
+  --canvas-stroke: rgba(0, 229, 153, 0.6);
+  --canvas-node: #00e599;
+  --canvas-node-bg: #111115;
+  --header-glass: rgba(10, 10, 13, 0.82);
+  --grain-opacity: 0.025;
+  --cursor-ring: rgba(0, 229, 153, 0.5);
+  --cursor-dot: #00e599;
+}
+
+/* ── Light Mode Tokens (Intentional Architectural Light) ── */
+[data-theme="light"] {
+  /* Canvas & Surface */
+  --bg-main: #f8f8fa;
+  --bg-surface: rgba(255, 255, 255, 0.78);
+  --bg-surface-elevated: rgba(240, 240, 244, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.86);
+  --bg-card-hover: rgba(245, 245, 249, 0.96);
+  --bg-subtle: rgba(0, 0, 0, 0.025);
+
+  /* Typography & Text */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
+
+  /* Accent Color (Refined Deep Precision Emerald Ink) */
+  --accent-primary: #047857;
+  --accent-hover: #065f46;
+  --accent-dim: rgba(4, 120, 87, 0.09);
+  --accent-subtle: rgba(4, 120, 87, 0.04);
+  --accent-border: rgba(4, 120, 87, 0.35);
+  --accent-glow: rgba(4, 120, 87, 0.2);
+
+  /* Hairline Borders */
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --border-strong: rgba(0, 0, 0, 0.35);
+
+  /* Shadows */
+  --shadow-editorial: 0 16px 36px -12px rgba(0, 0, 0, 0.09);
+  --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.04);
+
+  /* Interactive Canvas & Visual Elements */
+  --canvas-grid: rgba(0, 0, 0, 0.05);
+  --canvas-stroke: rgba(4, 120, 87, 0.7);
+  --canvas-node: #047857;
+  --canvas-node-bg: #ffffff;
+  --header-glass: rgba(248, 248, 250, 0.88);
+  --grain-opacity: 0.015;
+  --cursor-ring: rgba(4, 120, 87, 0.5);
+  --cursor-dot: #047857;
+}
+
+/* ── Typography & Static Dimensions ── */
+:root {
   --radius-xs: 2px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  /* ── Typography Families ── */
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ── Spacing & Layout ── */
   --container-max: 1240px;
   --section-padding: 8rem 0;
   --header-height: 72px;
 
-  /* ── Transitions ── */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* ── Shadows ── */
-  --shadow-editorial: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --transition-theme: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* ── Global Reset ── */
@@ -68,7 +125,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
@@ -80,6 +136,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  transition: var(--transition-theme);
 }
 
 /* ── Subtle Grain Overlay ── */
@@ -91,8 +148,9 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.025;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  transition: opacity 0.35s ease;
 }
 
 /* ── Container ── */
@@ -100,6 +158,7 @@ body::before {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
 }
 
 /* ── Typography Defaults ── */
@@ -109,6 +168,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
   color: var(--text-primary);
   line-height: 1.15;
+  transition: color 0.35s ease;
 }
 
 h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); letter-spacing: -0.035em; }
@@ -120,6 +180,7 @@ p {
   color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.8;
+  transition: color 0.35s ease;
 }
 
 a {
@@ -150,6 +211,7 @@ a {
   letter-spacing: 0.12em;
   color: var(--accent-primary);
   margin-bottom: 1.25rem;
+  transition: color 0.35s ease;
 }
 
 .section-tag::before {
@@ -167,6 +229,7 @@ a {
 
 .section-title .dim {
   color: var(--text-muted);
+  transition: color 0.35s ease;
 }
 
 .section-description {
@@ -208,6 +271,10 @@ a {
   border-color: var(--accent-primary);
 }
 
+[data-theme="light"] .btn-primary {
+  color: #ffffff;
+}
+
 .btn-primary:hover {
   background-color: transparent;
   color: var(--accent-primary);
@@ -225,7 +292,7 @@ a {
 .btn-secondary:hover {
   border-color: var(--text-primary);
   color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: var(--bg-subtle);
   transform: translateY(-2px);
 }
 
@@ -241,6 +308,7 @@ a {
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  cursor: pointer;
 }
 
 .btn-text:hover {
@@ -270,6 +338,8 @@ a {
   color: var(--text-secondary);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-theme);
 }
 
 .badge-status .pulse-dot {
@@ -290,13 +360,20 @@ a {
 .tech-pill {
   display: inline-block;
   padding: 0.25rem 0.65rem;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xs);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+  transition: var(--transition-theme);
+}
+
+.tech-pill:hover {
+  border-color: var(--accent-border);
+  color: var(--accent-primary);
+  background-color: var(--accent-dim);
 }
 
 /* ── Continuous Signature Thread ── */
@@ -308,14 +385,15 @@ a {
   width: 1px;
   background: linear-gradient(180deg, 
     transparent 0%, 
-    rgba(255, 255, 255, 0.08) 10%, 
-    rgba(0, 229, 153, 0.4) 50%, 
-    rgba(255, 255, 255, 0.08) 90%, 
+    var(--border-subtle) 10%, 
+    var(--accent-primary) 50%, 
+    var(--border-subtle) 90%, 
     transparent 100%
   );
   pointer-events: none;
   z-index: 10;
-  opacity: 0.4;
+  opacity: 0.35;
+  transition: opacity 0.35s ease;
 }
 
 .signature-thread-glow {

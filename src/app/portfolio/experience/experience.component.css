@@ -5,7 +5,7 @@
 
 .experience-section {
   padding: var(--section-padding);
-  background-color: var(--bg-surface);
+  background-color: transparent;
   position: relative;
   border-top: 1px solid var(--border-subtle);
 }
@@ -136,15 +136,44 @@
 
 /* ── Role Header ── */
 .role-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.role-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
 }
 
 .role-title {
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
   letter-spacing: -0.02em;
+}
+
+.company-badge {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--accent-border);
+  color: var(--accent-primary);
+  background-color: var(--accent-dim);
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.08em;
+}
+
+.promotion-badge {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.08);
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.08em;
 }
 
 .role-company {
@@ -158,48 +187,195 @@
 
 .company-name {
   color: var(--accent-primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .company-loc {
   color: var(--text-muted);
 }
 
-/* ── Achievements List ── */
-.achievement-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
+.role-summary {
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
   margin-bottom: 1.75rem;
 }
 
-.achievement-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.94rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.achievement-list strong {
+.role-summary strong {
   color: var(--text-primary);
 }
 
-.bullet {
-  color: var(--accent-primary);
-  font-size: 0.82rem;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
+/* ── Shipped Systems (2x2 Grid) ── */
+.shipped-systems-container {
+  margin-bottom: 2rem;
 }
 
-.edu-desc {
+.systems-grid-header {
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+}
+
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.system-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.system-card:hover {
+  border-color: var(--border-hover);
+  background-color: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.system-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.system-idx {
+  font-size: 0.68rem;
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.system-tag {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.system-name {
   font-size: 0.95rem;
-  line-height: 1.75;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+  letter-spacing: -0.01em;
+}
+
+.system-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
   color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.system-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.sys-pill {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  color: var(--text-secondary);
+}
+
+/* ── Measurable Impact Strip ── */
+.impact-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.impact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.impact-number {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  line-height: 1.1;
+  font-family: var(--font-display);
+}
+
+.impact-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ── Career Progression Highlights ── */
+.progression-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
   margin-bottom: 1.5rem;
+}
+
+.prog-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.prog-item strong {
+  color: var(--text-primary);
+}
+
+.prog-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+/* ── Academic Curriculum Chips ── */
+.edu-curriculum-chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.curriculum-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  padding: 0.65rem 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+}
+
+.chip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  flex-shrink: 0;
 }
 
 /* ── Tech Pills ── */
@@ -207,8 +383,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.5rem;
+}
+
+.tech-pill.primary {
+  border-color: rgba(0, 229, 153, 0.35);
+  color: var(--accent-primary);
+  background-color: rgba(0, 229, 153, 0.06);
 }
 
 /* ── Responsive ── */
@@ -226,5 +407,15 @@
   }
   .node-content-card {
     padding: 1.5rem 1.25rem;
+  }
+  .systems-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .edu-curriculum-chips {
+    grid-template-columns: 1fr;
   }
 }

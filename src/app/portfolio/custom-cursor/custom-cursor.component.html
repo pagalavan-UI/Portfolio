@@ -1,0 +1,9 @@
+<div class="custom-cursor-container" [class.active]="isVisible" [class.hovering]="isHovered" [class.clicking]="isClicking" aria-hidden="true">
+  <!-- Precision Center Dot -->
+  <div class="custom-cursor-dot" [style.transform]="'translate3d(' + dotX + 'px, ' + dotY + 'px, 0)'"></div>
+
+  <!-- Smooth Inertia Follower Ring -->
+  <div class="custom-cursor-ring" [style.transform]="'translate3d(' + ringX + 'px, ' + ringY + 'px, 0)'">
+    <span class="cursor-label mono" *ngIf="badgeText">{{ badgeText }}</span>
+  </div>
+</div>

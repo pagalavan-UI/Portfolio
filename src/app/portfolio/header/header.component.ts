@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.isScrolled = scrollY > 40;
 
     // Scroll spy logic
-    const sections = ['home', 'work', 'about', 'skills', 'experience', 'contact'];
+    const sections = ['home', 'work', 'experience', 'frontend', 'mobile', 'stack', 'about', 'contact'];
     let current = 'home';
     const offset = 180;
 

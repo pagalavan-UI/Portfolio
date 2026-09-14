@@ -5,7 +5,7 @@
 
 .contact-section {
   padding: var(--section-padding);
-  background-color: var(--bg-surface);
+  background-color: transparent;
   position: relative;
   border-top: 1px solid var(--border-subtle);
 }

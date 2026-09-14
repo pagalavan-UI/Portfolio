@@ -1,0 +1,24 @@
+<div class="dev-grid-container" [class.active]="isActive" aria-hidden="true">
+  <!-- Top Telemetry Header -->
+  <div class="dev-grid-header mono">
+    <div class="dev-badge">
+      <span class="live-dot"></span>
+      <span>LAYOUT GRID SYSTEM // ACTIVE</span>
+    </div>
+    <div class="dev-info">
+      <span>RES: {{ viewportWidth }} × {{ viewportHeight }}</span>
+      <span class="bp-tag">[{{ currentBreakpoint }}]</span>
+      <span class="hint">[PRESS 'G' TO CLOSE]</span>
+    </div>
+  </div>
+
+  <!-- 12-Column Technical Layout Columns -->
+  <div class="container dev-columns-wrapper">
+    <div class="dev-col" *ngFor="let col of columns">
+      <span class="col-num mono">{{ col }}</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Baseline Rhythms -->
+  <div class="dev-horizontal-lines"></div>
+</div>

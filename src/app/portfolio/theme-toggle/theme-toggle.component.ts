@@ -1,46 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ThemeService, ThemeMode } from '../../services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
   templateUrl: './theme-toggle.component.html',
   styleUrls: ['./theme-toggle.component.css']
 })
-export class ThemeToggleComponent implements OnInit {
-  isDarkMode = false;
+export class ThemeToggleComponent implements OnInit, OnDestroy {
+  public isDarkMode: boolean = true;
+  private sub!: Subscription;
 
-  constructor() { }
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-      this.applyDarkMode();
-    } else {
-      this.isDarkMode = false;
-      this.applyLightMode();
+    this.sub = this.themeService.theme$.subscribe((theme: ThemeMode) => {
+      this.isDarkMode = theme === 'dark';
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
     }
   }
 
   toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
-
-    if (this.isDarkMode) {
-      this.applyDarkMode();
-      localStorage.setItem('theme', 'dark');
-    } else {
-      this.applyLightMode();
-      localStorage.setItem('theme', 'light');
-    }
-  }
-
-  private applyDarkMode(): void {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.body.classList.add('dark-mode');
-  }
-
-  private applyLightMode(): void {
-    document.documentElement.setAttribute('data-theme', 'light');
-    document.body.classList.remove('dark-mode');
+    this.themeService.toggleTheme();
   }
 }

@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════ */
 
 .editorial-footer {
-  background-color: var(--bg-main);
+  background-color: transparent;
   border-top: 1px solid var(--border-subtle);
   padding: 5rem 0 3rem;
   color: var(--text-secondary);

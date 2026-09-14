@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { AnimationService } from '../../services/animation.service';
+import { CanvasBridgeService } from '../../services/canvas-bridge.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,6 +11,7 @@ export class SkillsComponent implements AfterViewInit {
 
   constructor(
     private animationService: AnimationService,
+    private bridgeService: CanvasBridgeService,
     private el: ElementRef
   ) {}
 
@@ -21,5 +23,13 @@ export class SkillsComponent implements AfterViewInit {
     if (cards.length) {
       this.animationService.revealStagger(Array.from(cards), 0.12);
     }
+  }
+
+  onSkillHover(skillName: string): void {
+    this.bridgeService.highlightNode(skillName);
+  }
+
+  onSkillLeave(): void {
+    this.bridgeService.highlightNode(null);
   }
 }

@@ -1,7 +1,4 @@
 <section class="hero" id="home">
-  <!-- Interactive Wave Canvas -->
-  <canvas class="hero-canvas" #heroCanvas></canvas>
-
   <!-- Editorial Grid Lines -->
   <div class="hero-grid-lines" aria-hidden="true">
     <div class="grid-line line-v line-v-1"></div>
@@ -18,123 +15,253 @@
         <div class="hero-meta-strip">
           <span class="badge-status">
             <span class="pulse-dot"></span>
-            Available for Opportunities
+            Available for Frontend Roles
           </span>
           <span class="location-tag mono">
             <span class="crosshair">+</span> Tamil Nadu, India
           </span>
         </div>
 
-        <div class="hero-name-wrapper">
-          <span class="hero-eyebrow mono">// DEVELOPER &amp; CRAFTSMAN</span>
-          <h1 class="hero-name">
-            PAGALAVAN<span class="name-period">.</span>
-          </h1>
+        <div class="hero-identity-tag mono">
+          <span class="hero-tag-prefix">//</span>
+          <span>PAGALAVAN · FRONTEND ENGINEER</span>
         </div>
 
-        <div class="hero-role-display">
-          <span class="role-lead mono">FOCUS</span>
-          <h2 class="hero-role">Angular &amp; Mobile App Developer</h2>
-        </div>
+        <!-- Strong Professional Headline -->
+        <h1 class="hero-headline">
+          Building polished digital experiences with modern frontend engineering<span class="name-period">.</span>
+        </h1>
 
+        <!-- Supporting Text -->
         <p class="hero-description">
-          Building production-grade web systems and cross-platform mobile applications with 
-          <span class="text-highlight">Angular</span>, <span class="text-highlight">Ionic</span>, and <span class="text-highlight">TypeScript</span>. 
-          Obsessed with modular architecture, performance budgets, and intuitive micro-interactions.
+          Frontend Developer specializing in <strong class="text-white">Angular</strong>, <strong class="text-white">TypeScript</strong> and <strong class="text-white">JavaScript</strong>, with experience building responsive web applications and mobile experiences.
         </p>
+
+        <!-- Prominent Technology Stack Display -->
+        <div class="hero-stack-strip">
+          <span class="stack-strip-label mono">SPECIALIZATION</span>
+          <div class="hero-tech-pills mono">
+            <span class="pill-highlight">Angular</span>
+            <span class="pill-highlight">TypeScript</span>
+            <span class="pill-highlight">JavaScript</span>
+            <span class="pill-tag">Ionic</span>
+            <span class="pill-tag">HTML5</span>
+            <span class="pill-tag">CSS3</span>
+          </div>
+        </div>
 
         <!-- Two Clear CTAs -->
         <div class="hero-actions">
-          <a (click)="scrollToSection('work')" class="btn btn-primary">
-            <span>Explore Work</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-
-          <a (click)="scrollToSection('contact')" class="btn btn-secondary">
-            <span>Initiate Contact</span>
+          <a (click)="scrollToSection('work')" class="btn btn-primary" title="Explore Selected Work">
+            <span>View My Work</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
 
-          <a href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download="Pagalavan_M_Angular_Developer_Resume.pdf" class="btn-cv-link mono">
+          <a href="assets/Pagalavan_M_Angular_Developer_Resume.pdf" download="Pagalavan_M_Angular_Developer_Resume.pdf" class="btn btn-secondary" title="Download Official Resume">
+            <span>Download Resume</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
-            <span>CV.PDF</span>
           </a>
         </div>
 
-        <!-- Social Coordinates -->
+        <!-- Professional Links -->
         <div class="hero-socials mono">
-          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile">
-            <span>LN</span>
-            <span class="social-label">LinkedIn</span>
+          <a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+            <span>GH</span>
+            <span class="social-label">GitHub ↗</span>
           </a>
           <span class="social-divider">/</span>
-          <a href="https://github.com/pagalavan-UI" target="_blank" rel="noopener" class="social-link" aria-label="GitHub Profile">
-            <span>GH</span>
-            <span class="social-label">GitHub</span>
+          <a href="http://www.linkedin.com/in/pagalavanM" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+            <span>LN</span>
+            <span class="social-label">LinkedIn ↗</span>
           </a>
           <span class="social-divider">/</span>
           <a href="mailto:pagalavan25surya@gmail.com" class="social-link" aria-label="Send Email">
             <span>EM</span>
-            <span class="social-label">Email</span>
+            <span class="social-label">Email ↗</span>
           </a>
         </div>
 
       </div>
 
-      <!-- ── Right: Personal Portrait & Technical Spec ── -->
+      <!-- ── Right: Executive Product Engineer Portrait ── -->
       <div class="hero-visual-block">
-        <div class="portrait-frame" #portraitFrame>
-          <!-- Corner Accents -->
-          <div class="corner corner-tl"></div>
-          <div class="corner corner-tr"></div>
-          <div class="corner corner-bl"></div>
-          <div class="corner corner-br"></div>
-
-          <!-- Technical Index -->
-          <div class="frame-tag top-tag mono">FIG. 01 // DEV_PORTRAIT</div>
-          <div class="frame-tag bottom-tag mono">EXP: 2+ YRS // ANGULAR &amp; IONIC</div>
-
-          <div class="portrait-inner">
-            <img src="assets/profile.jpeg" alt="Pagalavan M. — Angular & Mobile App Developer" class="portrait-img" loading="eager" />
-            <div class="portrait-overlay"></div>
+        
+        <div class="engineer-portrait-card" #portraitFrame>
+          
+          <!-- Top Chrome Bar -->
+          <div class="portrait-chrome mono">
+            <div class="chrome-dots">
+              <span class="c-dot red"></span>
+              <span class="c-dot yellow"></span>
+              <span class="c-dot green"></span>
+            </div>
+            <div class="chrome-tag">
+              <span class="live-dot"></span>
+              <span>PAGALAVAN // ACTIVE PRODUCTION</span>
+            </div>
+            <div class="chrome-badge mono">FRONTEND ENG</div>
           </div>
+
+          <!-- Portrait Viewport -->
+          <div class="portrait-viewport">
+            <img 
+              src="assets/pagalavan.webp" 
+              alt="Pagalavan M. — Frontend Engineer" 
+              class="portrait-photo"
+              loading="eager"
+              onerror="this.src='assets/profile.jpeg'"
+            />
+            
+            <!-- Vignette & Lighting Gradient -->
+            <div class="portrait-gradient-overlay" aria-hidden="true"></div>
+
+            <!-- Floating Badges on Portrait -->
+            <div class="portrait-floating-badge top-right mono">
+              <span class="badge-dot"></span>
+              <span>ANGULAR + TS</span>
+            </div>
+
+            <div class="portrait-floating-badge bottom-left mono">
+              <span class="badge-accent">2.4+ YRS</span>
+              <span>PRODUCTION</span>
+            </div>
+          </div>
+
+          <!-- Bottom Telemetry Strip -->
+          <div class="portrait-telemetry-strip">
+            <div class="telemetry-col">
+              <span class="tel-label mono">ROLE</span>
+              <span class="tel-val">Frontend Developer</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-col">
+              <span class="tel-label mono">ORGANIZATION</span>
+              <span class="tel-val text-accent">Thanjai Cloud Tech</span>
+            </div>
+            <div class="telemetry-divider"></div>
+            <div class="telemetry-col">
+              <span class="tel-label mono">SURFACES</span>
+              <span class="tel-val">Web &amp; Android</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Metric Specs Strip -->
-        <div class="hero-spec-strip">
-          <div class="spec-item">
-            <span class="spec-number mono">2+</span>
-            <span class="spec-label mono">Years Experience</span>
-          </div>
-          <div class="spec-divider"></div>
-          <div class="spec-item">
-            <span class="spec-number mono">Thanjai</span>
-            <span class="spec-label mono">Current Tech Company</span>
-          </div>
-          <div class="spec-divider"></div>
-          <div class="spec-item">
-            <span class="spec-number mono">100%</span>
-            <span class="spec-label mono">Responsive / Modular</span>
-          </div>
-        </div>
       </div>
 
     </div>
+
+    <!-- ── Technology Identity Strip ── -->
+    <div class="tech-identity-strip">
+      <div class="strip-header mono">
+        <span class="strip-label">// CORE TECHNOLOGIES</span>
+        <span class="strip-sub">FOUNDATIONS GROUNDED IN PRODUCTION DELIVERY</span>
+      </div>
+
+      <div class="tech-strip-grid">
+        <!-- Angular -->
+        <div class="tech-strip-item" title="Angular Framework">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 250 250" fill="currentColor">
+              <polygon fill="#E23237" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2"/>
+              <polygon fill="#B52E31" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 125,230 203.9,186.3 218.1,63.2 125,30"/>
+              <path fill="#FFFFFF" d="M125,52.1L66.8,182.6h21.7l11.7-29.2h49.4l11.7,29.2H183L125,52.1z M142,135h-34l17-41.5L142,135z"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">Angular</span>
+            <span class="tech-role mono">Primary Framework</span>
+          </div>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="tech-strip-item" title="TypeScript">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 128 128" fill="currentColor">
+              <rect width="128" height="128" rx="16" fill="#3178C6"/>
+              <path fill="#FFFFFF" d="M85.7 65.5c-1.3-.9-3.1-1.6-5.3-2.1-2.2-.5-4.2-1-6.1-1.5-1.9-.5-3.3-1.1-4.2-1.9-.9-.7-1.4-1.7-1.4-2.9 0-.8.2-1.5.7-2.1.5-.6 1.1-1.1 1.9-1.5.8-.4 1.7-.6 2.8-.8 1.1-.1 2.3-.1 3.6 0 2.2.2 4.4.8 6.4 1.7s3.8 2.2 5.2 3.8l7.6-7.8c-1.9-2-4.3-3.6-7.1-4.7-2.8-1.1-6-1.7-9.5-1.7-3.3 0-6.3.5-8.9 1.6-2.6 1.1-4.7 2.6-6.4 4.5-1.7 1.9-2.9 4.1-3.6 6.6-.7 2.5-1.1 5.2-1.1 8 0 3.7.8 6.9 2.3 9.4 1.5 2.5 3.5 4.6 6 6.1 2.5 1.5 5.3 2.7 8.4 3.5 3.1.8 6.2 1.6 9.3 2.4 2.1.6 3.8 1.3 5.1 2.2 1.3.8 1.9 2 1.9 3.5 0 1-.3 1.9-.8 2.7-.5.8-1.3 1.4-2.2 1.9-.9.5-2 .8-3.3 1-1.3.2-2.7.2-4.2 0-2.8-.3-5.5-1.3-8.1-2.8s-4.7-3.6-6.3-6.2l-8.2 7.7c2.2 3.1 5.2 5.5 8.9 7.3s8.1 2.6 13.1 2.6c3.7 0 7-.5 9.9-1.6 2.9-1.1 5.3-2.6 7.2-4.5s3.3-4.2 4.1-6.8.9-5.3.9-8.3c0-3.9-.9-7.1-2.6-9.6-1.7-2.4-4-4.3-6.9-5.7zM38.7 54.4H53v47.9H38.7V54.4zm-13.8 0h42.5V43.8H10.6v10.6h14.3z"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">TypeScript</span>
+            <span class="tech-role mono">Strict Typing</span>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="tech-strip-item" title="JavaScript">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 128 128" fill="currentColor">
+              <rect width="128" height="128" rx="16" fill="#F7DF1E"/>
+              <path fill="#000000" d="M67.3 97.4c1.8 3.1 4.2 5.4 7.6 7 3.4 1.6 7.3 2.4 11.6 2.4 3.7 0 6.9-.6 9.5-1.8 2.6-1.2 4.7-2.8 6.2-4.8 1.5-2 2.6-4.4 3.2-7 .6-2.6.9-5.3.9-8.1V35h17v50.2c0 5-.7 9.7-2.1 13.9-1.4 4.3-3.6 8-6.5 11.1s-6.6 5.5-11.2 7.1c-4.5 1.6-9.9 2.5-16.1 2.5-7.7 0-14.3-1.6-19.9-4.7-5.5-3.1-9.7-7.7-12.4-13.6l12.2-7.1zm-40.4 1.7c2.3 3.9 5.3 7 9.1 9.2 3.8 2.2 8.4 3.3 13.8 3.3 4.4 0 8.3-.7 11.6-2.1 3.3-1.4 6-3.3 8-5.7 2-2.4 3.4-5.2 4.2-8.3.8-3.1 1.2-6.3 1.2-9.7 0-4.7-.9-8.7-2.8-12-1.8-3.3-4.3-6-7.3-8.1-3-2.1-6.5-3.8-10.4-5.1-3.9-1.3-7.8-2.5-11.8-3.7-2.6-.8-5.1-1.7-7.4-2.8-2.3-1.1-4.2-2.4-5.7-3.9-1.5-1.5-2.7-3.3-3.4-5.4-.7-2.1-1.1-4.6-1.1-7.4 0-3.3.7-6.2 2-8.7 1.3-2.5 3.2-4.5 5.5-6.1s5.2-2.7 8.5-3.3c3.3-.6 7-.7 11-.2 4.1.5 7.8 1.7 11.2 3.7 3.4 2 6.1 4.8 8.1 8.3l-12.7 7.9c-1.3-2.1-2.9-3.7-4.9-4.8-2-1.1-4.5-1.6-7.4-1.6-3 0-5.4.4-7.4 1.3-2 .9-3.5 2-4.6 3.5s-1.6 3.1-1.6 5c0 1.7.4 3.2 1.2 4.5.8 1.3 1.9 2.4 3.3 3.3 1.4.9 3.1 1.7 5 2.4 1.9.7 3.9 1.4 6 2.1 4.5 1.5 8.7 3.1 12.6 4.9 3.9 1.8 7.2 3.9 9.9 6.4 2.7 2.5 4.7 5.4 6 8.8 1.3 3.4 2 7.3 2 11.8 0 4.9-.9 9.3-2.7 13.2-1.8 3.9-4.3 7.2-7.5 9.8-3.2 2.6-7.1 4.5-11.7 5.7-4.6 1.2-9.7 1.8-15.3 1.8-7.7 0-14.5-1.7-20.2-5.1-5.8-3.4-10-8.6-12.8-15.6l14.7-7.6z"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">JavaScript</span>
+            <span class="tech-role mono">ES6+ / Web APIs</span>
+          </div>
+        </div>
+
+        <!-- Ionic -->
+        <div class="tech-strip-item" title="Ionic Framework">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 512 512" fill="currentColor">
+              <path fill="#3880FF" d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm0 376c-92.8 0-168-75.2-168-168S163.2 88 256 88s168 75.2 168 168-75.2 168-168 168z"/>
+              <circle cx="256" cy="256" r="88" fill="#3880FF"/>
+              <circle cx="360" cy="152" r="32" fill="#3880FF"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">Ionic &amp; Capacitor</span>
+            <span class="tech-role mono">Android Mobile</span>
+          </div>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="tech-strip-item" title="HTML5">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 512 512" fill="currentColor">
+              <path fill="#E44D26" d="M107.6 441.7L73.1 54.3h365.8l-34.5 387.4L256 483.7l-148.4-42z"/>
+              <path fill="#F16529" d="M256 450.4l119.8-33.2 28.5-321.4H256v354.6z"/>
+              <path fill="#EBEBEB" d="M256 206.1h-59.3l-4.1-46.1H256V114H134.4l12.4 138.3H256v-46.2zm0 137.9l-.4.1-49.8-13.4-3.2-35.8H156l6.3 70.8 93.7 26v-47.7z"/>
+              <path fill="#FFFFFF" d="M256 206.1h60.2l-5.7 63.8-54.5 14.7v47.7l93.8-26 13.5-151.2H256v51zM256 114v46H373l4.1-46H256z"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">HTML5</span>
+            <span class="tech-role mono">Semantic Web</span>
+          </div>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="tech-strip-item" title="CSS3">
+          <div class="tech-icon-wrap">
+            <svg class="tech-svg" viewBox="0 0 512 512" fill="currentColor">
+              <path fill="#264DE4" d="M107.6 441.7L73.1 54.3h365.8l-34.5 387.4L256 483.7l-148.4-42z"/>
+              <path fill="#2965F1" d="M256 450.4l119.8-33.2 28.5-321.4H256v354.6z"/>
+              <path fill="#EBEBEB" d="M256 206.1h-59.3l-4.1-46.1H256V114H134.4l12.4 138.3H256v-46.2zm0 137.9l-.4.1-49.8-13.4-3.2-35.8H156l6.3 70.8 93.7 26v-47.7z"/>
+              <path fill="#FFFFFF" d="M256 206.1h60.2l-5.7 63.8-54.5 14.7v47.7l93.8-26 13.5-151.2H256v51zM256 114v46H373l4.1-46H256z"/>
+            </svg>
+          </div>
+          <div class="tech-meta">
+            <span class="tech-name">CSS3 &amp; SCSS</span>
+            <span class="tech-role mono">Responsive UI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- Scroll Down Indicator -->
   <div class="hero-scroll-cue" (click)="scrollToSection('work')">
-    <span class="mono">SCROLL TO EXPLORE</span>
+    <span class="mono">EXPLORE WORK</span>
     <div class="cue-line">
       <div class="cue-dot"></div>
     </div>

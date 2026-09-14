@@ -19,6 +19,9 @@ import { AchievementsComponent } from './portfolio/achievements/achievements.com
 import { LoadingComponent } from './portfolio/loading/loading.component';
 import { SmartdealComponent } from './smartdeal/smartdeal.component';
 import { MobileoverviewComponent } from './mobileoverview/mobileoverview.component';
+import { EvolvingCanvasComponent } from './portfolio/evolving-canvas/evolving-canvas.component';
+import { CustomCursorComponent } from './portfolio/custom-cursor/custom-cursor.component';
+import { DevGridComponent } from './portfolio/dev-grid/dev-grid.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { MobileoverviewComponent } from './mobileoverview/mobileoverview.compone
     AchievementsComponent,
     LoadingComponent,
     SmartdealComponent,
-    MobileoverviewComponent
+    MobileoverviewComponent,
+    EvolvingCanvasComponent,
+    CustomCursorComponent,
+    DevGridComponent
   ],
   imports: [
     BrowserModule,

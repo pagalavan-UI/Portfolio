@@ -1,3 +1,12 @@
+<!-- Persistent Scroll-Driven Evolving Canvas -->
+<app-evolving-canvas></app-evolving-canvas>
+
+<!-- Custom Cursor (Desktop Only) -->
+<app-custom-cursor></app-custom-cursor>
+
+<!-- Developer Layout Grid Overlay (Easter Egg: 'G') -->
+<app-dev-grid></app-dev-grid>
+
 <!-- Continuous Signature Thread Motif -->
 <div class="signature-thread" aria-hidden="true">
   <div class="signature-thread-glow" #threadGlow></div>
@@ -7,10 +16,11 @@
 <header class="editorial-nav" [class.scrolled]="isScrolled">
   <div class="container nav-container">
     
-    <!-- Brand / Name -->
-    <a (click)="scrollToSection('home')" class="nav-brand mono">
+    <!-- Brand / Name (Smooth return to top) -->
+    <a (click)="scrollToSection('home')" class="nav-brand mono" title="Return to Top">
       <span class="brand-prefix">//</span>
-      <span class="brand-text">PAGALAVAN M.</span>
+      <span class="brand-text">PAGALAVAN</span>
+      <span class="brand-role mono">ENG</span>
     </a>
 
     <!-- Center Nav Links -->
@@ -18,34 +28,37 @@
       <a (click)="scrollToSection('work'); closeMenu()" [class.active]="activeSection === 'work'" class="nav-link mono">
         <span class="nav-num">01</span> WORK
       </a>
-      <a (click)="scrollToSection('about'); closeMenu()" [class.active]="activeSection === 'about'" class="nav-link mono">
-        <span class="nav-num">02</span> ABOUT
-      </a>
-      <a (click)="scrollToSection('skills'); closeMenu()" [class.active]="activeSection === 'skills'" class="nav-link mono">
-        <span class="nav-num">03</span> SKILLS
-      </a>
       <a (click)="scrollToSection('experience'); closeMenu()" [class.active]="activeSection === 'experience'" class="nav-link mono">
-        <span class="nav-num">04</span> EXPERIENCE
+        <span class="nav-num">02</span> EXPERIENCE
       </a>
-      <a (click)="scrollToSection('contact'); closeMenu()" [class.active]="activeSection === 'contact'" class="nav-link mono">
-        <span class="nav-num">05</span> CONTACT
+      <a (click)="scrollToSection('frontend'); closeMenu()" [class.active]="activeSection === 'frontend'" class="nav-link mono">
+        <span class="nav-num">03</span> FRONTEND
+      </a>
+      <a (click)="scrollToSection('mobile'); closeMenu()" [class.active]="activeSection === 'mobile'" class="nav-link mono">
+        <span class="nav-num">04</span> MOBILE
+      </a>
+      <a (click)="scrollToSection('stack'); closeMenu()" [class.active]="activeSection === 'stack'" class="nav-link mono">
+        <span class="nav-num">05</span> STACK
+      </a>
+      <a (click)="scrollToSection('about'); closeMenu()" [class.active]="activeSection === 'about'" class="nav-link mono">
+        <span class="nav-num">06</span> ABOUT
       </a>
 
-      <!-- Mobile CV Link -->
+      <!-- Mobile Extras -->
       <div class="mobile-cv-wrapper">
+        <app-theme-toggle></app-theme-toggle>
         <button (click)="handleCVDownload($event); closeMenu()" class="btn btn-primary btn-sm">
-          <span>Download CV</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
+          <span>Resume ↗</span>
         </button>
       </div>
     </nav>
 
-    <!-- Right Side CTA -->
+    <!-- Right Side CTA & Theme Switcher -->
     <div class="nav-right">
+      <!-- Theme Switcher -->
+      <app-theme-toggle></app-theme-toggle>
+
+      <!-- Resume Button -->
       <button (click)="handleCVDownload($event)" class="btn-cv-nav mono" title="Download Official CV">
         <span>RESUME</span>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,9 +81,9 @@
 <main id="main-content">
   <app-profile id="home"></app-profile>
   <app-project id="work"></app-project>
-  <app-about id="about"></app-about>
-  <app-skills id="skills"></app-skills>
   <app-experience id="experience"></app-experience>
+  <app-skills id="skills"></app-skills>
+  <app-about id="about"></app-about>
   <app-achievements id="achievements"></app-achievements>
   <app-contact id="contact"></app-contact>
 </main>

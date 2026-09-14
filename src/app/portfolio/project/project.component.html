@@ -3,155 +3,126 @@
 
     <!-- Section Header -->
     <div class="section-header">
-      <div class="section-tag mono">CURATED PRODUCTION WORK</div>
+      <div class="section-tag mono">PORTFOLIO // PRODUCT CASE STUDIES</div>
       <h2 class="section-title">
-        Selected <span class="dim">Project</span>
+        Selected <span class="dim">Work</span>
       </h2>
       <p class="section-description">
-        A centerpiece showcase demonstrating component architecture, state management, and interaction design.
+        A selection of frontend and mobile applications I've designed and developed, engineered for scale, responsiveness, and performance.
       </p>
     </div>
 
-    <!-- Large Editorial Project Showcase -->
-    <div class="showcase-card" #showcaseCard>
-      
-      <!-- Top Meta Bar -->
-      <div class="showcase-meta-bar">
-        <div class="meta-left">
-          <span class="project-index mono">01 // 01</span>
-          <span class="project-badge mono">FLAGSHIP SHOWCASE</span>
-        </div>
-        <div class="meta-right mono">
-          <span class="status-live">
-            <span class="live-indicator"></span> PRODUCTION LIVE
-          </span>
-        </div>
-      </div>
+    <!-- Editorial Showcase Container with Visual Rhythm -->
+    <div class="editorial-projects-list">
 
-      <!-- Main Showcase Grid -->
-      <div class="showcase-grid">
-
-        <!-- Visual Display Window -->
-        <div class="showcase-visual-wrapper">
-          <div class="browser-chrome">
-            <div class="browser-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="browser-address mono">https://shoe-rack-nu.vercel.app</div>
-            <div class="browser-action">
-              <span class="mono">VERCEL HOSTED</span>
-            </div>
+      <!-- ══════════════════════════════════════════════════════════
+           PROJECT 01: FULLWIDTH SHOWCASE
+           Shoe Rack — Footwear E-Commerce Web Application
+           ══════════════════════════════════════════════════════════ -->
+      <article class="project-showcase-fullwidth" #showcaseCard>
+        
+        <div class="fullwidth-browser-bar">
+          <div class="browser-dots">
+            <span></span><span></span><span></span>
           </div>
+          <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="browser-url mono" title="Launch Live Application">
+            https://shoe-rack-nu.vercel.app
+          </a>
+          <div class="browser-live-indicator mono">
+            <span class="live-dot"></span> VERIFIED LIVE DEPLOYMENT
+          </div>
+        </div>
 
-          <div class="showcase-visual-content">
+        <!-- Product Image Preview with Hover Action -->
+        <div class="fullwidth-visual">
+          <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="visual-link-wrapper" aria-label="Open Live Shoe Rack Application">
             <img 
               src="assets/Shopping.png" 
-              alt="Shoe Rack E-Commerce Interface" 
-              class="showcase-img"
+              alt="Shoe Rack E-Commerce Interface UI" 
+              class="fullwidth-img"
               loading="lazy"
             />
-            <div class="visual-editorial-overlay">
-              <div class="overlay-details">
-                <span class="overlay-brand mono">SHOE RACK UI</span>
-                <span class="overlay-metric mono">98+ PERFORMANCE SCORE</span>
-              </div>
+            <div class="visual-cta-overlay mono">
+              <span>LAUNCH APPLICATION ↗</span>
             </div>
-          </div>
+          </a>
         </div>
 
-        <!-- Editorial Content Column -->
-        <div class="showcase-info-wrapper">
-
-          <div class="info-header">
-            <span class="project-category mono">COMMERCE // INTERFACE DESIGN</span>
-            <h3 class="project-title">Shoe Rack</h3>
-            <p class="project-lead">
-              A premium, responsive e-commerce application designed for high-end retail with instant catalog search, dynamic price and category filtering, and micro-interactions.
+        <!-- Details Strip -->
+        <div class="fullwidth-details-strip">
+          <div class="strip-info">
+            <div class="project-index-strip mono">
+              <span class="project-number">01</span>
+              <span class="project-category">// PRODUCTION WEB APPLICATION · E-COMMERCE</span>
+            </div>
+            <h3 class="fullwidth-title">Shoe Rack — Footwear E-Commerce Platform</h3>
+            <p class="fullwidth-summary">
+              Production footwear storefront engineered with Angular, TypeScript, and reactive state management. Fast sub-second client-side interaction deployed on Vercel Edge with automated CI/CD.
             </p>
-          </div>
-
-          <!-- Architecture & Highlights -->
-          <div class="project-specs">
-            <div class="spec-row">
-              <span class="spec-label mono">Role</span>
-              <span class="spec-value">Frontend Architecture &amp; UI Engineering</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label mono">Stack</span>
-              <span class="spec-value">Angular, TypeScript, SCSS, GSAP, Bootstrap 5</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label mono">Key Focus</span>
-              <span class="spec-value">Dynamic Catalog Filtering &amp; Fluid GSAP Transitions</span>
+            <div class="project-tech-chips mono">
+              <span class="tech-chip primary">Angular 12</span>
+              <span class="tech-chip primary">TypeScript</span>
+              <span class="tech-chip">SCSS</span>
+              <span class="tech-chip">RxJS Store</span>
+              <span class="tech-chip">Bootstrap 5</span>
+              <span class="tech-chip">Vercel Edge</span>
             </div>
           </div>
 
-          <!-- Feature Bullets -->
-          <ul class="showcase-feature-list">
-            <li>
-              <span class="bullet-icon mono">01</span>
-              <div>
-                <strong>Dynamic Product Grid:</strong> Fast client-side filtering by category, price, and attributes with zero layout shifts.
+          <div class="strip-specs">
+            <div class="spec-bullet-list">
+              <div class="bullet-item">
+                <span class="b-dot"></span>
+                <span>Fast Multi-Attribute Filtering Engine</span>
               </div>
-            </li>
-            <li>
-              <span class="bullet-icon mono">02</span>
-              <div>
-                <strong>Reactive Cart Pipeline:</strong> Streamlined add-to-cart state handling and checkout interaction flow.
+              <div class="bullet-item">
+                <span class="b-dot"></span>
+                <span>Reactive RxJS Shopping Cart Store</span>
               </div>
-            </li>
-            <li>
-              <span class="bullet-icon mono">03</span>
-              <div>
-                <strong>Refined Dark Aesthetic:</strong> High typographic contrast, curated whitespace, and modern dark-mode styling.
+              <div class="bullet-item">
+                <span class="b-dot"></span>
+                <span>Sub-1.5s First Contentful Load (FCP)</span>
               </div>
-            </li>
-          </ul>
+            </div>
 
-          <!-- Tech Pills -->
-          <div class="showcase-tech-tags mono">
-            <span class="tech-pill">Angular</span>
-            <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">SCSS</span>
-            <span class="tech-pill">GSAP</span>
-            <span class="tech-pill">Bootstrap 5</span>
+            <div class="strip-buttons-group">
+              <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>Launch Live Application</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+
+              <button (click)="openProjectModal('shoerack')" class="btn btn-secondary">
+                <span>Technical Architecture</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </button>
+            </div>
           </div>
-
-          <!-- Project CTAs -->
-          <div class="showcase-actions">
-            <a href="https://shoe-rack-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>Visit Live Demo</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-
-            <button (click)="openProjectModal('shoerack')" class="btn btn-secondary">
-              <span>Technical Specs</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </button>
-          </div>
-
         </div>
 
-      </div>
+      </article>
 
     </div>
 
   </div>
 
-  <!-- Technical Specs Modal -->
+  <!-- ══════════════════════════════════════════════════════════
+       TECHNICAL ARCHITECTURE MODAL
+       ══════════════════════════════════════════════════════════ -->
   <div class="project-modal" [class.active]="selectedProject !== null" (click)="closeProjectModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
+
+      <!-- Modal Header -->
       <div class="modal-header">
         <div>
-          <span class="modal-tag mono">TECHNICAL CASE STUDY</span>
-          <h3>{{ getProjectTitle() }}</h3>
+          <span class="modal-tag mono">// ARCHITECTURAL SPECIFICATION</span>
+          <h3 *ngIf="selectedProject === 'shoerack'">Shoe Rack — Footwear E-Commerce Platform</h3>
         </div>
         <button class="modal-close" (click)="closeProjectModal()" aria-label="Close modal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -161,25 +132,35 @@
         </button>
       </div>
 
-      <div class="modal-body">
+      <!-- Modal Body: Shoe Rack -->
+      <div class="modal-body" *ngIf="selectedProject === 'shoerack'">
         <div class="modal-description">
-          <p>{{ getProjectDescription() }}</p>
+          <p>
+            Production footwear e-commerce application engineered with Angular, TypeScript, and SCSS. 
+            Deployed on Vercel Edge with automated CI/CD and optimized for fast sub-second client-side interaction.
+          </p>
         </div>
 
         <div class="modal-section">
-          <h4 class="mono">// ARCHITECTURAL FEATURES</h4>
+          <h4 class="mono">// KEY CAPABILITIES &amp; ENGINEERING</h4>
           <ul class="modal-feature-list">
-            <li *ngFor="let feature of getProjectFeatures()">
-              <span class="feat-dot"></span>
-              {{ feature }}
-            </li>
+            <li><span class="feat-dot"></span> In-memory multi-attribute filtering engine with memoized price range and category calculations</li>
+            <li><span class="feat-dot"></span> Reactive shopping cart store utilizing RxJS BehaviorSubjects and local storage synchronization</li>
+            <li><span class="feat-dot"></span> Modular component tree with strict TypeScript contracts and zero third-party UI library bloat</li>
+            <li><span class="feat-dot"></span> Fluid micro-interactions and dialog transitions crafted with CSS keyframes and tokens</li>
+            <li><span class="feat-dot"></span> High-performance responsive layout across all device viewports from 320px to 4K</li>
           </ul>
         </div>
 
         <div class="modal-section">
-          <h4 class="mono">// TECHNOLOGY STACK</h4>
+          <h4 class="mono">// STACK</h4>
           <div class="modal-tech-pills mono">
-            <span class="tech-pill" *ngFor="let tech of getProjectTech()">{{ tech }}</span>
+            <span class="tech-pill">Angular 12</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">SCSS</span>
+            <span class="tech-pill">RxJS Store</span>
+            <span class="tech-pill">Bootstrap 5</span>
+            <span class="tech-pill">Vercel Edge</span>
           </div>
         </div>
 
@@ -191,8 +172,12 @@
               <polyline points="7 7 17 7 17 17"></polyline>
             </svg>
           </a>
+          <button (click)="closeProjectModal()" class="btn btn-secondary">
+            <span>Close Specifications</span>
+          </button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
